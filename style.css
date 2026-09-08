@@ -588,3 +588,278 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+
+
+/* ============================================================
+   CATEGORY DETAIL PAGES
+   (qled-tvs.html, oled-tvs.html, led-tvs.html, 8k-tvs.html,
+   smart-tvs.html, accessories.html)
+   ============================================================ */
+
+/* Breadcrumb trail under the header */
+.breadcrumb {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-md) var(--space-lg) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+}
+
+.breadcrumb .sep {
+  margin: 0 var(--space-xs);
+  color: var(--color-border);
+}
+
+/* Full-width banner introducing the category, with a photo
+   background and dark overlay for text contrast. */
+.page-hero {
+  position: relative;
+  margin: var(--space-md) var(--space-lg) 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: var(--color-hero-bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11, 61, 145, 0.88), rgba(11, 61, 145, 0.45));
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 640px;
+}
+
+.page-hero-eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #cfe0ff;
+  margin-bottom: var(--space-sm);
+}
+
+.page-hero h1 {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.page-hero p {
+  font-size: var(--font-size-base);
+  color: #e3ecfc;
+  margin-bottom: var(--space-md);
+}
+
+/* "Why choose" feature grid */
+.feature-section {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.feature-section h2,
+.lifestyle-section h2,
+.related-section h2 {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.feature-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  margin-inline: auto;
+  margin-bottom: var(--space-md);
+  border-radius: 50%;
+  background-color: #eaf1fe;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.feature-card p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Lifestyle two-column section: photo + description */
+.lifestyle-section {
+  background-color: var(--color-bg-soft);
+  padding: var(--space-xl) 0;
+}
+
+.lifestyle-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.lifestyle-photo {
+  flex: 1;
+  min-width: 280px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-placeholder);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.lifestyle-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.lifestyle-text h2 {
+  text-align: left;
+  margin-bottom: var(--space-md);
+}
+
+.lifestyle-text p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.lifestyle-text ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.lifestyle-text li {
+  padding-left: var(--space-md);
+  position: relative;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.lifestyle-text li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Reverse the photo/text order on alternate pages */
+.lifestyle-inner.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Recommended-for audience strip */
+.audience-note {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg) var(--space-xl);
+  text-align: center;
+}
+
+.audience-note p {
+  max-width: 640px;
+  margin-inline: auto;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.audience-note strong {
+  color: var(--color-text);
+}
+
+/* Bottom call-to-action banner */
+.cta-banner {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-xl) var(--space-lg);
+  margin-inline: var(--space-lg);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--color-hero-bg), var(--color-hero-bg-light));
+  color: #fff;
+  text-align: center;
+}
+
+.cta-banner h2 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.cta-banner p {
+  color: #cfe0ff;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- RESPONSIVE: category pages ---------- */
+@media (max-width: 1024px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lifestyle-inner,
+  .lifestyle-inner.reverse {
+    flex-direction: column;
+  }
+
+  .page-hero-inner {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    margin: var(--space-md);
+  }
+
+  .cta-banner {
+    margin-inline: var(--space-md);
+  }
+}
