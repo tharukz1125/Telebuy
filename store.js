@@ -548,10 +548,62 @@ function showToast(message, type = "info") {
   }, 3200);
 }
 
+// ============================================================
+// THEME MANAGEMENT (Dark Mode & Light Mode)
+// ============================================================
+const THEME_KEY = "telebuy_theme";
+
+function getStoredTheme() {
+  try {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved) return saved;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  } catch (e) {
+    return "light";
+  }
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  try {
+    localStorage.setItem(THEME_KEY, theme);
+  } catch (e) {}
+  updateThemeToggleUI();
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute("data-theme") || getStoredTheme();
+  const next = current === "dark" ? "light" : "dark";
+  applyTheme(next);
+}
+
+function updateThemeToggleUI() {
+  const current = document.documentElement.getAttribute("data-theme") || "light";
+  const isDark = current === "dark";
+  document.querySelectorAll(".theme-toggle-btn").forEach(btn => {
+    btn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    btn.setAttribute("title", isDark ? "Switch to light mode" : "Switch to dark mode");
+  });
+}
+
+// Immediate execution
+applyTheme(getStoredTheme());
+
 // Global Event Listeners & Initialization
 document.addEventListener("DOMContentLoaded", () => {
   updateHeaderBadges();
   syncHeartButtons();
+  updateThemeToggleUI();
+
+  // Theme toggle button clicks
+  document.addEventListener("click", (e) => {
+    const themeBtn = e.target.closest(".theme-toggle-btn");
+    if (themeBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleTheme();
+    }
+  });
 
   // Wishlist heart clicks
   document.addEventListener("click", (e) => {
@@ -579,6 +631,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Cross-tab synchronization
 window.addEventListener("storage", (e) => {
+  if (e.key === THEME_KEY) {
+    applyTheme(e.newValue || "light");
+  }
   if (e.key === CART_KEY || e.key === WISHLIST_KEY) {
     updateHeaderBadges();
     syncHeartButtons();
