@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeleBuy.lk — Smart TVs Online</title>
-  <link rel="stylesheet" href="C:\Users\ASUS\Downloads\gemini-code-1787991071586.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
@@ -36,7 +36,18 @@
           <li><a href="#featured">TVs</a></li>
           <li><a href="#">Deals</a></li>
           <li>
-            <a href="#" class="cart-link">
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" title="View Shopping Cart">
               <span>Cart</span>
               <!-- Shopping Cart Icon with Badge Counter -->
               <div class="cart-icon-wrapper">
@@ -45,11 +56,13 @@
                   <line x1="3" y1="6" x2="21" y2="6"></line>
                   <path d="M16 10a4 4 0 01-8 0"></path>
                 </svg>
-                <span class="cart-badge">3</span>
+                <span class="cart-badge" style="display: none;">0</span>
               </div>
             </a>
           </li>
-          <li><a href="#">Account</a></li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
         </ul>
       </nav>
     </div>
@@ -114,32 +127,52 @@
       <h2>Featured Televisions</h2>
 
       <div class="product-grid">
-        <article class="product-card">
+        <article class="product-card" style="position: relative;">
+          <button class="card-wishlist-btn" data-id="feat-1" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
           <div class="product-image" role="img" aria-label="Samsung QLED TV placeholder image"></div>
           <h3 class="product-title">Samsung 55&quot; QLED 4K Smart TV</h3>
           <p class="product-price">Rs. 289,900</p>
-          <button class="btn btn-primary btn-block">Add to Cart</button>
+          <button class="btn btn-primary btn-block" data-add-id="feat-1">Add to Cart</button>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" style="position: relative;">
+          <button class="card-wishlist-btn" data-id="feat-2" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
           <div class="product-image" role="img" aria-label="LG OLED TV placeholder image"></div>
           <h3 class="product-title">LG 55&quot; OLED Smart TV</h3>
           <p class="product-price">Rs. 524,900</p>
-          <button class="btn btn-primary btn-block">Add to Cart</button>
+          <button class="btn btn-primary btn-block" data-add-id="feat-2">Add to Cart</button>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" style="position: relative;">
+          <button class="card-wishlist-btn" data-id="feat-3" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
           <div class="product-image" role="img" aria-label="Sony LED TV placeholder image"></div>
           <h3 class="product-title">Sony 43&quot; LED Full HD TV</h3>
           <p class="product-price">Rs. 134,900</p>
-          <button class="btn btn-primary btn-block">Add to Cart</button>
+          <button class="btn btn-primary btn-block" data-add-id="feat-3">Add to Cart</button>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" style="position: relative;">
+          <button class="card-wishlist-btn" data-id="feat-4" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
           <div class="product-image" role="img" aria-label="TCL Smart TV placeholder image"></div>
           <h3 class="product-title">TCL 65&quot; 8K Smart TV</h3>
           <p class="product-price">Rs. 412,900</p>
-          <button class="btn btn-primary btn-block">Add to Cart</button>
+          <button class="btn btn-primary btn-block" data-add-id="feat-4">Add to Cart</button>
         </article>
       </div>
     </section>
@@ -184,6 +217,8 @@
     </div>
   </footer>
 
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
   <script>
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');

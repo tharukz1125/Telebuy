@@ -32,19 +32,33 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#featured">TVs</a></li>
           <li><a href="#">Deals</a></li>
-          <li><a href="#" class="cart-link">
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" id="cartLink" title="View Shopping Cart">
               <span>Cart</span>
-              <!-- Shopping Cart Icon with Badge Counter -->
               <div class="cart-icon-wrapper">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
                   <line x1="3" y1="6" x2="21" y2="6"></line>
                   <path d="M16 10a4 4 0 01-8 0"></path>
                 </svg>
-                <span class="cart-badge">3</span>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
               </div>
-            </a></li>
-          <li><a href="#">Account</a></li>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
         </ul>
       </nav>
     </div>
@@ -57,13 +71,25 @@
       <a href="index.html">Home</a><span class="sep">/</span>OLED TVs
     </nav>
 
+    <!-- Category Switcher Navigation Pills -->
+    <div class="category-nav-wrap">
+      <div class="category-nav-pills" aria-label="Browse TV categories">
+        <a href="qled-tvs.html" class="category-pill">🎨 QLED TVs</a>
+        <a href="oled-tvs.html" class="category-pill active">⚫ OLED TVs</a>
+        <a href="8k-tvs.html" class="category-pill">🔬 8K TVs</a>
+        <a href="smart-tvs.html" class="category-pill">📱 Smart TVs</a>
+        <a href="led-tvs.html" class="category-pill">📺 LED TVs</a>
+        <a href="accessories.html" class="category-pill">🔌 Accessories</a>
+      </div>
+    </div>
+
     <!-- ============ CATEGORY HERO ============ -->
     <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1717295248302-543d5a49091f?auto=format&fit=crop&w=1600&q=80');">
       <div class="page-hero-inner">
-        <span class="page-hero-eyebrow">Self-Lit Pixels</span>
+        <span class="page-hero-eyebrow">Self-Lit Pixels • Infinite Contrast</span>
         <h1>OLED TVs — Perfect Black, Infinite Contrast</h1>
-        <p>Every pixel switches on and off individually, producing true blacks and a cinematic contrast ratio that LED and QLED panels can't match.</p>
-        <a href="index.html#featured" class="btn btn-primary">Shop OLED TVs</a>
+        <p>Every individual pixel switches completely off, producing true infinite black levels and unrivaled depth that conventional LED panels simply cannot replicate.</p>
+        <a href="#featured-oled" class="btn btn-primary">Explore Top 5 OLED Models</a>
       </div>
     </section>
 
@@ -73,39 +99,297 @@
       <div class="feature-grid">
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">⚫</span>
-          <h3>True Black</h3>
-          <p>Pixels turn off completely for infinite contrast — no backlight bleed.</p>
+          <h3>True Inky Blacks</h3>
+          <p>Self-lit pixels turn completely off for infinite contrast with zero backlight bleed or haloing.</p>
         </div>
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">👁️</span>
-          <h3>Wide Viewing Angle</h3>
-          <p>Picture stays accurate even from the side of the room.</p>
+          <h3>Near-Infinite Viewing Angle</h3>
+          <p>Enjoy 100% color fidelity and contrast even when viewing from the extreme side of the sofa.</p>
         </div>
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">📐</span>
-          <h3>Ultra-Thin Design</h3>
-          <p>No backlight layer means slimmer panels that mount flush to the wall.</p>
+          <h3>Paper-Thin Wallpaper Design</h3>
+          <p>No bulky backlight layers enable razor-thin architectural silhouettes that mount flush to wall.</p>
         </div>
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">⚡</span>
-          <h3>Instant Response</h3>
-          <p>Near-instant pixel response time makes fast motion and gaming razor sharp.</p>
+          <h3>Instant 0.1ms Response Time</h3>
+          <p>Near-instant pixel transitions eliminate motion blur for esports gaming and high-speed action.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ 5 TOP FEATURED ITEMS SHOWCASE ============ -->
+    <section class="category-showcase" id="featured-oled">
+      <div class="showcase-header">
+        <span class="section-tag">2026 Reference Grade</span>
+        <h2>Top 5 Featured OLED TVs</h2>
+        <p>Click any model to reveal high-resolution photography, cinephile feature breakdowns, and comprehensive technical specifications.</p>
+      </div>
+
+      <div class="showcase-grid">
+
+        <!-- ITEM 1 -->
+        <article class="showcase-card" data-id="oled-1">
+          <button class="card-wishlist-btn" data-id="oled-1" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">#1 Best Seller</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1717295248302-543d5a49091f?auto=format&fit=crop&w=800&q=80" alt="LG 65 Inch OLED evo C3 Series 4K Cinema TV" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">LG • OLED evo Series</span>
+            <h3 class="showcase-title">LG 65&quot; OLED evo C3 Series 4K Cinema TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">5.0</span>
+              <span class="rating-count">(218 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">α9 AI Gen6 4K</span>
+              <span class="spec-pill">Self-Lit OLED</span>
+              <span class="spec-pill">0.1ms Response</span>
+              <span class="spec-pill">Dolby Vision &amp; Atmos</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 549,900</span>
+                <span class="price-original">Rs. 610,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="oled-1">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="showcase-card" data-id="oled-2">
+          <button class="card-wishlist-btn" data-id="oled-2" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge purple">Cinema Master</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1717295248230-93ea71f48f92?auto=format&fit=crop&w=800&q=80" alt="Sony Bravia XR 55 Inch A80L OLED Master Series" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Sony • Bravia XR OLED</span>
+            <h3 class="showcase-title">Sony Bravia XR 55&quot; A80L OLED Master Series TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(142 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Cognitive XR Processor</span>
+              <span class="spec-pill">Acoustic Surface Audio+</span>
+              <span class="spec-pill">XR OLED Contrast Pro</span>
+              <span class="spec-pill">PS5 Ready</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 515,000</span>
+                <span class="price-original">Rs. 570,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="oled-2">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="showcase-card" data-id="oled-3">
+          <button class="card-wishlist-btn" data-id="oled-3" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge red">QD-OLED Flagship</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80" alt="Samsung 65 Inch S95C Quantum OLED 4K Flagship" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Samsung • QD-OLED Flagship</span>
+            <h3 class="showcase-title">Samsung 65&quot; S95C Quantum OLED 4K Flagship TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(108 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Quantum Dot OLED</span>
+              <span class="spec-pill">Infinity One Design</span>
+              <span class="spec-pill">144Hz Refresh</span>
+              <span class="spec-pill">70W 4.2.2Ch Audio</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 629,900</span>
+                <span class="price-original">Rs. 699,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="oled-3">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="showcase-card" data-id="oled-4">
+          <button class="card-wishlist-btn" data-id="oled-4" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge green">Studio Calibrated</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1521607630287-ee2e81ad3ced?auto=format&fit=crop&w=800&q=80" alt="Panasonic 55 Inch MZ2000 Master OLED Pro" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Panasonic • Master OLED</span>
+            <h3 class="showcase-title">Panasonic 55&quot; MZ2000 Master OLED Pro Cinema TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(64 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Master OLED Ultimate</span>
+              <span class="spec-pill">Technics 360 Audio</span>
+              <span class="spec-pill">Filmmaker Mode</span>
+              <span class="spec-pill">HCX Pro AI</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 489,900</span>
+                <span class="price-original">Rs. 540,000</span>
+              </div>
+              <span class="price-save">Save 9%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="oled-4">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article class="showcase-card" data-id="oled-5">
+          <button class="card-wishlist-btn" data-id="oled-5" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">The Masterpiece</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1730909352933-614f1673ac21?auto=format&fit=crop&w=800&q=80" alt="LG 77 Inch OLED evo G3 Gallery Edition TV" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">LG • Gallery Edition</span>
+            <h3 class="showcase-title">LG 77&quot; OLED evo G3 Gallery Edition 4K TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">5.0</span>
+              <span class="rating-count">(91 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Brightness Booster Max (MLA)</span>
+              <span class="spec-pill">Zero Gap Wall Mount</span>
+              <span class="spec-pill">5-Yr Panel Warranty</span>
+              <span class="spec-pill">G-Sync &amp; FreeSync</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 985,000</span>
+                <span class="price-original">Rs. 1,090,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="oled-5">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- ============ LIFESTYLE / DESCRIPTION ============ -->
     <section class="lifestyle-section">
       <div class="lifestyle-inner reverse">
-        <div class="lifestyle-photo" role="img" aria-label="Dark, cinematic room with a streaming interface on an OLED TV" style="background-image: url('https://images.unsplash.com/photo-1717295248230-93ea71f48f92?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="lifestyle-photo" role="img" aria-label="Dark cinematic lounge room with an illuminated OLED TV" style="background-image: url('https://images.unsplash.com/photo-1717295248230-93ea71f48f92?auto=format&fit=crop&w=900&q=80');"></div>
         <div class="lifestyle-text">
-          <h2>Made for Movie Nights and Home Cinema</h2>
-          <p>Dim the lights and OLED comes alive. Deep, true blacks and pin-sharp contrast make it the top choice for a dedicated home cinema or a cosy dark-room movie night.</p>
+          <h2>Crafted for Cinephiles &amp; True Home Theaters</h2>
+          <p>Dim the room lights and step into an authentic Hollywood studio experience. Because each self-lit pixel produces its own light independently, black bars in widescreen films melt into darkness, stars shine with pin-sharp radiance, and every subtle shadow gradient is preserved precisely as the director intended.</p>
           <ul>
-          <li>Infinite contrast ratio</li>
-          <li>Wide 178&deg; viewing angle</li>
-          <li>Ultra-thin, premium design</li>
-          <li>Ideal for movies, gaming &amp; dark rooms</li>
+            <li>True 0.000 nits pitch black for infinite contrast ratios</li>
+            <li>Unmatched 178° ultra-wide viewing angles without color distortion</li>
+            <li>Instant 0.1ms pixel response time for competitive gaming</li>
+            <li>Architectural ultra-thin profiles mounting flush like artwork</li>
           </ul>
         </div>
       </div>
@@ -113,29 +397,413 @@
 
     <!-- ============ AUDIENCE NOTE ============ -->
     <section class="audience-note">
-      <p><strong>Best for:</strong> movie lovers and home cinema setups in rooms with controlled lighting.</p>
+      <p><strong>Recommended for:</strong> film lovers, PlayStation 5 / Xbox Series X gamers, and dedicated home cinema enthusiasts in rooms with ambient or dim lighting.</p>
     </section>
 
     <!-- ============ CALL TO ACTION ============ -->
     <section class="cta-banner">
-      <h2>Ready to upgrade your home entertainment?</h2>
-      <p>Browse our OLED TV range starting at Rs. 189,900.</p>
-      <a href="index.html#featured" class="btn btn-primary">Browse Featured TVs</a>
+      <h2>Ready to experience absolute OLED perfection?</h2>
+      <p>Every TeleBuy OLED television includes authorized company warranty, free specialized wall mounting, and Colombo same-day courier.</p>
+      <a href="#featured-oled" class="btn btn-primary">Browse Featured OLED Models</a>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER (shared across all pages) ============ -->
+  <!-- ============ PRODUCT DETAIL MODAL ============ -->
+  <div class="product-modal-backdrop" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="product-modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-grid">
+        <!-- Media Column -->
+        <div class="modal-media">
+          <div class="modal-main-img-wrap">
+            <img id="modalImg" src="" alt="TV Preview">
+            <span class="modal-media-badge" id="modalBadge">OLED Cinema</span>
+          </div>
+
+          <div class="modal-perks-box">
+            <div class="perk-item">
+              <span class="perk-icon">🛡️</span>
+              <div><strong>3-Year Official Warranty</strong> with genuine OLED panel coverage</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🚚</span>
+              <div><strong>Free Express Delivery</strong> safe handling across Sri Lanka</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🔧</span>
+              <div><strong>Free Professional Wall Mounting</strong> with heavy-duty bracket</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Column -->
+        <div class="modal-info">
+          <span class="modal-brand-tag" id="modalBrand">Brand</span>
+          <h2 class="modal-title" id="modalTitle">Product Title</h2>
+          
+          <div class="modal-meta-row">
+            <div class="rating-row">
+              <span class="stars" id="modalStars">★★★★★</span>
+              <span class="rating-score" id="modalRatingScore">5.0</span>
+              <span class="rating-count" id="modalReviewsCount">(218 reviews)</span>
+            </div>
+            <span class="modal-stock-status">In Stock — Ready to Dispatch</span>
+          </div>
+
+          <div class="modal-price-box">
+            <span class="modal-current-price" id="modalPrice">Rs. 0</span>
+            <span class="modal-old-price" id="modalOldPrice">Rs. 0</span>
+            <span class="modal-save-pill" id="modalSave">Save 10%</span>
+          </div>
+
+          <div class="modal-description-box">
+            <h4>Description &amp; Key Highlights</h4>
+            <p id="modalDesc">Detailed description will appear here...</p>
+          </div>
+
+          <ul class="modal-highlights" id="modalHighlights">
+            <!-- Dynamically populated -->
+          </ul>
+
+          <div class="modal-specs-table-wrap">
+            <table class="modal-specs-table">
+              <tbody id="modalSpecsBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="modal-buy-section">
+            <div class="qty-control">
+              <button class="qty-btn" id="qtyMinus" type="button" aria-label="Decrease quantity">-</button>
+              <input class="qty-input" id="qtyInput" type="number" value="1" min="1" max="10" readonly>
+              <button class="qty-btn" id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button class="modal-add-cart-btn" id="modalAddToCartBtn" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 01-8 0"></path>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="alert">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage">Item added to your shopping cart!</span>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <ul class="footer-links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Delivery Info</a></li>
-      <li><a href="#">Terms &amp; Conditions</a></li>
-    </ul>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+            <li><a href="#">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- ============ INTERACTIVE LOGIC ============ -->
   <script>
+    // Product Database for OLED Top 5
+    const oledProducts = {
+      "oled-1": {
+        brand: "LG • OLED evo Series",
+        title: "LG 65\" OLED evo C3 Series 4K Cinema TV",
+        badge: "Best Seller",
+        image: "https://images.unsplash.com/photo-1717295248302-543d5a49091f?auto=format&fit=crop&w=1000&q=85",
+        rating: "5.0",
+        reviews: "(218 customer reviews)",
+        price: "Rs. 549,900",
+        oldPrice: "Rs. 610,000",
+        save: "Save Rs. 60,100 (10% Off)",
+        desc: "The LG OLED evo C3 represents the golden benchmark in home cinema display. Over 8.3 million individually self-lit pixels turn completely off to render infinite contrast and pitch blacks with zero blooming or backlight halo. Powered by LG's custom α9 AI Processor 4K Gen6, images gain astonishing depth, sharpness, and true-to-life tone mapping. With 4 full-bandwidth HDMI 2.1 ports running 4K@120Hz, an ultra-low 0.1ms response time, NVIDIA G-Sync, and AMD FreeSync Premium, it is the ultimate television for movies and competitive gaming alike.",
+        highlights: [
+          "Self-Lit OLED evo panel with Brightness Booster algorithm",
+          "α9 AI Processor 4K Gen6 with AI Super Upscaling and OLED Dynamic Tone Mapping Pro",
+          "Lightning 0.1ms response time, 4x HDMI 2.1 ports (4K 120Hz)",
+          "Certified NVIDIA G-Sync Compatible and AMD FreeSync Premium",
+          "Dolby Vision IQ and Dolby Atmos with virtual 9.1.2 surround sound upmixing"
+        ],
+        specs: [
+          ["Screen Size", "65 Inches (163 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "LG OLED evo Self-Lit Pixel Panel"],
+          ["Refresh Rate", "120Hz Native (VRR, ALLM, 0.1ms response)"],
+          ["HDR Format", "Dolby Vision, HDR10, HLG, Filmmaker Mode"],
+          ["Audio Output", "40W (2.2 Channel with AI Sound Pro 9.1.2)"],
+          ["Smart OS", "webOS 24 with ThinQ AI & Magic Remote"],
+          ["Connectivity", "4x HDMI 2.1 (4K@120Hz, eARC), 3x USB, Wi-Fi, Bluetooth 5.0"],
+          ["Warranty", "3 Years Authorized Abans Warranty"]
+        ]
+      },
+      "oled-2": {
+        brand: "Sony • Bravia XR Series",
+        title: "Sony Bravia XR 55\" A80L OLED Master Series TV",
+        badge: "Cinema Master",
+        image: "https://images.unsplash.com/photo-1717295248230-93ea71f48f92?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(142 customer reviews)",
+        price: "Rs. 515,000",
+        oldPrice: "Rs. 570,000",
+        save: "Save Rs. 55,000 (10% Off)",
+        desc: "Experience cinema as movie directors dreamed with the Sony Bravia XR A80L OLED. Sony's Cognitive Processor XR™ understands how humans see and hear in the real world, producing realistic depth and pure blacks via XR OLED Contrast Pro. What truly separates this television is Acoustic Surface Audio+™: actuators behind the screen vibrate the panel itself to turn the entire display into a dynamic multi-channel speaker, so dialogue and directional effects emanate precisely from characters' mouths.",
+        highlights: [
+          "Cognitive Processor XR™ reproduces content with human-eye focus and depth",
+          "Acoustic Surface Audio+™ turns the entire screen into a physical speaker",
+          "XR OLED Contrast Pro enhances pure blacks with vibrant color saturation",
+          "Dedicated Sony PlayStation 5 integration with Auto HDR Tone Mapping",
+          "Google TV with over 10,000 apps and hands-free Google voice control"
+        ],
+        specs: [
+          ["Screen Size", "55 Inches (139 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Self-Illuminating OLED"],
+          ["Refresh Rate", "120Hz Native (VRR, ALLM)"],
+          ["HDR Format", "Dolby Vision, HDR10, HLG, IMAX Enhanced"],
+          ["Audio Output", "50W RMS (Acoustic Surface Audio+, Dolby Atmos)"],
+          ["Smart OS", "Google TV with Bravia Core streaming included"],
+          ["Connectivity", "4x HDMI (2x HDMI 2.1 4K120 eARC), 2x USB, Wi-Fi 5, BT 4.2"],
+          ["Warranty", "3 Years Authorized Singer / Sony Sri Lanka Warranty"]
+        ]
+      },
+      "oled-3": {
+        brand: "Samsung • QD-OLED Flagship",
+        title: "Samsung 65\" S95C Quantum OLED 4K Flagship TV",
+        badge: "QD-OLED Flagship",
+        image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(108 customer reviews)",
+        price: "Rs. 629,900",
+        oldPrice: "Rs. 699,000",
+        save: "Save Rs. 69,100 (10% Off)",
+        desc: "The Samsung S95C unites Quantum Dot luminescence with self-lit OLED pixels, delivering up to 30% brighter highlights and 100% Pantone-validated color volume. The ultra-slim 11mm Infinity One design sits flush against the wall, enabled by the external Slim One Connect box that conceals all your cords into a single discreet cable. Powered by the Neural Quantum Processor 4K and featuring 144Hz native refresh rate with Dolby Atmos 70W audio, the S95C is an engineering triumph.",
+        highlights: [
+          "Quantum Dot OLED combines pure inky blacks with sensational brightness",
+          "11mm ultra-thin Infinity One Design with detachable Slim One Connect box",
+          "Neural Quantum Processor 4K with 20 AI neural networks",
+          "144Hz refresh rate with AMD FreeSync Premium Pro for ultra-smooth PC gaming",
+          "Object Tracking Sound+ (OTS+) with top-channel 70W 4.2.2Ch Dolby Atmos"
+        ],
+        specs: [
+          ["Screen Size", "65 Inches (163 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Quantum Dot OLED (QD-OLED)"],
+          ["Refresh Rate", "144Hz Native (FreeSync Premium Pro, 0.1ms)"],
+          ["HDR Format", "Quantum HDR OLED+, HDR10+ Adaptive, HLG"],
+          ["Audio Output", "70W RMS (4.2.2 Channel with OTS+)"],
+          ["Smart OS", "Samsung Tizen™ OS with Gaming Hub & SmartThings"],
+          ["Connectivity", "4x HDMI 2.1 (4K@144Hz), 3x USB, Slim One Connect Box"],
+          ["Warranty", "3 Years Company Warranty + Premium Wall Installation"]
+        ]
+      },
+      "oled-4": {
+        brand: "Panasonic • Master OLED Pro",
+        title: "Panasonic 55\" MZ2000 Master OLED Pro Cinema TV",
+        badge: "Studio Calibrated",
+        image: "https://images.unsplash.com/photo-1521607630287-ee2e81ad3ced?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(64 customer reviews)",
+        price: "Rs. 489,900",
+        oldPrice: "Rs. 540,000",
+        save: "Save Rs. 50,100 (9% Off)",
+        desc: "Color-graded and engineered in Hollywood by master studio colorists, the Panasonic MZ2000 is revered by film creators worldwide. It features a custom Master OLED Ultimate panel equipped with Micro Lens Array (MLA) and bespoke multi-layer heat dissipation. Equipped with an integrated 360° Soundscape Pro audio system tuned by Technics, upward and side-firing speakers beam Dolby Atmos sound directly around you, creating a cinema stage with no soundbar required.",
+        highlights: [
+          "Custom Master OLED Ultimate panel with Micro Lens Array brightness boost",
+          "HCX Pro AI Processor automatically optimizes picture and sound every second",
+          "360° Soundscape Pro audio system tuned exclusively by Technics audio engineers",
+          "True Hollywood tuning certified by leading post-production colorists",
+          "Auto AI mode for instantaneous sports, film, and gaming detection"
+        ],
+        specs: [
+          ["Screen Size", "55 Inches (139 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Master OLED Ultimate with Multi-Layer Heat Sink"],
+          ["Refresh Rate", "120Hz Native"],
+          ["HDR Format", "Dolby Vision IQ, HDR10+ Adaptive, HDR10, HLG"],
+          ["Audio Output", "150W RMS Technics 360° Soundscape Pro with Subwoofer"],
+          ["Smart OS", "my Home Screen 8.0 with Alexa & Google Assistant"],
+          ["Connectivity", "4x HDMI (2x HDMI 2.1 4K120), 3x USB, Headphone/Sub out"],
+          ["Warranty", "3 Years Authorized Comprehensive Warranty"]
+        ]
+      },
+      "oled-5": {
+        brand: "LG • Gallery Series",
+        title: "LG 77\" OLED evo G3 Gallery Edition 4K TV",
+        badge: "The Masterpiece",
+        image: "https://images.unsplash.com/photo-1730909352933-614f1673ac21?auto=format&fit=crop&w=1000&q=85",
+        rating: "5.0",
+        reviews: "(91 customer reviews)",
+        price: "Rs. 985,000",
+        oldPrice: "Rs. 1,090,000",
+        save: "Save Rs. 105,000 (10% Off)",
+        desc: "The LG 77\" OLED evo G3 is the undisputed crown jewel of large-format television. Powered by Micro Lens Array (MLA) architecture with Brightness Booster Max, the G3 reaches up to 70% higher peak brightness than standard OLED displays while retaining absolute true blacks. Its bespoke Zero Gap Gallery Wall Mount hugs the wall with virtually zero gap, looking like an ultra-modern artwork. Backed by an unprecedented 5-Year official LG panel warranty, this is pure visual opulence.",
+        highlights: [
+          "Micro Lens Array (MLA) with Brightness Booster Max — 70% brighter OLED",
+          "Flush Zero Gap Gallery Wall Mount included in the box",
+          "5-Year Official LG Panel Warranty for ultimate peace of mind",
+          "α9 AI Processor Gen6 with super-resolution detail enhancement",
+          "Massive 77-inch theatrical canvas with G-Sync, FreeSync, and 0.1ms latency"
+        ],
+        specs: [
+          ["Screen Size", "77 Inches (195 cm colossal screen)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "OLED evo with Micro Lens Array & Light Boosting Algorithm"],
+          ["Refresh Rate", "120Hz Native (4K 120Hz VRR)"],
+          ["HDR Format", "Dolby Vision, HDR10, HLG, Filmmaker Mode"],
+          ["Audio Output", "60W (4.2 Channel Dolby Atmos)"],
+          ["Smart OS", "webOS 24 with Hands-free Voice & Magic Remote"],
+          ["Connectivity", "4x HDMI 2.1 (48Gbps 4K120), 3x USB, Wi-Fi 6, BT 5.0"],
+          ["Warranty", "5 Years Official LG Panel Warranty + 3 Years Full Coverage"]
+        ]
+      }
+    };
+
+    // DOM Elements
+    const modal = document.getElementById('productModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalImg = document.getElementById('modalImg');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalBrand = document.getElementById('modalBrand');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalRatingScore = document.getElementById('modalRatingScore');
+    const modalReviewsCount = document.getElementById('modalReviewsCount');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalOldPrice = document.getElementById('modalOldPrice');
+    const modalSave = document.getElementById('modalSave');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalHighlights = document.getElementById('modalHighlights');
+    const modalSpecsBody = document.getElementById('modalSpecsBody');
+    const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+    const qtyInput = document.getElementById('qtyInput');
+    const qtyMinus = document.getElementById('qtyMinus');
+    const qtyPlus = document.getElementById('qtyPlus');
+    const cartBadge = document.getElementById('cartBadge');
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    let currentProduct = null;
+    let currentProductId = null;
+
+    // Open Modal
+    function openModal(productId) {
+      const product = oledProducts[productId];
+      if (!product) return;
+      currentProduct = product;
+      currentProductId = productId;
+
+      modalImg.src = product.image;
+      modalImg.alt = product.title;
+      modalBadge.textContent = product.badge;
+      modalBrand.textContent = product.brand;
+      modalTitle.textContent = product.title;
+      modalRatingScore.textContent = product.rating;
+      modalReviewsCount.textContent = product.reviews;
+      modalPrice.textContent = product.price;
+      modalOldPrice.textContent = product.oldPrice;
+      modalSave.textContent = product.save;
+      modalDesc.textContent = product.desc;
+
+      modalHighlights.innerHTML = product.highlights.map(h => `<li>${h}</li>`).join('');
+
+      modalSpecsBody.innerHTML = product.specs.map(([label, val]) => `
+        <tr>
+          <td>${label}</td>
+          <td>${val}</td>
+        </tr>
+      `).join('');
+
+      qtyInput.value = 1;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close Modal
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.showcase-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-wishlist-btn') || e.target.closest('.btn-cart-sm')) {
+          return;
+        }
+        const productId = card.getAttribute('data-id');
+        openModal(productId);
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    qtyMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    qtyPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val < 10) qtyInput.value = val + 1;
+    });
+
+    modalAddToCartBtn.addEventListener('click', () => {
+      if (!currentProductId) return;
+      const qty = parseInt(qtyInput.value, 10) || 1;
+      addToCart(currentProductId, qty);
+      closeModal();
+    });
+
+    // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
     navToggle.addEventListener('click', () => {
@@ -143,6 +811,8 @@
       navToggle.setAttribute('aria-expanded', isOpen);
     });
   </script>
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
 
 </body>
 </html>

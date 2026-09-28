@@ -32,19 +32,33 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#featured">TVs</a></li>
           <li><a href="#">Deals</a></li>
-          <li><a href="#" class="cart-link">
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" id="cartLink" title="View Shopping Cart">
               <span>Cart</span>
-              <!-- Shopping Cart Icon with Badge Counter -->
               <div class="cart-icon-wrapper">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
                   <line x1="3" y1="6" x2="21" y2="6"></line>
                   <path d="M16 10a4 4 0 01-8 0"></path>
                 </svg>
-                <span class="cart-badge">3</span>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
               </div>
-            </a></li>
-          <li><a href="#">Account</a></li>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
         </ul>
       </nav>
     </div>
@@ -57,13 +71,25 @@
       <a href="index.html">Home</a><span class="sep">/</span>QLED TVs
     </nav>
 
+    <!-- Category Switcher Navigation Pills -->
+    <div class="category-nav-wrap">
+      <div class="category-nav-pills" aria-label="Browse TV categories">
+        <a href="qled-tvs.html" class="category-pill active">🎨 QLED TVs</a>
+        <a href="oled-tvs.html" class="category-pill">⚫ OLED TVs</a>
+        <a href="8k-tvs.html" class="category-pill">🔬 8K TVs</a>
+        <a href="smart-tvs.html" class="category-pill">📱 Smart TVs</a>
+        <a href="led-tvs.html" class="category-pill">📺 LED TVs</a>
+        <a href="accessories.html" class="category-pill">🔌 Accessories</a>
+      </div>
+    </div>
+
     <!-- ============ CATEGORY HERO ============ -->
     <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1628592102751-ba83b0314276?auto=format&fit=crop&w=1600&q=80');">
       <div class="page-hero-inner">
-        <span class="page-hero-eyebrow">Quantum Dot LED</span>
+        <span class="page-hero-eyebrow">Quantum Dot LED Technology</span>
         <h1>QLED TVs — Brighter Colors, Bigger Impact</h1>
-        <p>Quantum Dot technology delivers over a billion shades of color and exceptional brightness — perfect for sunlit living rooms, sports and gaming.</p>
-        <a href="index.html#featured" class="btn btn-primary">Shop QLED TVs</a>
+        <p>Quantum Dot technology delivers over a billion shades of pure color and exceptional brightness — perfect for sunlit living rooms, sports events, and next-generation gaming.</p>
+        <a href="#featured-qled" class="btn btn-primary">Explore Top 5 QLED Models</a>
       </div>
     </section>
 
@@ -73,39 +99,296 @@
       <div class="feature-grid">
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">🎨</span>
-          <h3>Vivid Color</h3>
-          <p>Quantum Dot filters produce richer, more accurate colors than standard LED panels.</p>
+          <h3>1 Billion+ Vivid Colors</h3>
+          <p>Quantum Dot filters produce 100% color volume with lifelike accuracy in any light condition.</p>
         </div>
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">☀️</span>
-          <h3>High Brightness</h3>
-          <p>Handles bright rooms and sunlight far better than OLED, with peak brightness up to 2000 nits.</p>
+          <h3>Blinding Peak Brightness</h3>
+          <p>Delivers up to 2,000 nits peak brightness, vanquishing glare in sunlit living rooms.</p>
         </div>
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">⏳</span>
-          <h3>Long Lifespan</h3>
-          <p>Inorganic quantum dots don't fade or burn in, so colors stay vivid for years.</p>
+          <h3>100% Burn-In Free</h3>
+          <p>Inorganic quantum dots never fade, degrade, or suffer permanent screen burn-in.</p>
         </div>
         <div class="feature-card">
-          <span class="feature-icon" aria-hidden="true">💰</span>
-          <h3>Great Value</h3>
-          <p>Premium picture quality at a more accessible price point than OLED.</p>
+          <span class="feature-icon" aria-hidden="true">🎮</span>
+          <h3>Next-Gen Gaming 144Hz</h3>
+          <p>Ultra-low input lag, FreeSync Premium Pro, and full-bandwidth HDMI 2.1 ports.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ 5 TOP FEATURED ITEMS SHOWCASE ============ -->
+    <section class="category-showcase" id="featured-qled">
+      <div class="showcase-header">
+        <span class="section-tag">2026 Curated Collection</span>
+        <h2>Top 5 Featured QLED TVs</h2>
+        <p>Click on any TV model below to inspect detailed descriptions, customer highlights, and comprehensive technical specifications.</p>
+      </div>
+
+      <div class="showcase-grid">
+
+        <!-- ITEM 1 -->
+        <article class="showcase-card" data-id="qled-1">
+          <button class="card-wishlist-btn" data-id="qled-1" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">Best Seller</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80" alt="Samsung 65 Inch Neo QLED 4K QN90C Smart TV" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Samsung • Neo QLED Series</span>
+            <h3 class="showcase-title">Samsung 65&quot; Neo QLED 4K Smart TV (QN90C)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(164 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">144Hz Refresh</span>
+              <span class="spec-pill">Quantum Mini-LED</span>
+              <span class="spec-pill">Neural 4K AI</span>
+              <span class="spec-pill">Dolby Atmos</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 439,900</span>
+                <span class="price-original">Rs. 489,900</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="qled-1">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="showcase-card" data-id="qled-2">
+          <button class="card-wishlist-btn" data-id="qled-2" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge purple">Cognitive AI</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&w=800&q=80" alt="Sony Bravia XR 55 Inch Full Array QLED XR-55X90L" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Sony • Bravia XR</span>
+            <h3 class="showcase-title">Sony Bravia XR 55&quot; Full Array QLED TV (XR-55X90L)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(98 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Cognitive XR Processor</span>
+              <span class="spec-pill">Full Array Local Dimming</span>
+              <span class="spec-pill">Acoustic Audio</span>
+              <span class="spec-pill">Google TV</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 385,000</span>
+                <span class="price-original">Rs. 420,000</span>
+              </div>
+              <span class="price-save">Save 8%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="qled-2">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="showcase-card" data-id="qled-3">
+          <button class="card-wishlist-btn" data-id="qled-3" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">Gamer's Choice</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80" alt="TCL 75 Inch C845 Mini-LED QLED 144Hz" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">TCL • C845 Premium</span>
+            <h3 class="showcase-title">TCL 75&quot; C845 Mini-LED QLED 144Hz Game Master TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(124 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">2000 Nits Peak</span>
+              <span class="spec-pill">144Hz VRR</span>
+              <span class="spec-pill">IMAX Enhanced</span>
+              <span class="spec-pill">Onkyo 2.1 Subwoofer</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 499,900</span>
+                <span class="price-original">Rs. 560,000</span>
+              </div>
+              <span class="price-save">Save 11%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="qled-3">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="showcase-card" data-id="qled-4">
+          <button class="card-wishlist-btn" data-id="qled-4" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge green">Top Value</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=800&q=80" alt="Hisense 65 Inch U8K Quantum Dot ULED Mini-LED" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Hisense • U8K Series</span>
+            <h3 class="showcase-title">Hisense 65&quot; U8K Quantum Dot ULED Mini-LED TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.7</span>
+              <span class="rating-count">(89 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">1500 Nits Brightness</span>
+              <span class="spec-pill">144Hz Native</span>
+              <span class="spec-pill">Dolby Vision IQ</span>
+              <span class="spec-pill">WiSA Ready</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 329,900</span>
+                <span class="price-original">Rs. 369,000</span>
+              </div>
+              <span class="price-save">Save 11%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="qled-4">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article class="showcase-card" data-id="qled-5">
+          <button class="card-wishlist-btn" data-id="qled-5" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge red">New 2026 Flagship</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=800&q=80" alt="LG 55 Inch QNED85 Mini-LED Quantum TV" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">LG • QNED Mini-LED</span>
+            <h3 class="showcase-title">LG 55&quot; QNED85 Mini-LED Quantum Dot 4K TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(76 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Quantum + NanoCell</span>
+              <span class="spec-pill">α7 AI Gen6</span>
+              <span class="spec-pill">Precision Dimming</span>
+              <span class="spec-pill">webOS 24</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 365,000</span>
+                <span class="price-original">Rs. 399,000</span>
+              </div>
+              <span class="price-save">Save 9%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="qled-5">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+        </article>
+
       </div>
     </section>
 
     <!-- ============ LIFESTYLE / DESCRIPTION ============ -->
     <section class="lifestyle-section">
       <div class="lifestyle-inner">
-        <div class="lifestyle-photo" role="img" aria-label="Cozy living room with a TV, ideal for bright-room QLED viewing" style="background-image: url('https://images.unsplash.com/photo-1697462248006-662f35b913ef?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="lifestyle-photo" role="img" aria-label="Cozy sunlit living room with a premium QLED TV" style="background-image: url('https://images.unsplash.com/photo-1697462248006-662f35b913ef?auto=format&fit=crop&w=900&q=80');"></div>
         <div class="lifestyle-text">
-          <h2>Built for Bright, Everyday Living Rooms</h2>
-          <p>If your lounge gets a lot of natural light, QLED is the technology built for you. Quantum dots boost brightness without washing out color, so afternoon football matches and sunlit movie nights look just as sharp as they do after dark.</p>
+          <h2>Built for Bright, Everyday Sri Lankan Homes</h2>
+          <p>If your living room welcomes sunlight or bright ceiling lighting, QLED is the undisputed champion. Quantum dots supercharge screen brightness without washing out color, ensuring afternoon cricket matches, wildlife documentaries, and movie nights look punchy, razor-sharp, and lifelike.</p>
           <ul>
-          <li>Up to 2000 nits peak brightness</li>
-          <li>120Hz+ refresh rates for smooth sports &amp; gaming</li>
-          <li>Wide color volume for HDR content</li>
-          <li>Available from 43&quot; to 85&quot;</li>
+            <li>Up to 2,000 nits peak brightness for anti-reflective brilliance</li>
+            <li>120Hz to 144Hz refresh rates for lightning-fast sports &amp; gaming</li>
+            <li>Over 1 billion rich, DCI-P3 wide color volume shades</li>
+            <li>Zero risk of screen burn-in backed by TeleBuy warranty</li>
           </ul>
         </div>
       </div>
@@ -113,29 +396,420 @@
 
     <!-- ============ AUDIENCE NOTE ============ -->
     <section class="audience-note">
-      <p><strong>Best for:</strong> families and sports fans who watch TV in bright rooms during the day.</p>
+      <p><strong>Recommended for:</strong> families, gamers, and sports enthusiasts who enjoy watching TV in bright, naturally lit rooms.</p>
     </section>
 
     <!-- ============ CALL TO ACTION ============ -->
     <section class="cta-banner">
-      <h2>Ready to upgrade your home entertainment?</h2>
-      <p>Browse our QLED TV range starting at Rs. 189,900.</p>
-      <a href="index.html#featured" class="btn btn-primary">Browse Featured TVs</a>
+      <h2>Found your dream QLED Television?</h2>
+      <p>Enjoy free professional wall-mounting and islandwide express delivery across Sri Lanka.</p>
+      <a href="#featured-qled" class="btn btn-primary">Choose Your QLED TV Today</a>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER (shared across all pages) ============ -->
+  <!-- ============ PRODUCT DETAIL MODAL ============ -->
+  <div class="product-modal-backdrop" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="product-modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-grid">
+        <!-- Media Column -->
+        <div class="modal-media">
+          <div class="modal-main-img-wrap">
+            <img id="modalImg" src="" alt="TV Preview">
+            <span class="modal-media-badge" id="modalBadge">QLED Flagship</span>
+          </div>
+
+          <div class="modal-perks-box">
+            <div class="perk-item">
+              <span class="perk-icon">🛡️</span>
+              <div><strong>3-Year Official Warranty</strong> with genuine panel coverage</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🚚</span>
+              <div><strong>Free Express Delivery</strong> within 24 hours in Colombo &amp; suburbs</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🔧</span>
+              <div><strong>Free Wall-Mount Installation</strong> by certified technicians</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Column -->
+        <div class="modal-info">
+          <span class="modal-brand-tag" id="modalBrand">Brand</span>
+          <h2 class="modal-title" id="modalTitle">Product Title</h2>
+          
+          <div class="modal-meta-row">
+            <div class="rating-row">
+              <span class="stars" id="modalStars">★★★★★</span>
+              <span class="rating-score" id="modalRatingScore">4.9</span>
+              <span class="rating-count" id="modalReviewsCount">(164 reviews)</span>
+            </div>
+            <span class="modal-stock-status">In Stock — Ready to Dispatch</span>
+          </div>
+
+          <div class="modal-price-box">
+            <span class="modal-current-price" id="modalPrice">Rs. 0</span>
+            <span class="modal-old-price" id="modalOldPrice">Rs. 0</span>
+            <span class="modal-save-pill" id="modalSave">Save 10%</span>
+          </div>
+
+          <div class="modal-description-box">
+            <h4>Description &amp; Key Highlights</h4>
+            <p id="modalDesc">Detailed description will appear here...</p>
+          </div>
+
+          <ul class="modal-highlights" id="modalHighlights">
+            <!-- Dynamically populated -->
+          </ul>
+
+          <div class="modal-specs-table-wrap">
+            <table class="modal-specs-table">
+              <tbody id="modalSpecsBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="modal-buy-section">
+            <div class="qty-control">
+              <button class="qty-btn" id="qtyMinus" type="button" aria-label="Decrease quantity">-</button>
+              <input class="qty-input" id="qtyInput" type="number" value="1" min="1" max="10" readonly>
+              <button class="qty-btn" id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button class="modal-add-cart-btn" id="modalAddToCartBtn" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 01-8 0"></path>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="alert">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage">Item added to your shopping cart!</span>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <ul class="footer-links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Delivery Info</a></li>
-      <li><a href="#">Terms &amp; Conditions</a></li>
-    </ul>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+            <li><a href="#">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- ============ INTERACTIVE LOGIC ============ -->
   <script>
+    // Product Database for QLED Top 5
+    const qledProducts = {
+      "qled-1": {
+        brand: "Samsung • Neo QLED Flagship",
+        title: "Samsung 65\" Neo QLED 4K Smart TV (QN90C)",
+        badge: "Best Seller",
+        image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(164 customer reviews)",
+        price: "Rs. 439,900",
+        oldPrice: "Rs. 489,900",
+        save: "Save Rs. 50,000 (10% Off)",
+        desc: "Experience cinema-grade entertainment with Samsung's revolutionary Neo QLED technology. Powered by Quantum Mini-LEDs that are 1/40th the size of conventional LEDs, the QN90C delivers breathtaking ultra-fine light control, blinding HDR highlights, and inky dark contrast. The Neural Quantum Processor 4K upscales all your favorite HD content to crisp 4K using 20 AI neural networks. Combined with anti-glare technology and 144Hz ultra-smooth gaming, this television elevates your living room into an IMAX theater.",
+        highlights: [
+          "Quantum Matrix Technology with ultra-dense Mini-LED precision",
+          "Neural Quantum Processor 4K with AI deep-learning upscaling",
+          "Anti-Glare Ultra Viewing Angle prevents sunlight wash-out",
+          "Motion Xcelerator Turbo+ with lightning 144Hz gaming support",
+          "Dolby Atmos and Object Tracking Sound+ (OTS+) 60W 4.2.2 channel audio"
+        ],
+        specs: [
+          ["Screen Size", "65 Inches (163 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Neo Quantum Dot Mini-LED"],
+          ["Refresh Rate", "144Hz Native (FreeSync Premium Pro)"],
+          ["HDR Format", "Neo Quantum HDR+, HDR10+ Adaptive, HLG"],
+          ["Audio Output", "60W RMS (4.2.2 Channel Dolby Atmos)"],
+          ["Smart OS", "Samsung Tizen™ OS with SmartThings & Bixby"],
+          ["Connectivity", "4x HDMI 2.1 (4K@144Hz, eARC), 2x USB, Wi-Fi 5, Bluetooth 5.2"],
+          ["Warranty", "3 Years Company Warranty + Free Wall Installation"]
+        ]
+      },
+      "qled-2": {
+        brand: "Sony • Bravia XR Series",
+        title: "Sony Bravia XR 55\" Full Array QLED TV (XR-55X90L)",
+        badge: "Editor's Choice",
+        image: "https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(98 customer reviews)",
+        price: "Rs. 385,000",
+        oldPrice: "Rs. 420,000",
+        save: "Save Rs. 35,000 (8% Off)",
+        desc: "Step into true cinematic realism with the Sony Bravia XR X90L. Driven by Sony's acclaimed Cognitive Processor XR™, this TV analyzes content the same way the human eye focuses, enhancing depth, vibrant contrast, and lifelike natural skin tones. Full Array Local Dimming provides deep, authentic blacks alongside bright highlights. With Acoustic Multi-Audio™, sound comes directly from the screen where the action happens, providing an unmatched audiovisual harmony. Officially 'Perfect for PlayStation® 5'.",
+        highlights: [
+          "Cognitive Processor XR™ creates depth and reality matched to human perception",
+          "Full Array Local Dimming with XR Contrast Booster 10",
+          "Acoustic Multi-Audio™ with sound positioning tweeters on the frame",
+          "Exclusive Auto HDR Tone Mapping & Auto Genre Picture Mode for PS5",
+          "Google TV with Google Assistant voice search and Apple AirPlay 2"
+        ],
+        specs: [
+          ["Screen Size", "55 Inches (139 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Full Array LED with XR Triluminos Pro™ (QLED)"],
+          ["Refresh Rate", "120Hz Native (VRR & ALLM)"],
+          ["HDR Format", "Dolby Vision, HDR10, HLG, IMAX Enhanced"],
+          ["Audio Output", "30W RMS (Acoustic Multi-Audio, Dolby Atmos)"],
+          ["Smart OS", "Google TV with Hands-free Voice Search"],
+          ["Connectivity", "4x HDMI (2x HDMI 2.1 4K120 eARC), 2x USB, Wi-Fi, Bluetooth 4.2"],
+          ["Warranty", "3 Years Authorized Singer / Sony Warranty"]
+        ]
+      },
+      "qled-3": {
+        brand: "TCL • Flagship Mini-LED",
+        title: "TCL 75\" C845 Mini-LED QLED 144Hz Game Master TV",
+        badge: "Gamer's Pick",
+        image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(124 customer reviews)",
+        price: "Rs. 499,900",
+        oldPrice: "Rs. 560,000",
+        save: "Save Rs. 60,100 (11% Off)",
+        desc: "The TCL 75\" C845 is an audiovisual powerhouse delivering up to a staggering 2,000 nits of peak brightness with hundreds of Mini-LED local dimming zones. Colors burst off the massive 75-inch screen thanks to genuine Quantum Dot color filtration. Gamers will love the native 144Hz VRR panel, AMD FreeSync Premium Pro certification, and Game Master 2.0 interface with sub-5ms input latency. Powered by an Onkyo 2.1 channel audio system with a built-in subwoofer for room-shaking bass without needing extra speakers.",
+        highlights: [
+          "Colossal 75-inch screen with 2,000 nits peak brightness",
+          "Up to 896 Mini-LED local dimming zones for pitch blacks",
+          "Native 144Hz Variable Refresh Rate with AMD FreeSync Premium Pro",
+          "Built-in Onkyo 2.1 Hi-Fi audio system with integrated back subwoofer",
+          "IMAX Enhanced and Dolby Vision IQ with light sensor ambient tuning"
+        ],
+        specs: [
+          ["Screen Size", "75 Inches (189 cm massive screen)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Mini-LED + Quantum Dot QLED"],
+          ["Refresh Rate", "144Hz VRR (Accelerated up to 240Hz DLG)"],
+          ["HDR Format", "Dolby Vision IQ, HDR10+, HLG, IMAX Enhanced"],
+          ["Audio Output", "60W Onkyo 2.1 Ch with dedicated 20W subwoofer"],
+          ["Smart OS", "Google TV with Play Store & Chromecast"],
+          ["Connectivity", "4x HDMI 2.1 (4K@144Hz), USB 3.0, Wi-Fi 6, Bluetooth 5.2"],
+          ["Warranty", "3 Years Company Warranty + Heavy Duty Wall Mount"]
+        ]
+      },
+      "qled-4": {
+        brand: "Hisense • U8K Series",
+        title: "Hisense 65\" U8K Quantum Dot ULED Mini-LED TV",
+        badge: "Best Value",
+        image: "https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.7",
+        reviews: "(89 customer reviews)",
+        price: "Rs. 329,900",
+        oldPrice: "Rs. 369,000",
+        save: "Save Rs. 39,100 (11% Off)",
+        desc: "Hisense's award-winning U8K sets the benchmark for high-performance value. Combining Mini-LED backlighting with vibrant Quantum Dot technology, it yields up to 1,500 nits of peak brightness and 1,000+ local dimming zones. The proprietary Hi-View Engine delivers intelligent frame-by-frame scene optimization. Boasting native 144Hz gaming capabilities, Dolby Vision IQ, and multi-channel 2.1.2 surround sound with built-in upward-firing Atmos speakers, it outclasses competitors at a fraction of their price.",
+        highlights: [
+          "1,500 nits peak brightness handles direct bright sunlight with ease",
+          "Over 1,000 Full Array Mini-LED Dimming Zones",
+          "2.1.2 Multi-Channel Audio with built-in up-firing Dolby Atmos speakers",
+          "Game Mode Pro with 144Hz VRR and auto low latency mode (ALLM)",
+          "Anti-glare low-reflection screen coating with wide viewing angles"
+        ],
+        specs: [
+          ["Screen Size", "65 Inches (163 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "ULED Quantum Dot Mini-LED"],
+          ["Refresh Rate", "144Hz Native"],
+          ["HDR Format", "Dolby Vision IQ, HDR10+, HDR10, HLG"],
+          ["Audio Output", "50W RMS 2.1.2 Multi-Channel Surround"],
+          ["Smart OS", "Google TV / VIDAA U7 OS with voice remote"],
+          ["Connectivity", "4x HDMI (2x HDMI 2.1 4K144), 2x USB, Wi-Fi 6e"],
+          ["Warranty", "3 Years Comprehensive Warranty"]
+        ]
+      },
+      "qled-5": {
+        brand: "LG • QNED Series",
+        title: "LG 55\" QNED85 Mini-LED Quantum Dot 4K TV",
+        badge: "Flagship 2026",
+        image: "https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(76 customer reviews)",
+        price: "Rs. 365,000",
+        oldPrice: "Rs. 399,000",
+        save: "Save Rs. 34,000 (9% Off)",
+        desc: "LG QNED85 unites two pinnacle color technologies: Quantum Dot and LG's proprietary NanoCell. Together with Mini-LED precision dimming, it achieves richer, purer colors and extreme contrast. The advanced α7 AI Processor Gen6 intelligently refines picture and sound according to what you watch. Featuring LG's celebrated webOS 24 interface with Magic Remote, multi-view screen splitting, and AMD FreeSync Premium, this television delivers effortless elegance and supreme visual satisfaction.",
+        highlights: [
+          "Dual Color Science: Quantum Dot meets LG NanoCell technology",
+          "Precision Dimming Mini-LED array eliminates backlight haloing",
+          "α7 AI Processor 4K Gen6 with AI Super Upscaling & AI Sound Pro",
+          "Magic Remote with point-and-click pointer control and wheel scroll",
+          "Full webOS 24 experience with 5 years of guaranteed OS updates"
+        ],
+        specs: [
+          ["Screen Size", "55 Inches (139 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "QNED Mini-LED (Quantum Dot + NanoCell)"],
+          ["Refresh Rate", "120Hz Native"],
+          ["HDR Format", "Dolby Vision, HDR10, HLG, Filmmaker Mode"],
+          ["Audio Output", "40W (2.2 Channel with virtual 5.1.2 upmix)"],
+          ["Smart OS", "webOS 24 with ThinQ AI & Magic Remote"],
+          ["Connectivity", "4x HDMI (2x HDMI 2.1), 2x USB, Wi-Fi, Bluetooth 5.0"],
+          ["Warranty", "3 Years Authorized Abans / LG Warranty"]
+        ]
+      }
+    };
+
+    // DOM Elements
+    const modal = document.getElementById('productModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalImg = document.getElementById('modalImg');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalBrand = document.getElementById('modalBrand');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalRatingScore = document.getElementById('modalRatingScore');
+    const modalReviewsCount = document.getElementById('modalReviewsCount');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalOldPrice = document.getElementById('modalOldPrice');
+    const modalSave = document.getElementById('modalSave');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalHighlights = document.getElementById('modalHighlights');
+    const modalSpecsBody = document.getElementById('modalSpecsBody');
+    const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+    const qtyInput = document.getElementById('qtyInput');
+    const qtyMinus = document.getElementById('qtyMinus');
+    const qtyPlus = document.getElementById('qtyPlus');
+    const cartBadge = document.getElementById('cartBadge');
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    let currentProduct = null;
+    let currentProductId = null;
+
+    // Open Modal with Product Data
+    function openModal(productId) {
+      const product = qledProducts[productId];
+      if (!product) return;
+      currentProduct = product;
+      currentProductId = productId;
+
+      modalImg.src = product.image;
+      modalImg.alt = product.title;
+      modalBadge.textContent = product.badge;
+      modalBrand.textContent = product.brand;
+      modalTitle.textContent = product.title;
+      modalRatingScore.textContent = product.rating;
+      modalReviewsCount.textContent = product.reviews;
+      modalPrice.textContent = product.price;
+      modalOldPrice.textContent = product.oldPrice;
+      modalSave.textContent = product.save;
+      modalDesc.textContent = product.desc;
+
+      // Highlights
+      modalHighlights.innerHTML = product.highlights.map(h => `<li>${h}</li>`).join('');
+
+      // Specs Table
+      modalSpecsBody.innerHTML = product.specs.map(([label, val]) => `
+        <tr>
+          <td>${label}</td>
+          <td>${val}</td>
+        </tr>
+      `).join('');
+
+      // Reset Qty
+      qtyInput.value = 1;
+
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close Modal
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Attach click listeners to cards
+    document.querySelectorAll('.showcase-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-wishlist-btn') || e.target.closest('.btn-cart-sm')) {
+          return;
+        }
+        const productId = card.getAttribute('data-id');
+        openModal(productId);
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Quantity buttons
+    qtyMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    qtyPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val < 10) qtyInput.value = val + 1;
+    });
+
+    modalAddToCartBtn.addEventListener('click', () => {
+      if (!currentProductId) return;
+      const qty = parseInt(qtyInput.value, 10) || 1;
+      addToCart(currentProductId, qty);
+      closeModal();
+    });
+
+    // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
     navToggle.addEventListener('click', () => {
@@ -143,6 +817,8 @@
       navToggle.setAttribute('aria-expanded', isOpen);
     });
   </script>
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
 
 </body>
 </html>

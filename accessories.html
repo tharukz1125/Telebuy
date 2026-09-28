@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessories — TeleBuy.lk</title>
+  <title>TV Accessories — TeleBuy.lk</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,19 +32,33 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#featured">TVs</a></li>
           <li><a href="#">Deals</a></li>
-          <li><a href="#" class="cart-link">
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" id="cartLink" title="View Shopping Cart">
               <span>Cart</span>
-              <!-- Shopping Cart Icon with Badge Counter -->
               <div class="cart-icon-wrapper">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
                   <line x1="3" y1="6" x2="21" y2="6"></line>
                   <path d="M16 10a4 4 0 01-8 0"></path>
                 </svg>
-                <span class="cart-badge">3</span>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
               </div>
-            </a></li>
-          <li><a href="#">Account</a></li>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
         </ul>
       </nav>
     </div>
@@ -57,55 +71,325 @@
       <a href="index.html">Home</a><span class="sep">/</span>Accessories
     </nav>
 
+    <!-- Category Switcher Navigation Pills -->
+    <div class="category-nav-wrap">
+      <div class="category-nav-pills" aria-label="Browse TV categories">
+        <a href="qled-tvs.html" class="category-pill">🎨 QLED TVs</a>
+        <a href="oled-tvs.html" class="category-pill">⚫ OLED TVs</a>
+        <a href="8k-tvs.html" class="category-pill">🔬 8K TVs</a>
+        <a href="smart-tvs.html" class="category-pill">📱 Smart TVs</a>
+        <a href="led-tvs.html" class="category-pill">📺 LED TVs</a>
+        <a href="accessories.html" class="category-pill active">🔌 Accessories</a>
+      </div>
+    </div>
+
     <!-- ============ CATEGORY HERO ============ -->
     <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?auto=format&fit=crop&w=1600&q=80');">
       <div class="page-hero-inner">
-        <span class="page-hero-eyebrow">Complete Your Setup</span>
+        <span class="page-hero-eyebrow">Complete Your Cinema Setup</span>
         <h1>TV Accessories — Everything Else You Need</h1>
-        <p>From soundbars to wall mounts, remotes to HDMI cables — the finishing touches that turn a great TV into a great home theater.</p>
-        <a href="index.html#featured" class="btn btn-primary">Shop Accessories</a>
+        <p>From high-fidelity Dolby Atmos soundbars to heavy-duty articulating wall mounts and certified 8K HDMI 2.1 cables — the essential upgrades that transform a great TV into an unforgettable home theater.</p>
+        <a href="#featured-acc" class="btn btn-primary">Explore Top 5 Accessories</a>
       </div>
     </section>
 
     <!-- ============ WHY CHOOSE THIS CATEGORY ============ -->
     <section class="feature-section" aria-label="Why choose Accessories">
-      <h2>Why Choose Accessories?</h2>
+      <h2>Why Choose TeleBuy Accessories?</h2>
       <div class="feature-grid">
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">🔊</span>
-          <h3>Soundbars</h3>
-          <p>Upgrade built-in speakers with richer, room-filling sound.</p>
+          <h3>Cinematic Soundbars</h3>
+          <p>Immerse yourself in rich, room-filling sound with dedicated subwoofers and Atmos channels.</p>
         </div>
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">🧱</span>
-          <h3>Wall Mounts</h3>
-          <p>Tilt and full-motion mounts for a clean, space-saving install.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon" aria-hidden="true">🎛️</span>
-          <h3>Universal Remotes</h3>
-          <p>Control your TV, soundbar and streaming box from one remote.</p>
+          <h3>Certified Heavy Wall Mounts</h3>
+          <p>Heavy-gauge steel swivel and tilt mounts rated to securely hold up to 100-inch screens.</p>
         </div>
         <div class="feature-card">
           <span class="feature-icon" aria-hidden="true">🔌</span>
-          <h3>Cables &amp; Adapters</h3>
-          <p>High-speed HDMI, extension cables, and streaming-stick adapters.</p>
+          <h3>Certified 48Gbps Cables</h3>
+          <p>Gold-plated HDMI 2.1 cables guaranteeing 4K@120Hz and 8K@60Hz without signal drops.</p>
         </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🎛️</span>
+          <h3>Universal Smart Remotes</h3>
+          <p>Control your TV, soundbar, and streaming apps with a single backlit air-mouse remote.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5 TOP FEATURED ITEMS SHOWCASE ============ -->
+    <section class="category-showcase" id="featured-acc">
+      <div class="showcase-header">
+        <span class="section-tag">Home Cinema Essentials</span>
+        <h2>Top 5 Featured TV Accessories</h2>
+        <p>Click on any accessory to inspect compatibility guidelines, technical specs, and customer reviews.</p>
+      </div>
+
+      <div class="showcase-grid">
+
+        <!-- ITEM 1 -->
+        <article class="showcase-card" data-id="acc-1">
+          <button class="card-wishlist-btn" data-id="acc-1" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">Top Soundbar</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80" alt="Samsung HW-Q600C 3.1.2ch Dolby Atmos Wireless Soundbar" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Samsung • Q-Series Audio</span>
+            <h3 class="showcase-title">Samsung 3.1.2ch Dolby Atmos Soundbar (HW-Q600C)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(176 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Dolby Atmos / DTS:X</span>
+              <span class="spec-pill">3.1.2 Channel</span>
+              <span class="spec-pill">Wireless Subwoofer</span>
+              <span class="spec-pill">Q-Symphony</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 89,900</span>
+                <span class="price-original">Rs. 99,900</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="acc-1">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="showcase-card" data-id="acc-2">
+          <button class="card-wishlist-btn" data-id="acc-2" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge purple">True 5.1 Surround</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Sony HT-S20R 5.1ch Home Theater Soundbar" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Sony • Home Theater</span>
+            <h3 class="showcase-title">Sony HT-S20R 5.1ch Surround Soundbar System (400W)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(230 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">400W Total Power</span>
+              <span class="spec-pill">Rear Satellite Speakers</span>
+              <span class="spec-pill">Dolby Digital 5.1</span>
+              <span class="spec-pill">Bluetooth 5.0</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 68,000</span>
+                <span class="price-original">Rs. 75,000</span>
+              </div>
+              <span class="price-save">Save 9%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="acc-2">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="showcase-card" data-id="acc-3">
+          <button class="card-wishlist-btn" data-id="acc-3" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge green">Heavy Duty</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584905066893-7d5c142ba4e1?auto=format&fit=crop&w=800&q=80" alt="North Bayou NB-P6 Full Motion Wall Mount" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">North Bayou • Heavy Duty</span>
+            <h3 class="showcase-title">North Bayou NB-P6 Full Motion Cantilever Wall Mount (45&quot;-75&quot;)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(340 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Holds up to 45.5 kg</span>
+              <span class="spec-pill">Dual Cantilever Arm</span>
+              <span class="spec-pill">160° Swivel &amp; Tilt</span>
+              <span class="spec-pill">VESA 600x400</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 14,500</span>
+                <span class="price-original">Rs. 17,500</span>
+              </div>
+              <span class="price-save">Save 17%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="acc-3">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="showcase-card" data-id="acc-4">
+          <button class="card-wishlist-btn" data-id="acc-4" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge purple">48Gbps Certified</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Baseus 8K Ultra High Speed HDMI 2.1 Cable 3M" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Baseus • Ultra High Speed</span>
+            <h3 class="showcase-title">Baseus 8K Ultra High Speed HDMI 2.1 Cable (3m, 48Gbps)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(410 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">48Gbps Bandwidth</span>
+              <span class="spec-pill">4K@120Hz &amp; 8K@60Hz</span>
+              <span class="spec-pill">eARC &amp; VRR</span>
+              <span class="spec-pill">Braided Nylon</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 4,900</span>
+                <span class="price-original">Rs. 6,500</span>
+              </div>
+              <span class="price-save">Save 25%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="acc-4">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article class="showcase-card" data-id="acc-5">
+          <button class="card-wishlist-btn" data-id="acc-5" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge red">Universal Remote</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1735212769704-d03b95dd1a14?auto=format&fit=crop&w=800&q=80" alt="Universal Backlit Voice Air-Mouse Remote" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">TeleBuy Essentials</span>
+            <h3 class="showcase-title">Universal Voice Air-Mouse Remote with Backlit Keyboard</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.7</span>
+              <span class="rating-count">(195 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">6-Axis Gyroscope</span>
+              <span class="spec-pill">Voice Mic</span>
+              <span class="spec-pill">Backlit QWERTY</span>
+              <span class="spec-pill">Rechargeable Li-ion</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 3,500</span>
+                <span class="price-original">Rs. 4,500</span>
+              </div>
+              <span class="price-save">Save 22%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="acc-5">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- ============ LIFESTYLE / DESCRIPTION ============ -->
     <section class="lifestyle-section">
       <div class="lifestyle-inner reverse">
-        <div class="lifestyle-photo" role="img" aria-label="Person holding a remote control in front of a TV showing streaming apps" style="background-image: url('https://images.unsplash.com/photo-1735212769704-d03b95dd1a14?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="lifestyle-photo" role="img" aria-label="Neat home cinema setup with clean wall mount and soundbar" style="background-image: url('https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=900&q=80');"></div>
         <div class="lifestyle-text">
-          <h2>Small Extras, Big Difference</h2>
-          <p>The right accessories make a real difference to everyday viewing — better sound, a cleaner wall-mounted look, and one remote instead of four. Browse our pick of accessories to complete your home entertainment setup.</p>
+          <h2>Small Upgrades, Immense Theater Immersion</h2>
+          <p>Even the finest flagship televisions can only produce so much bass with slim speakers. Adding a dedicated multi-channel soundbar unlocks thunderous explosions and crystal-clear whispering dialogue. Pairing it with a dual-arm cantilever wall mount conceals untidy cables and lets you swivel the TV toward your dining table or kitchen effortlessly.</p>
           <ul>
-          <li>2.0 &amp; 2.1-channel soundbars</li>
-          <li>Fixed, tilt &amp; full-motion wall mounts</li>
-          <li>Universal &amp; voice remotes</li>
-          <li>HDMI 2.1 cables &amp; streaming adapters</li>
+            <li>Dolby Atmos wireless soundbars with subwoofers for chest-thumping bass</li>
+            <li>Heavy-duty dual arm articulating wall brackets made from SPCC cold rolled steel</li>
+            <li>Ultra high-speed 48Gbps HDMI 2.1 cables with gold-plated corrosion resistance</li>
+            <li>Universal remotes controlling television, soundbar, and streaming player simultaneously</li>
           </ul>
         </div>
       </div>
@@ -113,29 +397,394 @@
 
     <!-- ============ AUDIENCE NOTE ============ -->
     <section class="audience-note">
-      <p><strong>Best for:</strong> anyone finishing a new TV setup or upgrading an existing one.</p>
+      <p><strong>Recommended for:</strong> everyone completing a new TV setup or looking to upgrade sound, mounting flexibility, and connectivity.</p>
     </section>
 
     <!-- ============ CALL TO ACTION ============ -->
     <section class="cta-banner">
-      <h2>Ready to upgrade your home entertainment?</h2>
-      <p>Browse our Accessories range.</p>
-      <a href="index.html#featured" class="btn btn-primary">Browse Featured TVs</a>
+      <h2>Complete Your Entertainment Setup Today</h2>
+      <p>Combine any accessory with a television order to receive free installation and bundled combo discounts.</p>
+      <a href="#featured-acc" class="btn btn-primary">Browse All Accessories</a>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER (shared across all pages) ============ -->
+  <!-- ============ PRODUCT DETAIL MODAL ============ -->
+  <div class="product-modal-backdrop" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="product-modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-grid">
+        <!-- Media Column -->
+        <div class="modal-media">
+          <div class="modal-main-img-wrap">
+            <img id="modalImg" src="" alt="Accessory Preview">
+            <span class="modal-media-badge" id="modalBadge">Essential Pick</span>
+          </div>
+
+          <div class="modal-perks-box">
+            <div class="perk-item">
+              <span class="perk-icon">🛡️</span>
+              <div><strong>1-Year Replacement Warranty</strong> 100% genuine brand guarantee</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🚚</span>
+              <div><strong>Islandwide Courier Service</strong> cash on delivery available</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🔧</span>
+              <div><strong>Universal Compatibility Guarantee</strong> tested on all major TV brands</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Column -->
+        <div class="modal-info">
+          <span class="modal-brand-tag" id="modalBrand">Brand</span>
+          <h2 class="modal-title" id="modalTitle">Product Title</h2>
+          
+          <div class="modal-meta-row">
+            <div class="rating-row">
+              <span class="stars" id="modalStars">★★★★★</span>
+              <span class="rating-score" id="modalRatingScore">4.9</span>
+              <span class="rating-count" id="modalReviewsCount">(176 reviews)</span>
+            </div>
+            <span class="modal-stock-status">In Stock — Ready to Dispatch</span>
+          </div>
+
+          <div class="modal-price-box">
+            <span class="modal-current-price" id="modalPrice">Rs. 0</span>
+            <span class="modal-old-price" id="modalOldPrice">Rs. 0</span>
+            <span class="modal-save-pill" id="modalSave">Save 10%</span>
+          </div>
+
+          <div class="modal-description-box">
+            <h4>Description &amp; Key Features</h4>
+            <p id="modalDesc">Detailed description will appear here...</p>
+          </div>
+
+          <ul class="modal-highlights" id="modalHighlights">
+            <!-- Dynamically populated -->
+          </ul>
+
+          <div class="modal-specs-table-wrap">
+            <table class="modal-specs-table">
+              <tbody id="modalSpecsBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="modal-buy-section">
+            <div class="qty-control">
+              <button class="qty-btn" id="qtyMinus" type="button" aria-label="Decrease quantity">-</button>
+              <input class="qty-input" id="qtyInput" type="number" value="1" min="1" max="10" readonly>
+              <button class="qty-btn" id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button class="modal-add-cart-btn" id="modalAddToCartBtn" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 01-8 0"></path>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="alert">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage">Item added to your shopping cart!</span>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <ul class="footer-links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Delivery Info</a></li>
-      <li><a href="#">Terms &amp; Conditions</a></li>
-    </ul>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+            <li><a href="#">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- ============ INTERACTIVE LOGIC ============ -->
   <script>
+    const accessories = {
+      "acc-1": {
+        brand: "Samsung • Q-Series Soundbar",
+        title: "Samsung 3.1.2ch Dolby Atmos Soundbar (HW-Q600C)",
+        badge: "Top Soundbar",
+        image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(176 customer reviews)",
+        price: "Rs. 89,900",
+        oldPrice: "Rs. 99,900",
+        save: "Save Rs. 10,000 (10% Off)",
+        desc: "Transform your living room into an acoustic amphitheater with the Samsung HW-Q600C. Featuring true 3.1.2-channel sound with dedicated upward-firing Acoustic Beam speakers, sound reflects off your ceiling to deliver breathtaking vertical Dolby Atmos and DTS:X effects. When paired with a Samsung QLED or OLED TV, Q-Symphony synchronizes the television's speakers with the soundbar for unparalleled audio harmony.",
+        highlights: [
+          "True 3.1.2 Channel sound with 9 discrete drivers and wireless subwoofer",
+          "Wireless Dolby Atmos & DTS:X creates 3D overhead sound effects",
+          "Samsung Q-Symphony synchronizes TV speakers and soundbar simultaneously",
+          "Adaptive Sound analyzes content in real time to optimize speech clarity",
+          "Game Mode Pro with directional audio cue enhancement"
+        ],
+        specs: [
+          ["Channels", "3.1.2 Channels with 9 discrete built-in speakers"],
+          ["Total Power", "360W RMS (including 160W Wireless Subwoofer)"],
+          ["Audio Formats", "Dolby Atmos, Dolby TrueHD, DTS:X, Dolby Digital Plus"],
+          ["Connectivity", "HDMI eARC, HDMI In (4K pass-through), Optical, Bluetooth 4.2"],
+          ["Dimensions", "Soundbar: 1030 × 57 × 105 mm | Sub: 184 × 343 × 295 mm"],
+          ["Warranty", "1 Year Authorized Samsung Warranty"]
+        ]
+      },
+      "acc-2": {
+        brand: "Sony • Home Cinema Audio",
+        title: "Sony HT-S20R 5.1ch Surround Soundbar System (400W)",
+        badge: "True 5.1 Surround",
+        image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(230 customer reviews)",
+        price: "Rs. 68,000",
+        oldPrice: "Rs. 75,000",
+        save: "Save Rs. 7,000 (9% Off)",
+        desc: "Bring the genuine 5.1-channel theater experience straight to your living room. The Sony HT-S20R packs a punchy 3-channel soundbar, an external high-output wired subwoofer, and two compact rear surround satellite speakers to wrap cinematic sound around your seating area. Simply plug in via HDMI ARC, optical, or analog connection and instantly enjoy 400 watts of visceral surround sound.",
+        highlights: [
+          "True 5.1-channel discrete surround sound with dedicated rear speakers",
+          "Mighty 400W total power output fills even large living spaces",
+          "Dolby Digital technology reproduces high-quality discrete surround audio",
+          "Bluetooth connectivity lets you stream music directly from your smartphone",
+          "Multiple sound modes: Cinema, Music, Voice, and Night mode"
+        ],
+        specs: [
+          ["Channels", "5.1 Channels (Soundbar + Subwoofer + 2x Rear Speakers)"],
+          ["Total Power", "400W RMS"],
+          ["Audio Formats", "Dolby Digital, Dolby Dual Mono, LPCM 2ch"],
+          ["Connectivity", "HDMI ARC, Optical Audio, Analog In (3.5mm), USB Type-A, BT 5.0"],
+          ["Dimensions", "Bar: 760 × 52 × 86 mm | Sub: 192 × 387 × 342 mm"],
+          ["Warranty", "1 Year Authorized Sony Sri Lanka Warranty"]
+        ]
+      },
+      "acc-3": {
+        brand: "North Bayou • Mounting Solutions",
+        title: "North Bayou NB-P6 Full Motion Cantilever Wall Mount (45\"-75\")",
+        badge: "Heavy Duty",
+        image: "https://images.unsplash.com/photo-1584905066893-7d5c142ba4e1?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(340 customer reviews)",
+        price: "Rs. 14,500",
+        oldPrice: "Rs. 17,500",
+        save: "Save Rs. 3,000 (17% Off)",
+        desc: "The North Bayou NB-P6 is Sri Lanka's most trusted heavy-duty dual cantilever wall mount. Constructed from ultra-strong SPCC cold-rolled steel with a dual arm mechanism, it securely supports TVs from 45 to 75 inches up to 45.5 kg. Extends smoothly from 52mm flush-to-wall up to 380mm outward with 160° full horizontal swivel and +5°/-3° vertical tilt for the ideal viewing angle from anywhere in your room.",
+        highlights: [
+          "Dual cantilever arm design eliminates screen sag and wobbling",
+          "Supports heavy TVs up to 45.5 kg (100 lbs) with safety locking screws",
+          "Extends up to 380mm from the wall and folds flat to just 52mm",
+          "Integrated cable management covers keep wires completely invisible",
+          "Universal VESA compatibility from 200x200mm up to 600x400mm"
+        ],
+        specs: [
+          ["Compatible Screen Size", "45\" to 75\" Flat and Curved Televisions"],
+          ["Load Capacity", "Up to 45.5 kg (100 lbs) safety tested"],
+          ["VESA Compliance", "200x200, 300x300, 400x200, 400x400, 600x400 mm"],
+          ["Tilt Angle", "+5° / -3° vertical tilt adjustment"],
+          ["Swivel Angle", "Up to 160° left-to-right smooth articulation"],
+          ["Warranty", "5 Years Structural Guarantee"]
+        ]
+      },
+      "acc-4": {
+        brand: "Baseus • High Speed Connectivity",
+        title: "Baseus 8K Ultra High Speed HDMI 2.1 Cable (3m, 48Gbps)",
+        badge: "48Gbps Certified",
+        image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(410 customer reviews)",
+        price: "Rs. 4,900",
+        oldPrice: "Rs. 6,500",
+        save: "Save Rs. 1,600 (25% Off)",
+        desc: "Don't bottleneck your flagship TV with substandard cords. The Baseus Certified Ultra High Speed HDMI 2.1 cable delivers full 48Gbps bandwidth. It effortlessly streams uncompressed 8K@60Hz and 4K@120Hz with Dynamic HDR, eARC high-bitrate audio, Variable Refresh Rate (VRR), and Auto Low Latency Mode (ALLM). Built with high-density nylon braiding and gold-plated connectors to prevent signal interference.",
+        highlights: [
+          "Official 48Gbps bandwidth required for 4K@120Hz and 8K@60Hz gaming",
+          "Full eARC support transmits uncompressed Dolby Atmos & DTS:X audio",
+          "Supports Variable Refresh Rate (VRR), Quick Media Switching (QMS) & ALLM",
+          "Gold-plated anti-oxidation connectors with zinc alloy casing",
+          "Heavy-duty double-braided nylon jacket withstands 10,000+ bends"
+        ],
+        specs: [
+          ["Standard", "HDMI 2.1 (Backward compatible with 2.0 / 1.4)"],
+          ["Bandwidth", "48Gbps Ultra High Speed"],
+          ["Resolution Support", "8K@60Hz, 4K@120Hz, 2K@144Hz, 1080p@240Hz"],
+          ["Cable Length", "3.0 Meters (Ideal for concealed wall conduits)"],
+          ["Connector Type", "24K Gold Plated Standard HDMI Male to Male"],
+          ["Warranty", "1 Year Replacement Warranty"]
+        ]
+      },
+      "acc-5": {
+        brand: "TeleBuy Essentials",
+        title: "Universal Voice Air-Mouse Remote with Backlit Keyboard",
+        badge: "Universal Remote",
+        image: "https://images.unsplash.com/photo-1735212769704-d03b95dd1a14?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.7",
+        reviews: "(195 customer reviews)",
+        price: "Rs. 3,500",
+        oldPrice: "Rs. 4,500",
+        save: "Save Rs. 1,000 (22% Off)",
+        desc: "Tired of juggling 3 different remotes or awkwardly typing letter-by-letter on your TV? This 3-in-1 Universal Air-Mouse combines a wireless mouse pointer with a full mini QWERTY keyboard and high-sensitivity voice microphone. Featuring built-in 6-axis gyroscope motion sensing, simply point and wave your wrist to glide the cursor across the display. The backlit keys light up automatically in dim rooms.",
+        highlights: [
+          "6-Axis Gyroscope enables precise point-and-click air-mouse control",
+          "Integrated high-sensitivity voice microphone for Google voice queries",
+          "Full reverse-side QWERTY keyboard with soft LED night backlighting",
+          "Rechargeable lithium battery eliminates recurring battery costs",
+          "Plug-and-play USB dongle compatible with Samsung, LG, Sony, Android TV, and PC"
+        ],
+        specs: [
+          ["Wireless Frequency", "2.4GHz RF with nano USB receiver (10m range)"],
+          ["Sensors", "3-Gyro + 3-Gsensor 6-axis motion tracking"],
+          ["Battery", "Built-in 300mAh Rechargeable Lithium-ion (Type-C charging)"],
+          ["Compatibility", "Android TV, Google TV, Samsung Tizen, LG webOS, Windows, macOS"],
+          ["Special Features", "IR Learning capability to copy power buttons from old remotes"],
+          ["Warranty", "6 Months Replacement Warranty"]
+        ]
+      }
+    };
+
+    // DOM Elements
+    const modal = document.getElementById('productModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalImg = document.getElementById('modalImg');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalBrand = document.getElementById('modalBrand');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalRatingScore = document.getElementById('modalRatingScore');
+    const modalReviewsCount = document.getElementById('modalReviewsCount');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalOldPrice = document.getElementById('modalOldPrice');
+    const modalSave = document.getElementById('modalSave');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalHighlights = document.getElementById('modalHighlights');
+    const modalSpecsBody = document.getElementById('modalSpecsBody');
+    const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+    const qtyInput = document.getElementById('qtyInput');
+    const qtyMinus = document.getElementById('qtyMinus');
+    const qtyPlus = document.getElementById('qtyPlus');
+    const cartBadge = document.getElementById('cartBadge');
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    let currentProduct = null;
+    let currentProductId = null;
+
+    function openModal(productId) {
+      const product = accessories[productId];
+      if (!product) return;
+      currentProduct = product;
+      currentProductId = productId;
+
+      modalImg.src = product.image;
+      modalImg.alt = product.title;
+      modalBadge.textContent = product.badge;
+      modalBrand.textContent = product.brand;
+      modalTitle.textContent = product.title;
+      modalRatingScore.textContent = product.rating;
+      modalReviewsCount.textContent = product.reviews;
+      modalPrice.textContent = product.price;
+      modalOldPrice.textContent = product.oldPrice;
+      modalSave.textContent = product.save;
+      modalDesc.textContent = product.desc;
+
+      modalHighlights.innerHTML = product.highlights.map(h => `<li>${h}</li>`).join('');
+
+      modalSpecsBody.innerHTML = product.specs.map(([label, val]) => `
+        <tr>
+          <td>${label}</td>
+          <td>${val}</td>
+        </tr>
+      `).join('');
+
+      qtyInput.value = 1;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.showcase-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-wishlist-btn') || e.target.closest('.btn-cart-sm')) {
+          return;
+        }
+        const productId = card.getAttribute('data-id');
+        openModal(productId);
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    qtyMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    qtyPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val < 10) qtyInput.value = val + 1;
+    });
+
+    modalAddToCartBtn.addEventListener('click', () => {
+      if (!currentProductId) return;
+      const qty = parseInt(qtyInput.value, 10) || 1;
+      addToCart(currentProductId, qty);
+      closeModal();
+    });
+
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
     navToggle.addEventListener('click', () => {
@@ -143,6 +792,8 @@
       navToggle.setAttribute('aria-expanded', isOpen);
     });
   </script>
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
 
 </body>
 </html>

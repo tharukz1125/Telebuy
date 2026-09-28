@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart — TeleBuy.lk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+
+      <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search TVs by brand, size, model..." aria-label="Search TVs">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#featured">TVs</a></li>
+          <li><a href="#">Deals</a></li>
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link active" title="View Shopping Cart">
+              <span>Cart</span>
+              <div class="cart-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                <span class="cart-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span>Shopping Cart
+    </nav>
+
+    <!-- Cart Main Content -->
+    <div class="cart-page-wrap">
+      
+      <div class="page-title-row">
+        <h1>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 01-8 0"></path>
+          </svg>
+          Your Shopping Cart
+        </h1>
+        <span class="page-count-badge" id="cartCountHeader">0 Items</span>
+      </div>
+
+      <!-- Container dynamically switched between Cart Layout and Empty State -->
+      <div id="cartContentContainer">
+        <!-- Rendered by renderCartPage() -->
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+            <li><a href="#">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
+  <script>
+    function formatCurrency(num) {
+      return "Rs. " + Number(num).toLocaleString('en-US');
+    }
+
+    function renderCartPage() {
+      const container = document.getElementById("cartContentContainer");
+      const cartCountHeader = document.getElementById("cartCountHeader");
+      const cart = getCart();
+      const totalCount = getCartTotalCount();
+      const subtotal = getCartSubtotal();
+
+      cartCountHeader.textContent = `${totalCount} ${totalCount === 1 ? 'Item' : 'Items'}`;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state-card">
+            <div class="empty-state-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 01-8 0"></path>
+              </svg>
+            </div>
+            <h2>Your Shopping Cart is Empty</h2>
+            <p>Looks like you haven't added any televisions or accessories to your cart yet. Explore our top collections to find the perfect display for your home!</p>
+            <a href="index.html#featured" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+              <span>Explore Featured TVs</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      const rowsHtml = cart.map(item => {
+        const lineTotal = item.priceNum * item.qty;
+        return `
+          <div class="cart-item-row" data-id="${item.id}">
+            <div class="cart-item-product">
+              <img class="cart-item-img" src="${item.image}" alt="${item.title}" loading="lazy">
+              <div class="cart-item-details">
+                <span class="cart-item-brand">${item.brand} • ${item.category}</span>
+                <span class="cart-item-title">${item.title}</span>
+                <span class="cart-item-unit-price">${formatCurrency(item.priceNum)} each</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="cart-item-stepper">
+                <button type="button" class="btn-qty-minus" data-id="${item.id}" aria-label="Decrease quantity">-</button>
+                <span>${item.qty}</span>
+                <button type="button" class="btn-qty-plus" data-id="${item.id}" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+
+            <div class="cart-item-line-total">
+              ${formatCurrency(lineTotal)}
+            </div>
+
+            <div>
+              <button type="button" class="cart-item-remove-btn" data-remove-id="${item.id}" title="Remove item" aria-label="Remove item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="cart-layout">
+          <div class="cart-items-box">
+            <div class="cart-table-head">
+              <span>Product</span>
+              <span>Quantity</span>
+              <span>Total</span>
+              <span></span>
+            </div>
+
+            ${rowsHtml}
+
+            <div class="cart-actions-bar">
+              <a href="index.html#featured" class="btn-link" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; color: var(--color-primary);">
+                ← Continue Shopping
+              </a>
+              <button type="button" class="btn-link" id="btnClearCart">
+                Clear Shopping Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Order Summary Sidebar -->
+          <div class="order-summary-box">
+            <h3>Order Summary</h3>
+            
+            <div class="summary-line-item">
+              <span>Subtotal (${totalCount} items)</span>
+              <strong>${formatCurrency(subtotal)}</strong>
+            </div>
+
+            <div class="summary-line-item">
+              <span>Delivery Charges</span>
+              <span class="shipping-free-badge">FREE DELIVERY</span>
+            </div>
+
+            <div class="summary-line-item">
+              <span>Professional Wall-Mount</span>
+              <span class="shipping-free-badge">INCLUDED FREE</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total-row">
+              <span>Total Amount</span>
+              <span class="summary-total-price">${formatCurrency(subtotal)}</span>
+            </div>
+
+            <button type="button" class="btn-checkout" onclick="alert('Thank you for ordering with TeleBuy.lk! Our team will contact you for dispatch confirmation.')">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span>Proceed to Checkout</span>
+            </button>
+
+            <a href="index.html#featured" class="btn-continue-shopping">or continue browsing</a>
+
+            <div class="summary-trust-badges">
+              <div>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>3-Year Official Company Warranty</span>
+              </div>
+              <div>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#10b981" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                <span>Fast Dispatch Colombo &amp; Suburbs</span>
+              </div>
+              <div>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <span>Cash on Delivery / Bank Transfer</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      `;
+
+      // Attach Steppers
+      container.querySelectorAll(".btn-qty-minus").forEach(btn => {
+        btn.addEventListener("click", () => {
+          updateCartQty(btn.getAttribute("data-id"), -1);
+          renderCartPage();
+        });
+      });
+
+      container.querySelectorAll(".btn-qty-plus").forEach(btn => {
+        btn.addEventListener("click", () => {
+          updateCartQty(btn.getAttribute("data-id"), 1);
+          renderCartPage();
+        });
+      });
+
+      // Attach Remove Buttons
+      container.querySelectorAll("[data-remove-id]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          removeFromCart(btn.getAttribute("data-remove-id"));
+          renderCartPage();
+        });
+      });
+
+      // Attach Clear Cart
+      const clearBtn = document.getElementById("btnClearCart");
+      if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+          if (confirm("Are you sure you want to remove all items from your cart?")) {
+            clearCart();
+            renderCartPage();
+          }
+        });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCartPage();
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById('navToggle');
+      const mainNav = document.getElementById('mainNav');
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+    });
+  </script>
+
+</body>
+</html>
