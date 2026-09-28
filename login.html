@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — TeleBuy.lk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+
+      <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search TVs by brand, size, model..." aria-label="Search TVs">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#featured">TVs</a></li>
+          <li><a href="#">Deals</a></li>
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" id="cartLink" title="View Shopping Cart">
+              <span>Cart</span>
+              <div class="cart-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-page-wrap">
+      <div class="auth-card">
+        
+        <div class="auth-header">
+          <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+          <h1>Welcome Back</h1>
+          <p>Sign in to manage your TV orders and account</p>
+        </div>
+
+        <!-- Alert Notification Box -->
+        <div class="auth-alert-box" id="authAlert" role="alert">
+          <span id="authAlertMsg"></span>
+        </div>
+
+        <form class="auth-form" id="loginForm" novalidate>
+          
+          <!-- Email Address -->
+          <div class="form-group">
+            <label class="form-label" for="loginEmail">Email Address</label>
+            <input 
+              type="email" 
+              class="form-control" 
+              id="loginEmail" 
+              placeholder="name@domain.com" 
+              required
+              autocomplete="email"
+            >
+            <span class="input-error-msg" id="loginEmailError">Please enter a valid email address.</span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label class="form-label" for="loginPassword">
+              <span>Password</span>
+              <a href="#" class="auth-link" style="font-size: 0.8rem; font-weight: normal;">Forgot?</a>
+            </label>
+            <div class="password-input-wrap">
+              <input 
+                type="password" 
+                class="form-control" 
+                id="loginPassword" 
+                placeholder="Enter your password" 
+                required
+                autocomplete="current-password"
+              >
+              <button type="button" class="password-toggle-btn" id="toggleLoginPasswordBtn" aria-label="Show or hide password">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <span class="input-error-msg" id="loginPasswordError">Please enter your password.</span>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="auth-options-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rememberMeCheck" checked>
+              <span>Keep me signed in</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-auth-submit" id="btnLogin">
+            <span>Sign In</span>
+          </button>
+
+        </form>
+
+        <!-- Demo Shortcut Box for Lab Evaluation -->
+        <div class="demo-credentials-box">
+          <h4>🧪 Lab Evaluation Demo Account</h4>
+          <p>Click below to prefill pre-configured student credentials:</p>
+          <button type="button" class="btn-fill-demo" id="btnPrefillDemo">
+            Fill Demo Account (student@telebuy.lk)
+          </button>
+        </div>
+
+        <div class="auth-footer" style="text-align: center; margin-top: var(--space-lg); font-size: 0.9rem; color: var(--color-text-muted);">
+          Don't have an account? <a href="register.html" class="auth-link">Create Account</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved. Authorized Sri Lanka Television Portal.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
+  <script>
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('loginEmail');
+    const passwordInput = document.getElementById('loginPassword');
+    const rememberMeCheck = document.getElementById('rememberMeCheck');
+    const togglePasswordBtn = document.getElementById('toggleLoginPasswordBtn');
+    const alertBox = document.getElementById('authAlert');
+    const alertMsg = document.getElementById('authAlertMsg');
+    const emailError = document.getElementById('loginEmailError');
+    const passwordError = document.getElementById('loginPasswordError');
+    const prefillBtn = document.getElementById('btnPrefillDemo');
+
+    // Parse URL params for messages or returnUrl
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnUrl = urlParams.get('returnUrl') || 'profile.html';
+
+    if (urlParams.get('registered') === 'true') {
+      showAlert('✓ Account created successfully! Please sign in below.', false);
+    } else if (urlParams.get('returnUrl')) {
+      showAlert('Please sign in to access that protected page.', true);
+    }
+
+    // If user is already authenticated, send to destination
+    if (isAuthenticated()) {
+      window.location.href = returnUrl;
+    }
+
+    // Toggle Password Visibility
+    togglePasswordBtn.addEventListener('click', () => {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+    });
+
+    // Prefill demo credentials
+    prefillBtn.addEventListener('click', () => {
+      emailInput.value = 'student@telebuy.lk';
+      passwordInput.value = 'Password123!';
+      emailInput.classList.remove('is-invalid');
+      passwordInput.classList.remove('is-invalid');
+      emailError.classList.remove('show');
+      passwordError.classList.remove('show');
+    });
+
+    function showAlert(msg, isError = true) {
+      alertBox.className = 'auth-alert-box show ' + (isError ? 'error' : 'success');
+      alertMsg.textContent = msg;
+    }
+
+    function clearAlert() {
+      alertBox.className = 'auth-alert-box';
+      alertMsg.textContent = '';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearAlert();
+
+      let hasError = false;
+
+      if (!VALIDATION.isValidEmail(emailInput.value.trim())) {
+        emailInput.classList.add('is-invalid');
+        emailError.classList.add('show');
+        hasError = true;
+      } else {
+        emailInput.classList.remove('is-invalid');
+        emailError.classList.remove('show');
+      }
+
+      if (!passwordInput.value) {
+        passwordInput.classList.add('is-invalid');
+        passwordError.classList.add('show');
+        hasError = true;
+      } else {
+        passwordInput.classList.remove('is-invalid');
+        passwordError.classList.remove('show');
+      }
+
+      if (hasError) return;
+
+      const submitBtn = document.getElementById('btnLogin');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Signing In...</span>';
+
+      const res = await loginUser(
+        emailInput.value.trim(), 
+        passwordInput.value, 
+        rememberMeCheck.checked
+      );
+
+      if (res.success) {
+        showAlert(`✓ ${res.message} Redirecting...`, false);
+        setTimeout(() => {
+          window.location.href = returnUrl;
+        }, 800);
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Sign In</span>';
+        showAlert(res.message, true);
+      }
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  </script>
+
+</body>
+</html>

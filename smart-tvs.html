@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart TVs — TeleBuy.lk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER (shared across all pages) ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+
+      <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search TVs by brand, size, model..." aria-label="Search TVs">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#featured">TVs</a></li>
+          <li><a href="#">Deals</a></li>
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" id="cartLink" title="View Shopping Cart">
+              <span>Cart</span>
+              <div class="cart-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span>Smart TVs
+    </nav>
+
+    <!-- Category Switcher Navigation Pills -->
+    <div class="category-nav-wrap">
+      <div class="category-nav-pills" aria-label="Browse TV categories">
+        <a href="qled-tvs.html" class="category-pill">🎨 QLED TVs</a>
+        <a href="oled-tvs.html" class="category-pill">⚫ OLED TVs</a>
+        <a href="8k-tvs.html" class="category-pill">🔬 8K TVs</a>
+        <a href="smart-tvs.html" class="category-pill active">📱 Smart TVs</a>
+        <a href="led-tvs.html" class="category-pill">📺 LED TVs</a>
+        <a href="accessories.html" class="category-pill">🔌 Accessories</a>
+      </div>
+    </div>
+
+    <!-- ============ CATEGORY HERO ============ -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&w=1600&q=80');">
+      <div class="page-hero-inner">
+        <span class="page-hero-eyebrow">Endless Entertainment • All Apps Built-In</span>
+        <h1>Smart TVs — Endless Movies, Shows &amp; Apps</h1>
+        <p>Stream Netflix, YouTube, Prime Video, Apple TV+, and Disney+ straight out of the box with intuitive voice remotes and wireless phone casting.</p>
+        <a href="#featured-smart" class="btn btn-primary">Explore Top 5 Smart TVs</a>
+      </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE THIS CATEGORY ============ -->
+    <section class="feature-section" aria-label="Why choose Smart TVs">
+      <h2>Why Choose TeleBuy Smart TVs?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">📱</span>
+          <h3>Pre-Installed Streaming</h3>
+          <p>Instant access to Netflix, YouTube, Prime Video, Hotstar, and Spotify with zero extra boxes.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🎙️</span>
+          <h3>Hands-Free Voice Control</h3>
+          <p>Speak to your remote with Google Assistant or Alexa to search titles, adjust volume, and check weather.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🔗</span>
+          <h3>Wireless Screen Mirroring</h3>
+          <p>Instantly cast pictures, TikTok clips, and office slides from your iPhone or Android phone.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🔄</span>
+          <h3>Automatic Wi-Fi Updates</h3>
+          <p>Operating system updates and new applications install automatically in the background.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5 TOP FEATURED ITEMS SHOWCASE ============ -->
+    <section class="category-showcase" id="featured-smart">
+      <div class="showcase-header">
+        <span class="section-tag">All-In-One Entertainment</span>
+        <h2>Top 5 Featured Smart TVs</h2>
+        <p>Click on any TV to view extensive descriptions, customer reviews, smart app compatibility, and technical specs.</p>
+      </div>
+
+      <div class="showcase-grid">
+
+        <!-- ITEM 1 -->
+        <article class="showcase-card" data-id="smart-1">
+          <button class="card-wishlist-btn" data-id="smart-1" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">Most Popular</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80" alt="Samsung 55 Inch Crystal UHD 4K Smart TV CU8000" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Samsung • Crystal UHD</span>
+            <h3 class="showcase-title">Samsung 55&quot; Crystal UHD 4K Smart TV (CU8000)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(284 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">AirSlim Design</span>
+              <span class="spec-pill">SolarCell Remote</span>
+              <span class="spec-pill">Crystal Processor 4K</span>
+              <span class="spec-pill">Tizen OS</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 219,900</span>
+                <span class="price-original">Rs. 245,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="smart-1">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="showcase-card" data-id="smart-2">
+          <button class="card-wishlist-btn" data-id="smart-2" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge purple">Google TV</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&w=800&q=80" alt="Sony Bravia 50 Inch 4K Google TV KD-50X77L" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Sony • Bravia 4K</span>
+            <h3 class="showcase-title">Sony Bravia 50&quot; 4K Google TV (KD-50X77L)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(192 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">4K X-Reality PRO</span>
+              <span class="spec-pill">Google TV</span>
+              <span class="spec-pill">X-Balanced Speaker</span>
+              <span class="spec-pill">Voice Remote</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 249,000</span>
+                <span class="price-original">Rs. 275,000</span>
+              </div>
+              <span class="price-save">Save 9%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="smart-2">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="showcase-card" data-id="smart-3">
+          <button class="card-wishlist-btn" data-id="smart-3" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge green">Magic Remote</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=800&q=80" alt="LG 55 Inch 4K UHD Smart TV UR80" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">LG • UHD 4K Smart</span>
+            <h3 class="showcase-title">LG 55&quot; 4K UHD Smart TV (UR80 Series)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(167 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">α5 AI Gen6 4K</span>
+              <span class="spec-pill">webOS 24</span>
+              <span class="spec-pill">Magic Remote</span>
+              <span class="spec-pill">Apple AirPlay 2</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 235,000</span>
+                <span class="price-original">Rs. 260,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="smart-3">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="showcase-card" data-id="smart-4">
+          <button class="card-wishlist-btn" data-id="smart-4" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">Value Winner</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80" alt="TCL 50 Inch P745 4K Google Smart TV" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">TCL • P745 Series</span>
+            <h3 class="showcase-title">TCL 50&quot; P745 4K Google Smart TV</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.7</span>
+              <span class="rating-count">(145 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Dolby Vision &amp; Atmos</span>
+              <span class="spec-pill">Wide Color Gamut</span>
+              <span class="spec-pill">Google TV</span>
+              <span class="spec-pill">Metallic Bezel-less</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 169,900</span>
+                <span class="price-original">Rs. 189,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="smart-4">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article class="showcase-card" data-id="smart-5">
+          <button class="card-wishlist-btn" data-id="smart-5" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge red">Best Budget</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=800&q=80" alt="Xiaomi 55 Inch 4K Google TV A Pro" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Xiaomi • A Pro Series</span>
+            <h3 class="showcase-title">Xiaomi 55&quot; 4K Google TV (A Pro Series)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.7</span>
+              <span class="rating-count">(210 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Metallic Unibody</span>
+              <span class="spec-pill">Dolby Audio</span>
+              <span class="spec-pill">Chromecast Built-In</span>
+              <span class="spec-pill">Bluetooth 360° Remote</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 159,900</span>
+                <span class="price-original">Rs. 179,000</span>
+              </div>
+              <span class="price-save">Save 11%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="smart-5">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ LIFESTYLE / DESCRIPTION ============ -->
+    <section class="lifestyle-section">
+      <div class="lifestyle-inner">
+        <div class="lifestyle-photo" role="img" aria-label="Person using a smart remote to browse Netflix apps on television" style="background-image: url('https://images.unsplash.com/photo-1735212769704-d03b95dd1a14?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="lifestyle-text">
+          <h2>One Remote, All The Entertainment You Love</h2>
+          <p>Eliminate untidy wires, TV boxes, and confusing remotes. TeleBuy's smart TVs give your family instant access to thousands of apps including Netflix, Disney+, YouTube, Prime Video, and Apple TV+ through clean, lightning-fast operating systems with personalized recommendations.</p>
+          <ul>
+            <li>Pre-loaded Netflix, Prime Video, and YouTube with one-touch buttons</li>
+            <li>Voice remotes let anyone search for movies in seconds</li>
+            <li>Cast family vacation photos and videos from your phone effortlessly</li>
+            <li>Built-in dual-band Wi-Fi and Bluetooth for wireless headphone listening</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AUDIENCE NOTE ============ -->
+    <section class="audience-note">
+      <p><strong>Recommended for:</strong> families, binge-watchers, and modern households seeking clean, cable-free streaming entertainment.</p>
+    </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="cta-banner">
+      <h2>Transform Your Living Room Today</h2>
+      <p>Order online with cash on delivery, free wall bracket installation, and 3-year warranty across Sri Lanka.</p>
+      <a href="#featured-smart" class="btn btn-primary">Select Your Smart TV</a>
+    </section>
+
+  </main>
+
+  <!-- ============ PRODUCT DETAIL MODAL ============ -->
+  <div class="product-modal-backdrop" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="product-modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-grid">
+        <!-- Media Column -->
+        <div class="modal-media">
+          <div class="modal-main-img-wrap">
+            <img id="modalImg" src="" alt="TV Preview">
+            <span class="modal-media-badge" id="modalBadge">Smart TV Pick</span>
+          </div>
+
+          <div class="modal-perks-box">
+            <div class="perk-item">
+              <span class="perk-icon">🛡️</span>
+              <div><strong>3-Year Official Warranty</strong> full electronic parts coverage</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🚚</span>
+              <div><strong>Islandwide Express Delivery</strong> quick dispatch to your doorstep</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🔧</span>
+              <div><strong>Free Professional Wall Mounting</strong> complete installation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Column -->
+        <div class="modal-info">
+          <span class="modal-brand-tag" id="modalBrand">Brand</span>
+          <h2 class="modal-title" id="modalTitle">Product Title</h2>
+          
+          <div class="modal-meta-row">
+            <div class="rating-row">
+              <span class="stars" id="modalStars">★★★★★</span>
+              <span class="rating-score" id="modalRatingScore">4.9</span>
+              <span class="rating-count" id="modalReviewsCount">(284 reviews)</span>
+            </div>
+            <span class="modal-stock-status">In Stock — Ready to Dispatch</span>
+          </div>
+
+          <div class="modal-price-box">
+            <span class="modal-current-price" id="modalPrice">Rs. 0</span>
+            <span class="modal-old-price" id="modalOldPrice">Rs. 0</span>
+            <span class="modal-save-pill" id="modalSave">Save 10%</span>
+          </div>
+
+          <div class="modal-description-box">
+            <h4>Description &amp; Smart Features</h4>
+            <p id="modalDesc">Detailed description will appear here...</p>
+          </div>
+
+          <ul class="modal-highlights" id="modalHighlights">
+            <!-- Dynamically populated -->
+          </ul>
+
+          <div class="modal-specs-table-wrap">
+            <table class="modal-specs-table">
+              <tbody id="modalSpecsBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="modal-buy-section">
+            <div class="qty-control">
+              <button class="qty-btn" id="qtyMinus" type="button" aria-label="Decrease quantity">-</button>
+              <input class="qty-input" id="qtyInput" type="number" value="1" min="1" max="10" readonly>
+              <button class="qty-btn" id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button class="modal-add-cart-btn" id="modalAddToCartBtn" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 01-8 0"></path>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="alert">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage">Item added to your shopping cart!</span>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+            <li><a href="#">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ INTERACTIVE LOGIC ============ -->
+  <script>
+    const smartProducts = {
+      "smart-1": {
+        brand: "Samsung • Crystal UHD",
+        title: "Samsung 55\" Crystal UHD 4K Smart TV (CU8000)",
+        badge: "Most Popular",
+        image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(284 customer reviews)",
+        price: "Rs. 219,900",
+        oldPrice: "Rs. 245,000",
+        save: "Save Rs. 25,100 (10% Off)",
+        desc: "Samsung's CU8000 Crystal UHD TV delivers lifelike colors and crystal-clear 4K picture in a sleek, ultra-thin AirSlim profile that blends effortlessly onto your wall. Powered by the Crystal Processor 4K, it dynamically maps color and upscales lower-resolution footage. Features Samsung's innovative eco-friendly SolarCell Remote that charges via indoor light—say goodbye to disposable AAA batteries forever. Complete with Tizen OS for seamless streaming of Netflix, YouTube, and Apple TV+.",
+        highlights: [
+          "Dynamic Crystal Color delivers over 1 billion rich, nuanced shades",
+          "AirSlim design with ultra-thin profile and cable management grooves",
+          "Eco SolarCell Remote charges from indoor ambient room lights",
+          "Crystal Processor 4K with Contrast Enhancer & Motion Xcelerator",
+          "Smart Hub unites movies, series, games, and ambient art in one screen"
+        ],
+        specs: [
+          ["Screen Size", "55 Inches (139 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "LED Crystal UHD with Dynamic Crystal Color"],
+          ["Refresh Rate", "60Hz (Motion Xcelerator)"],
+          ["HDR Format", "HDR10+, HDR, HLG"],
+          ["Audio Output", "20W RMS (Object Tracking Sound Lite, Q-Symphony)"],
+          ["Smart OS", "Samsung Tizen™ OS with Bixby & Alexa"],
+          ["Connectivity", "3x HDMI (eARC), 2x USB, Wi-Fi 5, Bluetooth 5.2"],
+          ["Warranty", "3 Years Company Warranty + Free Wall Mount"]
+        ]
+      },
+      "smart-2": {
+        brand: "Sony • Bravia 4K",
+        title: "Sony Bravia 50\" 4K Google TV (KD-50X77L)",
+        badge: "Google TV",
+        image: "https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(192 customer reviews)",
+        price: "Rs. 249,000",
+        oldPrice: "Rs. 275,000",
+        save: "Save Rs. 26,000 (9% Off)",
+        desc: "The Sony Bravia X77L delivers genuine Sony acoustic and visual quality in an accessible smart television. Powered by Sony's 4K Processor X1™ and 4K X-Reality PRO, pictures are sharpened and refined in real time to reveal extra details. Google TV curates over 700,000 movies and TV episodes across your subscription apps into a unified home screen. Features X-Balanced speakers that drive clear audio without sacrificing the TV's slim, modern aesthetic.",
+        highlights: [
+          "4K Processor X1™ with 4K X-Reality PRO super-resolution engine",
+          "Google TV organizes movies and TV shows across all your streaming apps",
+          "X-Balanced Speaker design delivers crystal dialogue and deep bass",
+          "Smart voice remote with dedicated Netflix and YouTube shortcut buttons",
+          "Apple AirPlay 2 and built-in Google Chromecast for phone mirroring"
+        ],
+        specs: [
+          ["Screen Size", "50 Inches (126 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Direct LED with Live Color Technology"],
+          ["Refresh Rate", "60Hz Native (Motionflow XR 200)"],
+          ["HDR Format", "HDR10, HLG"],
+          ["Audio Output", "20W (X-Balanced Speaker, Dolby Audio)"],
+          ["Smart OS", "Google TV with Google Assistant voice control"],
+          ["Connectivity", "3x HDMI (eARC/ARC), 2x USB, Wi-Fi, Bluetooth 5.0"],
+          ["Warranty", "3 Years Authorized Sony Sri Lanka Warranty"]
+        ]
+      },
+      "smart-3": {
+        brand: "LG • UHD 4K Smart",
+        title: "LG 55\" 4K UHD Smart TV (UR80 Series)",
+        badge: "Magic Remote",
+        image: "https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(167 customer reviews)",
+        price: "Rs. 235,000",
+        oldPrice: "Rs. 260,000",
+        save: "Save Rs. 25,000 (10% Off)",
+        desc: "LG's UR80 Series delivers vivid 4K visual immersion driven by the α5 AI Processor 4K Gen6. Featuring LG's signature Magic Remote with air-mouse pointer navigation, browsing menus and typing passwords is as simple as waving your wrist. Equipped with webOS 24, personalized user profiles, AI Brightness Control, and Game Optimizer mode with ALLM, the UR80 is the ideal smart centerpiece for every modern Sri Lankan household.",
+        highlights: [
+          "α5 AI Processor 4K Gen6 with AI Brightness Control and AI Sound",
+          "Magic Remote with motion sensor air-mouse pointer and wheel scroll",
+          "webOS 24 with Quick Cards to jump into Sports, Music, and Gaming",
+          "Filmmaker Mode disables smoothing to preserve director's vision",
+          "AirPlay 2, Apple Home, and Matter smart home device support"
+        ],
+        specs: [
+          ["Screen Size", "55 Inches (139 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "Direct LED with 4K Upscaling"],
+          ["Refresh Rate", "60Hz Native"],
+          ["HDR Format", "HDR10 Pro, HLG, Filmmaker Mode"],
+          ["Audio Output", "20W (2.0 Channel with AI Sound Pro virtual 5.1.2)"],
+          ["Smart OS", "webOS 24 with ThinQ AI"],
+          ["Connectivity", "3x HDMI (eARC), 2x USB, Wi-Fi 5, Bluetooth 5.0"],
+          ["Warranty", "3 Years Authorized Abans Warranty"]
+        ]
+      },
+      "smart-4": {
+        brand: "TCL • P745 Series",
+        title: "TCL 50\" P745 4K Google Smart TV",
+        badge: "Value Winner",
+        image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.7",
+        reviews: "(145 customer reviews)",
+        price: "Rs. 169,900",
+        oldPrice: "Rs. 189,000",
+        save: "Save Rs. 19,100 (10% Off)",
+        desc: "The TCL P745 delivers sensational premium features at an unbeatable price point. Sporting an edgeless metallic unibody design, it supports both Dolby Vision high dynamic range and Dolby Atmos immersive sound. Powered by Google TV, it includes hands-free voice control so you can ask Google to play movies from across the room without touching a remote. The wide color gamut panel renders over 90% DCI-P3 color volume for rich, lifelike realism.",
+        highlights: [
+          "Dolby Vision & Dolby Atmos for authentic cinema visual and audio punch",
+          "Wide Color Gamut displays over 1 billion cinematic shades",
+          "Hands-Free Voice Control 2.0 with far-field microphones built into the bezel",
+          "Metallic Bezel-Less borderless design with ultra-slim aluminum stand",
+          "Game Master mode with HDMI 2.1 eARC and auto low latency"
+        ],
+        specs: [
+          ["Screen Size", "50 Inches (126 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "LED with Wide Color Gamut (WCG)"],
+          ["Refresh Rate", "60Hz (120Hz DLG accelerator)"],
+          ["HDR Format", "Dolby Vision, HDR10, HLG"],
+          ["Audio Output", "20W (Dolby Atmos & DTS-HD decoding)"],
+          ["Smart OS", "Google TV with built-in Google Assistant"],
+          ["Connectivity", "3x HDMI (1x HDMI 2.1 eARC), 1x USB 3.0, Wi-Fi, BT 5.0"],
+          ["Warranty", "3 Years Company Warranty + Free Wall Installation"]
+        ]
+      },
+      "smart-5": {
+        brand: "Xiaomi • A Pro Series",
+        title: "Xiaomi 55\" 4K Google TV (A Pro Series)",
+        badge: "Best Budget",
+        image: "https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.7",
+        reviews: "(210 customer reviews)",
+        price: "Rs. 159,900",
+        oldPrice: "Rs. 179,000",
+        save: "Save Rs. 19,100 (11% Off)",
+        desc: "Xiaomi A Pro 55\" sets a new standard for modern smart TVs with its exquisite metallic unibody frame and bezel-less display. Featuring a 4K UHD screen with MEMC motion estimation, sports and action films remain crystal clear without jitter. Enjoy full Google TV integration with personalized streaming picks, built-in Chromecast, and a 360° Bluetooth remote that operates from any angle or behind obstacles.",
+        highlights: [
+          "Full metallic unibody frame with bezel-less infinity screen design",
+          "4K Ultra HD panel with MEMC motion estimation technology",
+          "Dolby Audio™ and DTS-X dual decoding with 24W stereo speakers",
+          "Google TV with Google Assistant voice search and Google Play Store",
+          "360° Bluetooth remote control works through walls and sofa pillows"
+        ],
+        specs: [
+          ["Screen Size", "55 Inches (139 cm diagonal)"],
+          ["Resolution", "4K Ultra HD (3840 × 2160)"],
+          ["Display Panel", "4K UHD LED with 90% DCI-P3 wide color"],
+          ["Refresh Rate", "60Hz with MEMC motion smoothing"],
+          ["HDR Format", "HDR10, HLG"],
+          ["Audio Output", "24W (2x 12W speakers, Dolby Audio, DTS-X)"],
+          ["Smart OS", "Google TV with built-in Chromecast"],
+          ["Connectivity", "3x HDMI (1x eARC), 2x USB 2.0, Wi-Fi 2.4/5GHz, BT 5.0"],
+          ["Warranty", "3 Years Authorized Singer Warranty"]
+        ]
+      }
+    };
+
+    // DOM Elements
+    const modal = document.getElementById('productModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalImg = document.getElementById('modalImg');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalBrand = document.getElementById('modalBrand');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalRatingScore = document.getElementById('modalRatingScore');
+    const modalReviewsCount = document.getElementById('modalReviewsCount');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalOldPrice = document.getElementById('modalOldPrice');
+    const modalSave = document.getElementById('modalSave');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalHighlights = document.getElementById('modalHighlights');
+    const modalSpecsBody = document.getElementById('modalSpecsBody');
+    const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+    const qtyInput = document.getElementById('qtyInput');
+    const qtyMinus = document.getElementById('qtyMinus');
+    const qtyPlus = document.getElementById('qtyPlus');
+    const cartBadge = document.getElementById('cartBadge');
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    let currentProduct = null;
+    let currentProductId = null;
+
+    function openModal(productId) {
+      const product = smartProducts[productId];
+      if (!product) return;
+      currentProduct = product;
+      currentProductId = productId;
+
+      modalImg.src = product.image;
+      modalImg.alt = product.title;
+      modalBadge.textContent = product.badge;
+      modalBrand.textContent = product.brand;
+      modalTitle.textContent = product.title;
+      modalRatingScore.textContent = product.rating;
+      modalReviewsCount.textContent = product.reviews;
+      modalPrice.textContent = product.price;
+      modalOldPrice.textContent = product.oldPrice;
+      modalSave.textContent = product.save;
+      modalDesc.textContent = product.desc;
+
+      modalHighlights.innerHTML = product.highlights.map(h => `<li>${h}</li>`).join('');
+
+      modalSpecsBody.innerHTML = product.specs.map(([label, val]) => `
+        <tr>
+          <td>${label}</td>
+          <td>${val}</td>
+        </tr>
+      `).join('');
+
+      qtyInput.value = 1;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.showcase-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-wishlist-btn') || e.target.closest('.btn-cart-sm')) {
+          return;
+        }
+        const productId = card.getAttribute('data-id');
+        openModal(productId);
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    qtyMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    qtyPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val < 10) qtyInput.value = val + 1;
+    });
+
+    modalAddToCartBtn.addEventListener('click', () => {
+      if (!currentProductId) return;
+      const qty = parseInt(qtyInput.value, 10) || 1;
+      addToCart(currentProductId, qty);
+      closeModal();
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
+
+</body>
+</html>

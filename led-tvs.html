@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LED TVs — TeleBuy.lk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER (shared across all pages) ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+
+      <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search TVs by brand, size, model..." aria-label="Search TVs">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#featured">TVs</a></li>
+          <li><a href="#">Deals</a></li>
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" id="cartLink" title="View Shopping Cart">
+              <span>Cart</span>
+              <div class="cart-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span>LED TVs
+    </nav>
+
+    <!-- Category Switcher Navigation Pills -->
+    <div class="category-nav-wrap">
+      <div class="category-nav-pills" aria-label="Browse TV categories">
+        <a href="qled-tvs.html" class="category-pill">🎨 QLED TVs</a>
+        <a href="oled-tvs.html" class="category-pill">⚫ OLED TVs</a>
+        <a href="8k-tvs.html" class="category-pill">🔬 8K TVs</a>
+        <a href="smart-tvs.html" class="category-pill">📱 Smart TVs</a>
+        <a href="led-tvs.html" class="category-pill active">📺 LED TVs</a>
+        <a href="accessories.html" class="category-pill">🔌 Accessories</a>
+      </div>
+    </div>
+
+    <!-- ============ CATEGORY HERO ============ -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1596204976717-1a9ff47f74ef?auto=format&fit=crop&w=1600&q=80');">
+      <div class="page-hero-inner">
+        <span class="page-hero-eyebrow">Reliable Quality • Affordable Excellence</span>
+        <h1>LED TVs — Reliable Picture, Everyday Value</h1>
+        <p>A dependable, energy-efficient choice for bedrooms, apartments, and dining rooms — crisp Full HD/4K picture quality without a luxury price tag.</p>
+        <a href="#featured-led" class="btn btn-primary">Explore Top 5 LED Models</a>
+      </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE THIS CATEGORY ============ -->
+    <section class="feature-section" aria-label="Why choose LED TVs">
+      <h2>Why Choose TeleBuy LED TVs?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">💰</span>
+          <h3>Highly Affordable</h3>
+          <p>The most budget-friendly path to upgrade to a crisp, high-definition entertainment display.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🔋</span>
+          <h3>Ultra Energy-Efficient</h3>
+          <p>Advanced LED backlights consume minimal electricity, saving money on monthly power bills.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🛠️</span>
+          <h3>Proven Long-Term Durability</h3>
+          <p>Solid-state technology with decades of proven reliability and straightforward maintenance.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">📺</span>
+          <h3>Compact 32&quot; to 43&quot; Sizes</h3>
+          <p>Ideal screen proportions for bedrooms, home offices, children's study rooms, and dorms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5 TOP FEATURED ITEMS SHOWCASE ============ -->
+    <section class="category-showcase" id="featured-led">
+      <div class="showcase-header">
+        <span class="section-tag">Best Value Range</span>
+        <h2>Top 5 Featured LED Televisions</h2>
+        <p>Click on any model to view rich technical descriptions, energy efficiency metrics, and specifications.</p>
+      </div>
+
+      <div class="showcase-grid">
+
+        <!-- ITEM 1 -->
+        <article class="showcase-card" data-id="led-1">
+          <button class="card-wishlist-btn" data-id="led-1" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">#1 Best Seller</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80" alt="Samsung 43 Inch Full HD Smart LED TV T5300" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Samsung • Series 5</span>
+            <h3 class="showcase-title">Samsung 43&quot; Full HD Smart LED TV (T5300)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.9</span>
+              <span class="rating-count">(312 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Full HD 1080p</span>
+              <span class="spec-pill">PurColor</span>
+              <span class="spec-pill">HDR Support</span>
+              <span class="spec-pill">Smart Tizen</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 119,900</span>
+                <span class="price-original">Rs. 135,000</span>
+              </div>
+              <span class="price-save">Save 11%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="led-1">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="showcase-card" data-id="led-2">
+          <button class="card-wishlist-btn" data-id="led-2" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge purple">Japanese Quality</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&w=800&q=80" alt="Sony Bravia 43 Inch Full HD LED TV W6600" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Sony • Bravia LED</span>
+            <h3 class="showcase-title">Sony Bravia 43&quot; Full HD LED TV (W6600)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(184 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">X-Reality PRO</span>
+              <span class="spec-pill">Bass Reflex Speaker</span>
+              <span class="spec-pill">ClearAudio+</span>
+              <span class="spec-pill">HDR Gaming</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 138,000</span>
+                <span class="price-original">Rs. 152,000</span>
+              </div>
+              <span class="price-save">Save 9%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="led-2">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="showcase-card" data-id="led-3">
+          <button class="card-wishlist-btn" data-id="led-3" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge green">Family Choice</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=800&q=80" alt="LG 43 Inch Full HD Smart LED TV LM5750" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">LG • Full HD Smart</span>
+            <h3 class="showcase-title">LG 43&quot; Full HD Smart LED TV (LM5750 Series)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.8</span>
+              <span class="rating-count">(155 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Dynamic Color</span>
+              <span class="spec-pill">Virtual Surround</span>
+              <span class="spec-pill">Quad Core Processor</span>
+              <span class="spec-pill">webOS</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 125,000</span>
+                <span class="price-original">Rs. 139,000</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="led-3">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="showcase-card" data-id="led-4">
+          <button class="card-wishlist-btn" data-id="led-4" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge gold">Value Winner</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80" alt="TCL 40 Inch Full HD Android Smart LED TV S5400" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">TCL • S5400 Series</span>
+            <h3 class="showcase-title">TCL 40&quot; Full HD Google Smart LED TV (S5400)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.7</span>
+              <span class="rating-count">(198 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Bezel-Less Frame</span>
+              <span class="spec-pill">Google TV OS</span>
+              <span class="spec-pill">Dolby Audio</span>
+              <span class="spec-pill">Chromecast Built-In</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 89,900</span>
+                <span class="price-original">Rs. 99,900</span>
+              </div>
+              <span class="price-save">Save 10%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="led-4">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article class="showcase-card" data-id="led-5">
+          <button class="card-wishlist-btn" data-id="led-5" aria-label="Add to wishlist" title="Save to wishlist">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="card-badge red">Best Entry Price</span>
+          <div class="showcase-img-wrap">
+            <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=800&q=80" alt="Hisense 32 Inch HD Smart LED TV A4K" loading="lazy">
+            <div class="showcase-img-overlay">
+              <span class="quick-view-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Click for Full Details &amp; Specs
+              </span>
+            </div>
+          </div>
+          <div class="showcase-body">
+            <span class="showcase-brand">Hisense • Series 4</span>
+            <h3 class="showcase-title">Hisense 32&quot; HD Smart LED TV (A4K Series)</h3>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span class="rating-score">4.7</span>
+              <span class="rating-count">(240 reviews)</span>
+            </div>
+            <div class="spec-pills-row">
+              <span class="spec-pill">Natural Color</span>
+              <span class="spec-pill">DTS Virtual:X</span>
+              <span class="spec-pill">VIDAA Smart</span>
+              <span class="spec-pill">Low Power 50W</span>
+            </div>
+            <div class="price-box">
+              <div>
+                <span class="price-current">Rs. 54,900</span>
+                <span class="price-original">Rs. 62,000</span>
+              </div>
+              <span class="price-save">Save 11%</span>
+            </div>
+            <div class="showcase-actions">
+              <button class="btn-details" type="button">
+                <span>View Details</span>
+              </button>
+              <button class="btn-cart-sm" type="button" data-add-id="led-5">
+                <span>+ Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ LIFESTYLE / DESCRIPTION ============ -->
+    <section class="lifestyle-section">
+      <div class="lifestyle-inner">
+        <div class="lifestyle-photo" role="img" aria-label="Bright minimalist Nordic bedroom with a flat-screen LED TV" style="background-image: url('https://images.unsplash.com/photo-1698673786592-cd5730baf7d7?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="lifestyle-text">
+          <h2>The Practical Choice for Every Bedroom &amp; Space</h2>
+          <p>Not every room requires a massive flagship screen. TeleBuy's LED televisions provide crystal-clear Full HD picture quality at an economical price point that makes absolute sense for bedrooms, apartments, kitchens, dorms, and guest rooms.</p>
+          <ul>
+            <li>Crisp 1080p Full HD &amp; High Definition picture processing</li>
+            <li>Remarkably low power consumption (under 60W power draw)</li>
+            <li>Ultra-lightweight design mountable on any standard wall bracket</li>
+            <li>Full 3-Year official warranty with islandwide technical service</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AUDIENCE NOTE ============ -->
+    <section class="audience-note">
+      <p><strong>Recommended for:</strong> value-conscious shoppers, bedroom secondary televisions, and compact living areas.</p>
+    </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="cta-banner">
+      <h2>Upgrade Every Room With Quality LED TVs</h2>
+      <p>Enjoy guaranteed 3-year authorized company warranty and free wall-bracket mounting across Sri Lanka.</p>
+      <a href="#featured-led" class="btn btn-primary">Browse Featured LED TVs</a>
+    </section>
+
+  </main>
+
+  <!-- ============ PRODUCT DETAIL MODAL ============ -->
+  <div class="product-modal-backdrop" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="product-modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-grid">
+        <!-- Media Column -->
+        <div class="modal-media">
+          <div class="modal-main-img-wrap">
+            <img id="modalImg" src="" alt="TV Preview">
+            <span class="modal-media-badge" id="modalBadge">LED Value Pick</span>
+          </div>
+
+          <div class="modal-perks-box">
+            <div class="perk-item">
+              <span class="perk-icon">🛡️</span>
+              <div><strong>3-Year Official Warranty</strong> genuine manufacturer guarantee</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🚚</span>
+              <div><strong>Islandwide Safe Delivery</strong> safely packaged and insured</div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🔧</span>
+              <div><strong>Free Wall-Mount Installation</strong> bracket included</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Column -->
+        <div class="modal-info">
+          <span class="modal-brand-tag" id="modalBrand">Brand</span>
+          <h2 class="modal-title" id="modalTitle">Product Title</h2>
+          
+          <div class="modal-meta-row">
+            <div class="rating-row">
+              <span class="stars" id="modalStars">★★★★★</span>
+              <span class="rating-score" id="modalRatingScore">4.9</span>
+              <span class="rating-count" id="modalReviewsCount">(312 reviews)</span>
+            </div>
+            <span class="modal-stock-status">In Stock — Ready to Dispatch</span>
+          </div>
+
+          <div class="modal-price-box">
+            <span class="modal-current-price" id="modalPrice">Rs. 0</span>
+            <span class="modal-old-price" id="modalOldPrice">Rs. 0</span>
+            <span class="modal-save-pill" id="modalSave">Save 10%</span>
+          </div>
+
+          <div class="modal-description-box">
+            <h4>Description &amp; Key Features</h4>
+            <p id="modalDesc">Detailed description will appear here...</p>
+          </div>
+
+          <ul class="modal-highlights" id="modalHighlights">
+            <!-- Dynamically populated -->
+          </ul>
+
+          <div class="modal-specs-table-wrap">
+            <table class="modal-specs-table">
+              <tbody id="modalSpecsBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="modal-buy-section">
+            <div class="qty-control">
+              <button class="qty-btn" id="qtyMinus" type="button" aria-label="Decrease quantity">-</button>
+              <input class="qty-input" id="qtyInput" type="number" value="1" min="1" max="10" readonly>
+              <button class="qty-btn" id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button class="modal-add-cart-btn" id="modalAddToCartBtn" type="button">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 01-8 0"></path>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="alert">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage">Item added to your shopping cart!</span>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+            <li><a href="#">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ INTERACTIVE LOGIC ============ -->
+  <script>
+    const ledProducts = {
+      "led-1": {
+        brand: "Samsung • Series 5",
+        title: "Samsung 43\" Full HD Smart LED TV (T5300)",
+        badge: "#1 Best Seller",
+        image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.9",
+        reviews: "(312 customer reviews)",
+        price: "Rs. 119,900",
+        oldPrice: "Rs. 135,000",
+        save: "Save Rs. 15,100 (11% Off)",
+        desc: "The Samsung T5300 Full HD LED TV brings incredible clarity and vibrant colors into bedrooms and apartments. With Ultra Clean View and PurColor technology, it analyzes original video signals with an advanced algorithm to eliminate noise and distortion. HDR support delivers immense spectrums of color even in dark scenes. Powered by Samsung's renowned Tizen OS, you get instant access to Netflix, YouTube, web browsing, and screen mirroring right out of the box.",
+        highlights: [
+          "Full HD 1080p resolution provides 2x the detail of standard HD TVs",
+          "PurColor enables the TV to express a huge range of colors for optimal picture",
+          "Ultra Clean View reduces noise and delivers refined, artifact-free images",
+          "Built-in Tizen Smart OS with Netflix, YouTube, and browser pre-installed",
+          "Works with AirPlay 2 for direct streaming from Apple iPhones and iPads"
+        ],
+        specs: [
+          ["Screen Size", "43 Inches (108 cm diagonal)"],
+          ["Resolution", "Full HD (1920 × 1080)"],
+          ["Display Panel", "LED with Hyper Real Engine"],
+          ["Refresh Rate", "60Hz (Motion Rate 50)"],
+          ["HDR Format", "HDR compatible"],
+          ["Audio Output", "20W (2 Channel Dolby Digital Plus)"],
+          ["Smart OS", "Samsung Tizen™ OS"],
+          ["Connectivity", "2x HDMI, 1x USB, Optical Out, Wi-Fi 4"],
+          ["Warranty", "3 Years Authorized Singer / Samsung Warranty"]
+        ]
+      },
+      "led-2": {
+        brand: "Sony • Bravia LED",
+        title: "Sony Bravia 43\" Full HD LED TV (W6600)",
+        badge: "Japanese Quality",
+        image: "https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(184 customer reviews)",
+        price: "Rs. 138,000",
+        oldPrice: "Rs. 152,000",
+        save: "Save Rs. 14,000 (9% Off)",
+        desc: "Crafted to Sony's uncompromising durability standards, the Bravia W6600 offers exceptional Full HD picture refinement with X-Reality PRO upscaling. Every pixel is analyzed against a dedicated database to sharpen textures and reduce grain. Features ClearAudio+ and an integrated Bass Reflex speaker box that pumps out rich low-end acoustics without distortion. Built with X-Protection PRO, shielding the television from dust, lightning surges, and power fluctuations common in tropical climates.",
+        highlights: [
+          "X-Reality PRO picture engine upscales every pixel with remarkable clarity",
+          "X-Protection PRO defends against dust, humidity, power surges, and lightning",
+          "Bass Reflex Speaker creates punchy, resonant bass for movies and music",
+          "Dedicated one-click Netflix and YouTube remote shortcut buttons",
+          "ClearAudio+ fine-tunes TV sound for an immersive, emotionally enriching experience"
+        ],
+        specs: [
+          ["Screen Size", "43 Inches (108 cm diagonal)"],
+          ["Resolution", "Full HD (1920 × 1080)"],
+          ["Display Panel", "Direct LED with Dynamic Contrast Enhancer"],
+          ["Refresh Rate", "50/60Hz Native (Motionflow XR 200Hz)"],
+          ["HDR Format", "HDR10, HLG"],
+          ["Audio Output", "10W (Bass Reflex Speaker, Dolby Digital)"],
+          ["Smart OS", "Linux-based Smart TV with App Store"],
+          ["Connectivity", "2x HDMI (eARC/ARC), 2x USB, Wi-Fi, Headphone Jack"],
+          ["Warranty", "3 Years Authorized Sony Sri Lanka Warranty"]
+        ]
+      },
+      "led-3": {
+        brand: "LG • Full HD Smart",
+        title: "LG 43\" Full HD Smart LED TV (LM5750 Series)",
+        badge: "Family Choice",
+        image: "https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.8",
+        reviews: "(155 customer reviews)",
+        price: "Rs. 125,000",
+        oldPrice: "Rs. 139,000",
+        save: "Save Rs. 14,000 (10% Off)",
+        desc: "The LG LM5750 Full HD TV combines brilliant color reproduction with user-friendly webOS smart capabilities. Its Quad-Core processor eliminates noise and generates more dynamic color and contrast. Active HDR optimizes every scene to deliver delicate detail and rich natural tones. Featuring Virtual Surround Plus audio, voices and background music feel three-dimensional without needing external audio gear.",
+        highlights: [
+          "Dynamic Color Enhancer adjusts image color for richer, more organic pictures",
+          "Quad-Core Processor works tirelessly to reduce distracting video noise",
+          "Active HDR delivers delicate detail and lifelike contrast in every frame",
+          "Virtual Surround Plus creates an expansive, spatial audio landscape",
+          "LG webOS smart platform with pre-installed Netflix, YouTube, and browser"
+        ],
+        specs: [
+          ["Screen Size", "43 Inches (108 cm diagonal)"],
+          ["Resolution", "Full HD (1920 × 1080)"],
+          ["Display Panel", "Direct LED IPS Panel"],
+          ["Refresh Rate", "60Hz Native"],
+          ["HDR Format", "Active HDR, HDR10, HLG"],
+          ["Audio Output", "10W (Virtual Surround Plus, Clear Voice III)"],
+          ["Smart OS", "webOS with ThinQ AI support"],
+          ["Connectivity", "2x HDMI, 1x USB, Component/AV, Wi-Fi"],
+          ["Warranty", "3 Years Authorized Abans Warranty"]
+        ]
+      },
+      "led-4": {
+        brand: "TCL • S5400 Series",
+        title: "TCL 40\" Full HD Google Smart LED TV (S5400)",
+        badge: "Value Winner",
+        image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.7",
+        reviews: "(198 customer reviews)",
+        price: "Rs. 89,900",
+        oldPrice: "Rs. 99,900",
+        save: "Save Rs. 10,000 (10% Off)",
+        desc: "The TCL S5400 redefines entry-level pricing by providing a borderless metallic bezel-less exterior and full Google TV intelligence under Rs. 90,000. With Google TV, you get access to thousands of downloadable apps on the Google Play Store, voice commands via Google Assistant, and seamless casting from your smartphone with Google Chromecast.",
+        highlights: [
+          "Edgeless Metallic Bezel-Less design gives a luxury look in any room",
+          "Full Google TV platform with access to 5,000+ streaming apps",
+          "Dolby Audio provides rich, clear, cinematic dialog and sound",
+          "Built-in Google Chromecast for instant one-touch mobile screen casting",
+          "HDR10 decoding reveals details in both highlights and shadows"
+        ],
+        specs: [
+          ["Screen Size", "40 Inches (101 cm diagonal)"],
+          ["Resolution", "Full HD (1920 × 1080)"],
+          ["Display Panel", "LED with Micro Dimming"],
+          ["Refresh Rate", "60Hz"],
+          ["HDR Format", "HDR10, HLG"],
+          ["Audio Output", "16W (2x 8W, Dolby Audio MS12)"],
+          ["Smart OS", "Google TV with Google Assistant"],
+          ["Connectivity", "2x HDMI (1x eARC), 1x USB, Wi-Fi 2.4G, Bluetooth 5.0"],
+          ["Warranty", "3 Years Company Warranty + Free Wall Installation"]
+        ]
+      },
+      "led-5": {
+        brand: "Hisense • Series 4",
+        title: "Hisense 32\" HD Smart LED TV (A4K Series)",
+        badge: "Best Entry Price",
+        image: "https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=1000&q=85",
+        rating: "4.7",
+        reviews: "(240 customer reviews)",
+        price: "Rs. 54,900",
+        oldPrice: "Rs. 62,000",
+        save: "Save Rs. 7,100 (11% Off)",
+        desc: "The ideal compact television for bedrooms, kitchens, or second setups. The Hisense A4K 32\" features Natural Color Enhancer technology that maximizes color reproduction for true-to-life images. Equipped with DTS Virtual:X sound processing that generates rich bass without needing separate speakers. VIDAA U OS ensures lightning-fast booting and instant access to YouTube and Netflix.",
+        highlights: [
+          "Compact 32-inch size perfectly tailored for small rooms and kitchen walls",
+          "Natural Color Enhancer maximizes color accuracy across all scenes",
+          "DTS Virtual:X delivers virtual height and multi-channel surround experience",
+          "Ultra-low power consumption rating (under 50W energy draw)",
+          "VIDAA Smart OS boots up in under 3 seconds with one-touch app access"
+        ],
+        specs: [
+          ["Screen Size", "32 Inches (80 cm diagonal)"],
+          ["Resolution", "High Definition HD (1366 × 768)"],
+          ["Display Panel", "Direct LED Panel"],
+          ["Refresh Rate", "60Hz Native"],
+          ["HDR Format", "Standard Color Dynamic Enhancement"],
+          ["Audio Output", "12W (DTS Virtual:X, Dolby Audio)"],
+          ["Smart OS", "VIDAA U5 Smart OS with Netflix & YouTube"],
+          ["Connectivity", "2x HDMI, 2x USB, Headphone Jack, Wi-Fi"],
+          ["Warranty", "3 Years Comprehensive Manufacturer Warranty"]
+        ]
+      }
+    };
+
+    // DOM Elements
+    const modal = document.getElementById('productModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalImg = document.getElementById('modalImg');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalBrand = document.getElementById('modalBrand');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalRatingScore = document.getElementById('modalRatingScore');
+    const modalReviewsCount = document.getElementById('modalReviewsCount');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalOldPrice = document.getElementById('modalOldPrice');
+    const modalSave = document.getElementById('modalSave');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalHighlights = document.getElementById('modalHighlights');
+    const modalSpecsBody = document.getElementById('modalSpecsBody');
+    const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+    const qtyInput = document.getElementById('qtyInput');
+    const qtyMinus = document.getElementById('qtyMinus');
+    const qtyPlus = document.getElementById('qtyPlus');
+    const cartBadge = document.getElementById('cartBadge');
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    let currentProduct = null;
+    let currentProductId = null;
+
+    function openModal(productId) {
+      const product = ledProducts[productId];
+      if (!product) return;
+      currentProduct = product;
+      currentProductId = productId;
+
+      modalImg.src = product.image;
+      modalImg.alt = product.title;
+      modalBadge.textContent = product.badge;
+      modalBrand.textContent = product.brand;
+      modalTitle.textContent = product.title;
+      modalRatingScore.textContent = product.rating;
+      modalReviewsCount.textContent = product.reviews;
+      modalPrice.textContent = product.price;
+      modalOldPrice.textContent = product.oldPrice;
+      modalSave.textContent = product.save;
+      modalDesc.textContent = product.desc;
+
+      modalHighlights.innerHTML = product.highlights.map(h => `<li>${h}</li>`).join('');
+
+      modalSpecsBody.innerHTML = product.specs.map(([label, val]) => `
+        <tr>
+          <td>${label}</td>
+          <td>${val}</td>
+        </tr>
+      `).join('');
+
+      qtyInput.value = 1;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.showcase-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-wishlist-btn') || e.target.closest('.btn-cart-sm')) {
+          return;
+        }
+        const productId = card.getAttribute('data-id');
+        openModal(productId);
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    qtyMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val > 1) qtyInput.value = val - 1;
+    });
+
+    qtyPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value, 10) || 1;
+      if (val < 10) qtyInput.value = val + 1;
+    });
+
+    modalAddToCartBtn.addEventListener('click', () => {
+      if (!currentProductId) return;
+      const qty = parseInt(qtyInput.value, 10) || 1;
+      addToCart(currentProductId, qty);
+      closeModal();
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile &amp; Dashboard — TeleBuy.lk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+
+      <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search TVs by brand, size, model..." aria-label="Search TVs">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#featured">TVs</a></li>
+          <li><a href="#">Deals</a></li>
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" id="cartLink" title="View Shopping Cart">
+              <span>Cart</span>
+              <div class="cart-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="profile-page-wrap">
+
+      <!-- ============ BREADCRUMB ============ -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span>My Account Dashboard
+      </nav>
+
+      <!-- Alert Notification Box -->
+      <div class="auth-alert-box" id="profileAlert" role="alert">
+        <span id="profileAlertMsg"></span>
+      </div>
+
+      <!-- ============ USER HERO HEADER ============ -->
+      <section class="profile-hero-card">
+        <div class="profile-hero-user">
+          <img src="" alt="User Avatar" class="profile-avatar-lg" id="profileAvatarImg">
+          <div class="profile-hero-details">
+            <h1 id="heroFullName">Dev Student</h1>
+            <p>
+              <span id="heroEmail">student@telebuy.lk</span>
+              <span class="profile-badge-status" id="heroStatus">Active Member</span>
+            </p>
+          </div>
+        </div>
+        <div class="profile-hero-actions">
+          <button class="btn btn-outline" id="btnLogoutHero" style="color: #fff; border-color: rgba(255,255,255,0.3); font-size: 0.85rem;" type="button">
+            Sign Out
+          </button>
+        </div>
+      </section>
+
+      <!-- ============ DASHBOARD LAYOUT ============ -->
+      <div class="profile-grid-layout">
+        
+        <!-- SIDEBAR -->
+        <aside class="profile-sidebar">
+          
+          <div class="profile-nav-card">
+            <button class="profile-tab-btn active" data-tab="tab-personal">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Personal Details</span>
+            </button>
+            <button class="profile-tab-btn" data-tab="tab-addresses">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Addresses &amp; Delivery</span>
+            </button>
+            <button class="profile-tab-btn" data-tab="tab-security">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Security &amp; Password</span>
+            </button>
+          </div>
+
+          <!-- Cart Association Box (Milestone 4 Requirement) -->
+          <div class="profile-cart-sync-box">
+            <h4>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              Cart State Associated
+            </h4>
+            <p id="profileCartStatus">Guest cart items automatically merged with your account.</p>
+            <a href="cart.html" class="auth-link" style="font-size: 0.82rem; font-weight: 700; margin-top: 6px; display: inline-block;">
+              View Shopping Cart &rarr;
+            </a>
+          </div>
+
+        </aside>
+
+        <!-- CONTENT AREA -->
+        <div class="profile-content">
+          
+          <!-- TAB 1: PERSONAL DETAILS -->
+          <div class="profile-tab-pane active" id="tab-personal">
+            <div class="profile-card">
+              <h3>Personal Information</h3>
+              <p class="subtitle">Update your personal contact information</p>
+
+              <form id="formPersonalDetails">
+                <div class="form-2col">
+                  
+                  <div class="form-group">
+                    <label class="form-label" for="profileName">Full Name</label>
+                    <input type="text" class="form-control" id="profileName" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profileEmail">Email Address</label>
+                    <input type="email" class="form-control" id="profileEmail" disabled style="background: #f1f5f9; cursor: not-allowed;">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profilePhone">Phone Number</label>
+                    <input type="tel" class="form-control" id="profilePhone" placeholder="+94 77 123 4567">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profileMemberSince">Member Since</label>
+                    <input type="text" class="form-control" id="profileMemberSince" disabled style="background: #f1f5f9; cursor: not-allowed;">
+                  </div>
+
+                </div>
+
+                <div style="margin-top: var(--space-lg);">
+                  <button type="submit" class="btn btn-primary" id="btnSavePersonal">
+                    <span>Save Changes</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- TAB 2: ADDRESSES -->
+          <div class="profile-tab-pane" id="tab-addresses">
+            <div class="profile-card">
+              <h3>Shipping &amp; Delivery Address</h3>
+              <p class="subtitle">Your primary delivery destination for TV orders and wall mounting</p>
+
+              <form id="formAddresses">
+                
+                <!-- Shipping Address -->
+                <div class="form-group" style="margin-bottom: var(--space-md);">
+                  <label class="form-label" for="shipStreet">Street Address</label>
+                  <input type="text" class="form-control" id="shipStreet" placeholder="e.g. 123 Galle Road, Apt 4B">
+                </div>
+
+                <div class="form-2col">
+                  <div class="form-group">
+                    <label class="form-label" for="shipCity">City</label>
+                    <input type="text" class="form-control" id="shipCity" placeholder="Colombo">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="shipState">Province / District</label>
+                    <input type="text" class="form-control" id="shipState" placeholder="Western Province">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="shipPostal">Postal Code</label>
+                    <input type="text" class="form-control" id="shipPostal" placeholder="00300">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="shipCountry">Country</label>
+                    <input type="text" class="form-control" id="shipCountry" value="Sri Lanka" disabled style="background: #f1f5f9;">
+                  </div>
+                </div>
+
+                <!-- Billing Address Same as Shipping -->
+                <div class="address-toggle-row">
+                  <label class="checkbox-label" style="font-weight: 700; color: var(--color-text);">
+                    <input type="checkbox" id="checkSameBilling" checked>
+                    <span>Billing address is identical to shipping address</span>
+                  </label>
+                </div>
+
+                <!-- Billing Fields Container -->
+                <div id="billingFieldsWrap" style="display: none; margin-top: var(--space-md);">
+                  <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: var(--space-sm);">Billing Address</h4>
+                  
+                  <div class="form-group" style="margin-bottom: var(--space-md);">
+                    <label class="form-label" for="billStreet">Billing Street Address</label>
+                    <input type="text" class="form-control" id="billStreet">
+                  </div>
+
+                  <div class="form-2col">
+                    <div class="form-group">
+                      <label class="form-label" for="billCity">City</label>
+                      <input type="text" class="form-control" id="billCity">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="billPostal">Postal Code</label>
+                      <input type="text" class="form-control" id="billPostal">
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-top: var(--space-lg);">
+                  <button type="submit" class="btn btn-primary" id="btnSaveAddresses">
+                    <span>Save Addresses</span>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+          <!-- TAB 3: SECURITY & PASSWORD -->
+          <div class="profile-tab-pane" id="tab-security">
+            <div class="profile-card">
+              <h3>Security &amp; Password Update</h3>
+              <p class="subtitle">Change your password with cryptographic SHA-256 verification</p>
+
+              <form id="formPasswordChange" novalidate>
+                
+                <div class="form-group">
+                  <label class="form-label" for="currentPassword">Current Password</label>
+                  <input type="password" class="form-control" id="currentPassword" required autocomplete="current-password">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="newPassword">New Password</label>
+                  <input type="password" class="form-control" id="newPassword" required autocomplete="new-password">
+                  
+                  <!-- Strength Meter -->
+                  <div class="password-strength-wrap" id="pwStrengthWrap" style="display: none;">
+                    <div class="strength-bar-track">
+                      <div class="strength-bar-fill" id="pwStrengthBar"></div>
+                    </div>
+                    <span class="strength-text" id="pwStrengthText">Strength: Weak</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="confirmNewPassword">Confirm New Password</label>
+                  <input type="password" class="form-control" id="confirmNewPassword" required autocomplete="new-password">
+                </div>
+
+                <div style="margin-top: var(--space-lg);">
+                  <button type="submit" class="btn btn-primary" id="btnChangePassword">
+                    <span>Update Password</span>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved. Authorized Sri Lanka Television Portal.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
+  <script>
+    // 1. ACTIVE ROUTE GUARD (Milestone 3 Requirement)
+    if (!requireAuth('profile.html')) {
+      // Stopped execution — user is being redirected to login
+    }
+
+    const currentUser = getCurrentUser();
+
+    // DOM Elements
+    const avatarImg = document.getElementById('profileAvatarImg');
+    const heroFullName = document.getElementById('heroFullName');
+    const heroEmail = document.getElementById('heroEmail');
+    const heroStatus = document.getElementById('heroStatus');
+    const btnLogoutHero = document.getElementById('btnLogoutHero');
+    const alertBox = document.getElementById('profileAlert');
+    const alertMsg = document.getElementById('profileAlertMsg');
+    const profileCartStatus = document.getElementById('profileCartStatus');
+
+    // Tab 1 Elements
+    const profileName = document.getElementById('profileName');
+    const profileEmail = document.getElementById('profileEmail');
+    const profilePhone = document.getElementById('profilePhone');
+    const profileMemberSince = document.getElementById('profileMemberSince');
+    const formPersonal = document.getElementById('formPersonalDetails');
+
+    // Tab 2 Elements
+    const formAddresses = document.getElementById('formAddresses');
+    const shipStreet = document.getElementById('shipStreet');
+    const shipCity = document.getElementById('shipCity');
+    const shipState = document.getElementById('shipState');
+    const shipPostal = document.getElementById('shipPostal');
+    const checkSameBilling = document.getElementById('checkSameBilling');
+    const billingWrap = document.getElementById('billingFieldsWrap');
+    const billStreet = document.getElementById('billStreet');
+    const billCity = document.getElementById('billCity');
+    const billPostal = document.getElementById('billPostal');
+
+    // Tab 3 Elements
+    const formPassword = document.getElementById('formPasswordChange');
+    const currentPwInput = document.getElementById('currentPassword');
+    const newPwInput = document.getElementById('newPassword');
+    const confirmPwInput = document.getElementById('confirmNewPassword');
+    const pwStrengthWrap = document.getElementById('pwStrengthWrap');
+    const pwStrengthBar = document.getElementById('pwStrengthBar');
+    const pwStrengthText = document.getElementById('pwStrengthText');
+
+    function populateUserData() {
+      const user = getCurrentUser();
+      if (!user) return;
+
+      avatarImg.src = user.avatar;
+      heroFullName.textContent = user.full_name;
+      heroEmail.textContent = user.email;
+      heroStatus.textContent = user.role === 'admin' ? 'Administrator' : 'Active Member';
+
+      // Personal Details
+      profileName.value = user.full_name || '';
+      profileEmail.value = user.email || '';
+      profilePhone.value = user.phone || '';
+      
+      const createdDate = user.created_at ? new Date(user.created_at).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric'
+      }) : 'September 2026';
+      profileMemberSince.value = createdDate;
+
+      // Addresses
+      const ship = user.shipping_address || {};
+      shipStreet.value = ship.street || '';
+      shipCity.value = ship.city || 'Colombo';
+      shipState.value = ship.state || 'Western Province';
+      shipPostal.value = ship.postal_code || '';
+
+      const bill = user.billing_address || {};
+      billStreet.value = bill.street || '';
+      billCity.value = bill.city || 'Colombo';
+      billPostal.value = bill.postal_code || '';
+
+      // Check cart association
+      const cart = typeof getCart === 'function' ? getCart() : [];
+      if (cart.length > 0) {
+        profileCartStatus.textContent = `You have ${cart.length} product(s) active in your persistent cart.`;
+      } else {
+        profileCartStatus.textContent = `Your persistent cart is currently empty.`;
+      }
+    }
+
+    function showAlert(msg, isError = false) {
+      alertBox.className = 'auth-alert-box show ' + (isError ? 'error' : 'success');
+      alertMsg.textContent = msg;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Tabs switching
+    document.querySelectorAll('.profile-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.profile-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.profile-tab-pane').forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const tabId = btn.getAttribute('data-tab');
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // Billing toggle
+    checkSameBilling.addEventListener('change', () => {
+      billingWrap.style.display = checkSameBilling.checked ? 'none' : 'block';
+    });
+
+    // Save Personal Details
+    formPersonal.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = getCurrentUser();
+      if (!user) return;
+
+      const res = updateUserProfile(user.user_id, {
+        fullName: profileName.value.trim(),
+        phone: profilePhone.value.trim()
+      });
+
+      if (res.success) {
+        showAlert('✓ Personal information updated successfully!');
+        populateUserData();
+      } else {
+        showAlert(res.message, true);
+      }
+    });
+
+    // Save Addresses
+    formAddresses.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = getCurrentUser();
+      if (!user) return;
+
+      const shipping = {
+        street: shipStreet.value.trim(),
+        city: shipCity.value.trim(),
+        state: shipState.value.trim(),
+        postal_code: shipPostal.value.trim(),
+        country: 'Sri Lanka'
+      };
+
+      let billing = { ...shipping };
+      if (!checkSameBilling.checked) {
+        billing = {
+          street: billStreet.value.trim(),
+          city: billCity.value.trim(),
+          postal_code: billPostal.value.trim(),
+          country: 'Sri Lanka'
+        };
+      }
+
+      const res = updateUserProfile(user.user_id, {
+        shippingAddress: shipping,
+        billingAddress: billing
+      });
+
+      if (res.success) {
+        showAlert('✓ Shipping & Billing addresses updated successfully!');
+        populateUserData();
+      } else {
+        showAlert(res.message, true);
+      }
+    });
+
+    // Password strength check
+    newPwInput.addEventListener('input', () => {
+      const val = newPwInput.value;
+      if (!val) {
+        pwStrengthWrap.style.display = 'none';
+        return;
+      }
+      pwStrengthWrap.style.display = 'flex';
+      const result = VALIDATION.validatePasswordComplexity(val);
+      pwStrengthBar.className = 'strength-bar-fill ' + result.strength.toLowerCase();
+      pwStrengthText.textContent = `Strength: ${result.strength}`;
+    });
+
+    // Change Password
+    formPassword.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const user = getCurrentUser();
+      if (!user) return;
+
+      const currentPw = currentPwInput.value;
+      const newPw = newPwInput.value;
+      const confirmPw = confirmPwInput.value;
+
+      if (newPw !== confirmPw) {
+        showAlert('New passwords do not match.', true);
+        return;
+      }
+
+      const submitBtn = document.getElementById('btnChangePassword');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Verifying &amp; Updating...</span>';
+
+      const res = await changeUserPassword(user.user_id, currentPw, newPw);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>Update Password</span>';
+
+      if (res.success) {
+        showAlert('✓ Password updated successfully!');
+        formPassword.reset();
+        pwStrengthWrap.style.display = 'none';
+      } else {
+        showAlert(res.message, true);
+      }
+    });
+
+    // Logout Button
+    btnLogoutHero.addEventListener('click', () => {
+      logoutUser('index.html');
+    });
+
+    // Initialize
+    populateUserData();
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  </script>
+
+</body>
+</html>
