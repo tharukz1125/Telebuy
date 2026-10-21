@@ -34,8 +34,8 @@ DB_USER = os.environ.get('DB_USER', 'root')
 DB_PASSWORD = os.environ.get('DB_PASSWORD', '')
 
 # PayHere Configuration
-MERCHANT_ID = os.environ.get('MERCHANT_ID', '1238371')
-MERCHANT_SECRET = os.environ.get('MERCHANT_SECRET', 'NDE2Njk4MTMzNzE3ODQzNjI3NjMzNzQ0NjI1MTAyMzgwNTM1MzgwNA==')
+MERCHANT_ID = os.environ.get('MERCHANT_ID', '1238844')
+MERCHANT_SECRET = os.environ.get('MERCHANT_SECRET', 'NTUxNzk5MjI2ODA1NTUwMDg1ODA4NjY1Nzk0NDI1MDU1MTc5Ng==')
 ADMIN_SECRET_KEY = os.environ.get('ADMIN_SECRET_KEY', 'telebuy_admin_secret_2026')
 PAYHERE_MODE = os.environ.get('PAYHERE_MODE', 'sandbox').lower()
 
@@ -792,8 +792,16 @@ class TeleBuyHandler(SimpleHTTPRequestHandler):
 
                     delivery_fee = 0.0
                     total_amount = subtotal + delivery_fee
-                    formatted_amount = f"{total_amount:.2f}"
                     currency = 'LKR'
+
+                    # In sandbox mode, scale down the amount sent to PayHere to avoid
+                    # sandbox merchant transaction limits (e.g. Rs.150,000 → Rs.1,500.00).
+                    # MySQL always stores the REAL full amount (total_amount).
+                    if PAYHERE_MODE == 'sandbox':
+                        payhere_amount = total_amount / 100.0
+                    else:
+                        payhere_amount = total_amount
+                    formatted_amount = f"{payhere_amount:.2f}"
 
                     # Find user ID primary key if registered
                     user_pk = None
