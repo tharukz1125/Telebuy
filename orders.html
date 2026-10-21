@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders &amp; Delivery Tracking — TeleBuy.lk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+
+      <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search TVs by brand, size, model..." aria-label="Search TVs">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#featured">TVs</a></li>
+          <li><a href="orders.html" class="active">My Orders</a></li>
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" title="View Shopping Cart">
+              <span>Cart</span>
+              <div class="cart-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                <span class="cart-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      My Orders &amp; Delivery Tracking
+    </nav>
+
+    <div class="orders-page-wrap">
+      
+      <div class="page-title-row">
+        <h1>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 3h15v13H1z"></path>
+            <path d="M16 8h4l3 3v5h-7V8z"></path>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+          Order History &amp; Live Delivery Tracking
+        </h1>
+        <span class="page-count-badge" id="orderCountBadge">Loading orders...</span>
+      </div>
+
+      <!-- Quick Lookup Form for Guest Purchases / Direct Order IDs -->
+      <div class="admin-stat-card" style="margin-bottom: var(--space-xl); background: var(--color-bg-soft); border: 1px solid var(--color-border);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <strong style="font-size: 1.05rem; color: var(--color-text);">Direct Order Tracking Lookup</strong>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 2px 0 0;">Enter your Order Reference Number (e.g. TB-2026-10002) to view live stage updates.</p>
+          </div>
+          <form id="orderLookupForm" style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <input type="text" id="lookupOrderId" placeholder="e.g. TB-2026-10002" class="form-control" style="width: 220px;" required>
+            <button type="submit" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.88rem;">Track Order</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Orders List Container -->
+      <div id="ordersContentContainer">
+        <div style="text-align: center; padding: 60px 20px;">
+          <div class="loading-spinner"></div>
+          <p style="margin-top: 16px; color: var(--color-text-muted);">Fetching your order records and database tracking status...</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="orders.html">Live Order Tracking</a></li>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
+  <script>
+    function formatCurrency(num) {
+      return "Rs. " + Number(num).toLocaleString('en-US');
+    }
+
+    const DELIVERY_STAGES_LIST = [
+      { name: "Order Placed", desc: "Order submitted by customer" },
+      { name: "Payment Confirmed", desc: "Payment verified or COD accepted" },
+      { name: "Processing", desc: "Order is being prepared at warehouse" },
+      { name: "Packed", desc: "TV packed and safety checked" },
+      { name: "Shipped", desc: "Handed over to courier service" },
+      { name: "Out for Delivery", desc: "Driver delivering to doorstep" },
+      { name: "Delivered", desc: "Delivered and inspected" }
+    ];
+
+    function renderOrderCard(order) {
+      const orderId = order.order_id || order.orderId;
+      const totalAmount = order.total_amount || order.amount || 0;
+      const orderDate = order.created_at ? new Date(order.created_at).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }) : 'Recent';
+      const paymentMethod = order.payment_method === 'cod' ? 'Cash on Delivery (COD)' : 'PayHere Online';
+      const payStatus = order.payment_status || order.paymentStatus || 'PENDING';
+      const currentStage = order.delivery_status || order.deliveryStatus || 'Order Placed';
+      const estDelivery = order.estimated_delivery || 'Within 2–4 Business Days';
+      const courierName = order.courier_name || '';
+      const trackingNumber = order.tracking_number || '';
+      const items = order.items || [];
+      const history = order.delivery_history || [];
+
+      // Determine payment status badge class
+      let payBadgeClass = 'receipt-status-badge pending';
+      let payBadgeLabel = payStatus;
+      if (payStatus === 'PAID') {
+        payBadgeClass = 'receipt-status-badge paid';
+        payBadgeLabel = 'Paid';
+      } else if (payStatus === 'PENDING_COD') {
+        payBadgeClass = 'receipt-status-badge pending';
+        payBadgeLabel = 'Pending on Delivery';
+      } else if (payStatus === 'CANCELLED') {
+        payBadgeClass = 'receipt-status-badge cancelled';
+        payBadgeLabel = 'Cancelled';
+      } else if (payStatus === 'FAILED') {
+        payBadgeClass = 'receipt-status-badge failed';
+        payBadgeLabel = 'Failed';
+      }
+
+      // History map for exact timestamps
+      const histMap = new Map();
+      history.forEach(h => histMap.set(h.stage, h));
+
+      // Calculate stage index
+      const stageNames = DELIVERY_STAGES_LIST.map(s => s.name);
+      const currentStageIdx = stageNames.indexOf(currentStage) !== -1 ? stageNames.indexOf(currentStage) : 0;
+
+      // Build 7-stage visual stepper HTML
+      const stepperHtml = DELIVERY_STAGES_LIST.map((stageObj, idx) => {
+        const histItem = histMap.get(stageObj.name);
+        const isCompleted = idx < currentStageIdx || (stageObj.name === currentStage && currentStage === "Delivered");
+        const isCurrent = (stageObj.name === currentStage && currentStage !== "Delivered") || (stageObj.name === "Delivered" && currentStage === "Delivered");
+
+        let itemClass = "step-item";
+        if (isCompleted) itemClass += " completed";
+        if (isCurrent) itemClass += " current";
+
+        const timeStr = histItem ? new Date(histItem.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ', ' + new Date(histItem.timestamp).toLocaleDateString([], { month: 'short', day: 'numeric' }) : '';
+
+        return `
+          <div class="${itemClass}">
+            <div class="step-node">
+              ${isCompleted ? '✓' : idx + 1}
+            </div>
+            <div class="step-title">${stageObj.name}</div>
+            ${timeStr ? `<div class="step-timestamp">${timeStr}</div>` : ''}
+          </div>
+        `;
+      }).join('');
+
+      // Build items preview HTML
+      const itemsHtml = items.map(it => `
+        <div class="order-item-tile">
+          <img src="${it.image || 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80'}" alt="${it.title}">
+          <div class="order-item-tile-info">
+            <div class="order-item-tile-title">${it.title}</div>
+            <div class="order-item-tile-meta">Qty: ${it.qty} &bull; ${formatCurrency(it.unit_price || it.priceNum || 0)} each</div>
+          </div>
+          <div style="font-weight: 700; color: var(--color-text);">
+            ${formatCurrency(it.line_total || ((it.unit_price || it.priceNum || 0) * it.qty))}
+          </div>
+        </div>
+      `).join('');
+
+      // Build timeline events activity
+      const activityHtml = history.length > 0 ? history.map(ev => `
+        <div class="timeline-event-row">
+          <div class="timeline-event-dot"></div>
+          <div class="timeline-event-content">
+            <strong>${ev.stage} &bull; <span style="font-weight: 400; color: var(--color-primary);">${ev.updated_by || 'System'}</span></strong>
+            <p>${ev.description || 'Status update logged.'}</p>
+            <span class="timeline-event-time">${new Date(ev.timestamp).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}</span>
+          </div>
+        </div>
+      `).join('') : '<p style="color: var(--color-text-muted); font-size: 0.85rem;">No updates logged yet.</p>';
+
+      return `
+        <div class="order-history-card" id="card-${orderId}">
+          
+          <div class="order-history-header">
+            <div class="order-meta-group">
+              <div class="order-meta-item">
+                <span>Order Reference</span>
+                <strong style="color: var(--color-primary); font-family: monospace; font-size: 1.05rem;">${orderId}</strong>
+              </div>
+              <div class="order-meta-item">
+                <span>Date Placed</span>
+                <strong>${orderDate}</strong>
+              </div>
+              <div class="order-meta-item">
+                <span>Total Amount</span>
+                <strong style="color: var(--color-primary);">${formatCurrency(totalAmount)}</strong>
+              </div>
+              <div class="order-meta-item">
+                <span>Payment Method</span>
+                <strong>${paymentMethod}</strong>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <span class="${payBadgeClass}">${payBadgeLabel}</span>
+              <span class="receipt-status-badge" style="background: #e0f2fe; color: #0369a1; font-weight: 800;">${currentStage}</span>
+            </div>
+          </div>
+
+          <div class="order-history-body">
+            
+            <!-- 7-Stage Visual Progress Tracker Component -->
+            <div class="delivery-tracker-wrap">
+              <div class="tracker-header">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+                  Delivery Stage: <span style="color: var(--color-primary);">${currentStage}</span>
+                </h3>
+                
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                  ${courierName ? `
+                    <div class="tracker-courier-pill">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      Courier: <strong>${courierName}</strong>
+                    </div>
+                  ` : ''}
+                  ${trackingNumber ? `
+                    <div class="tracker-courier-pill" style="background: #eff6ff; border-color: #bfdbfe; color: #1e40af;">
+                      Tracking #: <strong>${trackingNumber}</strong>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+
+              <!-- 7 Step Visual Stepper -->
+              <div class="stepper-7">
+                ${stepperHtml}
+              </div>
+
+              <div style="background: var(--color-bg-soft); border-radius: 8px; padding: 12px 16px; margin-top: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.88rem;">
+                <div>
+                  <span style="color: var(--color-text-muted);">Estimated Delivery Destination:</span>
+                  <strong style="color: #047857; margin-left: 6px;">${estDelivery}</strong>
+                </div>
+                <div>
+                  <span style="color: var(--color-text-muted);">Shipping Address:</span>
+                  <strong style="color: var(--color-text); margin-left: 6px;">${order.customer?.address || 'Doorstep Destination'}, ${order.customer?.city || 'Colombo'}</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Items Breakdown -->
+            <div style="margin-bottom: var(--space-md);">
+              <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; color: var(--color-text);">Purchased TV Displays (${items.length} items)</h4>
+              <div class="order-items-preview-grid">
+                ${itemsHtml}
+              </div>
+            </div>
+
+            <!-- Timeline Activity Log -->
+            <div style="border-top: 1px solid var(--color-border); padding-top: var(--space-md); margin-top: var(--space-md);">
+              <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--color-text); margin-bottom: 8px;">Activity &amp; Verification History</h4>
+              <div class="timeline-activity-list">
+                ${activityHtml}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="order-history-footer">
+            <a href="order-confirmation.html?order_id=${orderId}" class="btn-link" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">
+              &larr; View Official Printable Receipt
+            </a>
+            <div style="display: flex; gap: 10px;">
+              <button type="button" class="btn btn-secondary" onclick="window.print()" style="padding: 6px 14px; font-size: 0.82rem;">
+                Print Summary
+              </button>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Mobile nav toggle
+      const navToggle = document.getElementById('navToggle');
+      const mainNav = document.getElementById('mainNav');
+      if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = mainNav.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+        });
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const targetOrderId = params.get("order_id");
+      const container = document.getElementById("ordersContentContainer");
+      const countBadge = document.getElementById("orderCountBadge");
+
+      const currentUser = (typeof getCurrentUser === 'function') ? getCurrentUser() : null;
+
+      // Function to load and render orders
+      async function fetchOrders() {
+        const apiBase = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+
+        // Case 1: Specific order requested via query string
+        if (targetOrderId) {
+          try {
+            const res = await fetch(`${apiBase}/api/orders/${targetOrderId}`);
+            if (res.ok) {
+              const data = await res.json();
+              if (data.success && data.order) {
+                countBadge.textContent = "1 Order Found";
+                container.innerHTML = renderOrderCard(data.order);
+                return;
+              }
+            }
+          } catch (e) {
+            console.warn("Direct lookup failed", e);
+          }
+        }
+
+        // Case 2: User is logged in, fetch all their account orders
+        if (currentUser && (currentUser.email || currentUser.user_id)) {
+          try {
+            const url = `${apiBase}/api/customer/orders?email=${encodeURIComponent(currentUser.email || '')}&customerId=${encodeURIComponent(currentUser.user_id || '')}`;
+            const res = await fetch(url);
+            if (res.ok) {
+              const data = await res.json();
+              if (data.success && data.orders && data.orders.length > 0) {
+                countBadge.textContent = `${data.orders.length} ${data.orders.length === 1 ? 'Order' : 'Orders'}`;
+                container.innerHTML = `<div class="orders-grid-list">${data.orders.map(o => renderOrderCard(o)).join('')}</div>`;
+                return;
+              }
+            }
+          } catch (e) {
+            console.warn("User orders fetch failed", e);
+          }
+        }
+
+        // Case 3: Empty State / Prompt lookup
+        countBadge.textContent = "0 Orders Displayed";
+        container.innerHTML = `
+          <div class="empty-state-card" style="padding: 50px 20px;">
+            <div class="empty-state-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h2>No Orders Displayed</h2>
+            <p>You can track any order by entering your Order Reference Number above, or sign in to your TeleBuy account to view your complete purchase history.</p>
+            <div style="display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
+              <a href="login.html?returnUrl=orders.html" class="btn btn-primary">Sign In to Your Account</a>
+              <a href="index.html#featured" class="btn btn-secondary">Explore Televisions</a>
+            </div>
+          </div>
+        `;
+      }
+
+      fetchOrders();
+
+      // Handle Direct Lookup Form Submission
+      const lookupForm = document.getElementById("orderLookupForm");
+      lookupForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const inputId = document.getElementById("lookupOrderId").value.trim();
+        if (!inputId) return;
+
+        countBadge.textContent = "Searching...";
+        container.innerHTML = `<div style="text-align: center; padding: 40px;"><div class="loading-spinner"></div><p style="margin-top: 12px; color: var(--color-text-muted);">Finding order ${inputId}...</p></div>`;
+
+        try {
+          const apiBase = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+          const res = await fetch(`${apiBase}/api/orders/${inputId}`);
+          const data = await res.json();
+          if (res.ok && data.success && data.order) {
+            countBadge.textContent = "1 Order Found";
+            container.innerHTML = renderOrderCard(data.order);
+          } else {
+            countBadge.textContent = "Order Not Found";
+            container.innerHTML = `
+              <div class="empty-state-card" style="padding: 40px 20px;">
+                <div class="empty-state-icon" style="color: #ef4444; border-color: #fca5a5; background: #fee2e2;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                </div>
+                <h2>Order Not Found</h2>
+                <p>We could not find any order with reference <strong>"${inputId}"</strong> in our system. Please check the reference number and try again.</p>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='orders.html'" style="margin-top: 14px;">View All Orders</button>
+              </div>
+            `;
+          }
+        } catch (err) {
+          alert("Error looking up order: " + err.message);
+          fetchOrders();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

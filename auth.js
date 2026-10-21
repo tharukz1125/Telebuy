@@ -109,7 +109,7 @@ const VALIDATION = {
  * 4. USER REGISTRATION (Milestone 1)
  * -------------------------------------------------------------
  */
-async function registerUser({ fullName, email, password, phone = "", role = "authenticated" }) {
+async function registerUser({ fullName, email, password, phone = "", role = "customer" }) {
   const cleanName = (fullName || "").trim();
   const cleanEmail = (email || "").trim().toLowerCase();
 
@@ -129,115 +129,91 @@ async function registerUser({ fullName, email, password, phone = "", role = "aut
     };
   }
 
-  // Check duplicate email
-  if (findUserByEmail(cleanEmail)) {
-    return { success: false, message: "An account with this email address is already registered." };
+  try {
+    const apiBase = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+    const response = await fetch(`${apiBase}/api/auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: cleanName,
+        email: cleanEmail,
+        password: password,
+        phone: phone,
+        role: role
+      })
+    });
+    const data = await response.json();
+    if (!response.ok || !data.success) {
+      return { success: false, message: data.message || "Registration failed on server." };
+    }
+
+    return { 
+      success: true, 
+      message: data.message || "Registration successful! You can now log in.",
+      user: data.user
+    };
+  } catch (err) {
+    console.error("Backend registration error:", err);
+    return { success: false, message: "Could not connect to MySQL backend server. Please verify backend is running." };
   }
-
-  // Hash password
-  const passwordHash = await hashPassword(password);
-  const now = new Date().toISOString();
-  const userId = "usr_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
-
-  const newUser = {
-    user_id: userId,
-    full_name: cleanName,
-    email: cleanEmail,
-    password_hash: passwordHash,
-    created_at: now,
-    role: role,
-    avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(cleanName)}`,
-    phone: phone,
-    shipping_address: {
-      street: "",
-      city: "Colombo",
-      state: "Western Province",
-      postal_code: "",
-      country: "Sri Lanka"
-    },
-    billing_address: {
-      street: "",
-      city: "Colombo",
-      state: "Western Province",
-      postal_code: "",
-      country: "Sri Lanka"
-    }
-  };
-
-  const users = getAllUsers();
-  users.push(newUser);
-  saveAllUsers(users);
-
-  return { 
-    success: true, 
-    message: "Registration successful! You can now log in.",
-    user: {
-      user_id: newUser.user_id,
-      full_name: newUser.full_name,
-      email: newUser.email,
-      role: newUser.role
-    }
-  };
 }
 
 /**
  * -------------------------------------------------------------
- * 5. USER AUTHENTICATION & LOGIN (Milestone 2)
+ * 5. USER AUTHENTICATION & LOGIN (Milestone 2) — MySQL BACKED
  * -------------------------------------------------------------
  */
 async function loginUser(email, password, rememberMe = true) {
   const cleanEmail = (email || "").trim().toLowerCase();
-
-  // Core Security Rule: Generic error message to prevent user enumeration
   const GENERIC_ERROR = "Invalid email or password. Please check your credentials and try again.";
 
   if (!cleanEmail || !password) {
     return { success: false, message: GENERIC_ERROR };
   }
 
-  const user = findUserByEmail(cleanEmail);
-  if (!user) {
-    return { success: false, message: GENERIC_ERROR };
-  }
-
-  const inputHash = await hashPassword(password);
-  if (inputHash !== user.password_hash) {
-    return { success: false, message: GENERIC_ERROR };
-  }
-
-  // Create simulated JWT Session
-  const sessionDuration = rememberMe ? 7 * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000;
-  const expiresAt = Date.now() + sessionDuration;
-
-  const sessionPayload = {
-    token: `tb_jwt_${btoa(user.user_id)}.${btoa(JSON.stringify({ sub: user.user_id, email: user.email, role: user.role }))}.${btoa(String(expiresAt))}`,
-    user: {
-      user_id: user.user_id,
-      full_name: user.full_name,
-      email: user.email,
-      role: user.role,
-      avatar: user.avatar || `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(user.full_name)}`
-    },
-    expires_at: expiresAt
-  };
-
   try {
-    localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(sessionPayload));
-  } catch (e) {
-    console.error("Failed to save auth session", e);
+    const apiBase = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+    const response = await fetch(`${apiBase}/api/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: cleanEmail,
+        password: password,
+        rememberMe: rememberMe
+      })
+    });
+    const data = await response.json();
+    if (!response.ok || !data.success) {
+      return { success: false, message: data.message || GENERIC_ERROR };
+    }
+
+    const sessionPayload = data.session || {
+      token: data.token,
+      user: data.user,
+      expires_at: Date.now() + (rememberMe ? 7 * 86400000 : 86400000)
+    };
+
+    try {
+      localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(sessionPayload));
+    } catch (e) {
+      console.error("Failed to save auth session", e);
+    }
+
+    // Associate / Merge guest cart items
+    mergeGuestCartUponLogin(data.user.user_id || data.user.id);
+
+    // Dispatch auth state change event
+    window.dispatchEvent(new CustomEvent("telebuy_auth_change", { detail: sessionPayload }));
+
+    return {
+      success: true,
+      message: data.message || `Welcome back, ${data.user.full_name}!`,
+      session: sessionPayload
+    };
+  } catch (err) {
+    console.error("Backend login error:", err);
+    return { success: false, message: "Could not connect to MySQL authentication server. Please ensure python server.py is running." };
   }
-
-  // Associate / Merge guest cart items
-  mergeGuestCartUponLogin(user.user_id);
-
-  // Dispatch auth state change event
-  window.dispatchEvent(new CustomEvent("telebuy_auth_change", { detail: sessionPayload }));
-
-  return {
-    success: true,
-    message: `Welcome back, ${user.full_name}!`,
-    session: sessionPayload
-  };
 }
 
 /**
@@ -325,45 +301,48 @@ function mergeGuestCartUponLogin(userId) {
  * -------------------------------------------------------------
  */
 function updateUserProfile(userId, { fullName, phone, shippingAddress, billingAddress }) {
-  const users = getAllUsers();
-  const index = users.findIndex(u => u.user_id === userId);
-  if (index === -1) {
-    return { success: false, message: "User not found." };
-  }
-
-  const user = users[index];
-
-  if (fullName && fullName.trim().length >= 2) {
-    user.full_name = fullName.trim();
-    user.avatar = `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(user.full_name)}`;
-  }
-
-  if (phone !== undefined) {
-    user.phone = phone.trim();
-  }
-
-  if (shippingAddress) {
-    user.shipping_address = { ...user.shipping_address, ...shippingAddress };
-  }
-
-  if (billingAddress) {
-    user.billing_address = { ...user.billing_address, ...billingAddress };
-  }
-
-  users[index] = user;
-  saveAllUsers(users);
-
-  // Update session copy
   const session = getAuthSession();
-  if (session && session.user && session.user.user_id === userId) {
-    session.user.full_name = user.full_name;
-    session.user.avatar = user.avatar;
+  const token = session ? session.token : '';
+
+  // Synchronously update local session for immediate UI responsiveness
+  if (session && session.user && (session.user.user_id === userId || session.user.id === userId)) {
+    if (fullName) {
+      session.user.full_name = fullName.trim();
+      session.user.avatar = `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(fullName.trim())}`;
+    }
+    if (phone !== undefined) session.user.phone = phone.trim();
+    if (shippingAddress) session.user.shipping_address = shippingAddress;
+    if (billingAddress) session.user.billing_address = billingAddress;
     localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(session));
+    window.dispatchEvent(new CustomEvent("telebuy_auth_change", { detail: session }));
   }
 
-  window.dispatchEvent(new CustomEvent("telebuy_auth_change", { detail: session }));
+  // Asynchronously sync to MySQL backend database
+  const apiBase = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+  const ship = shippingAddress || {};
+  fetch(`${apiBase}/api/auth/profile`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      fullName: fullName,
+      phone: phone,
+      street: ship.street || '',
+      city: ship.city || '',
+      state: ship.state || '',
+      postalCode: ship.postal_code || ''
+    })
+  }).then(r => r.json()).then(data => {
+    if (data.success) {
+      console.log("[TeleBuy MySQL] Profile successfully saved to database.");
+    }
+  }).catch(err => {
+    console.warn("[TeleBuy MySQL] Background profile sync failed:", err);
+  });
 
-  return { success: true, message: "Profile updated successfully!", user };
+  return { success: true, message: "Profile updated successfully!", user: session ? session.user : null };
 }
 
 async function changeUserPassword(userId, currentPassword, newPassword) {
@@ -430,12 +409,28 @@ function renderNavbarAuthState() {
               </svg>
               <span>Profile &amp; Settings</span>
             </a>
+            <a href="orders.html" class="dropdown-link">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <span>My Orders &amp; Tracking</span>
+            </a>
             <a href="wishlist.html" class="dropdown-link">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
               <span>My Wishlist</span>
             </a>
+            ${user.role === 'admin' ? `
+            <a href="admin-orders.html" class="dropdown-link" style="color: #1f6feb; font-weight: 700; background: rgba(31, 111, 235, 0.08);">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Admin Order Management</span>
+            </a>
+            ` : ''}
             <div class="dropdown-divider"></div>
             <button class="dropdown-link btn-logout" id="btnLogoutNav" type="button">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
@@ -493,10 +488,17 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Auto-seed demo student account if database is completely empty
-(async function initDemoUser() {
+function isAdmin() {
+  const session = getAuthSession();
+  return Boolean(session && session.user && session.user.role === "admin");
+}
+
+// Auto-seed demo student and administrator accounts if needed
+(async function initDemoUsers() {
   const users = getAllUsers();
-  if (users.length === 0) {
+  let modified = false;
+
+  if (!findUserByEmail("student@telebuy.lk")) {
     await registerUser({
       fullName: "Dev Student",
       email: "student@telebuy.lk",
@@ -504,7 +506,6 @@ document.addEventListener("click", (e) => {
       phone: "+94 77 123 4567",
       role: "authenticated"
     });
-    // Set default demo addresses
     const demo = findUserByEmail("student@telebuy.lk");
     if (demo) {
       demo.shipping_address = {
@@ -515,8 +516,18 @@ document.addEventListener("click", (e) => {
         country: "Sri Lanka"
       };
       demo.billing_address = { ...demo.shipping_address };
-      saveAllUsers([demo]);
     }
+  }
+
+  // Seed authorized admin user
+  if (!findUserByEmail("admin@telebuy.lk")) {
+    await registerUser({
+      fullName: "Store Administrator",
+      email: "admin@telebuy.lk",
+      password: "AdminPass123!",
+      phone: "+94 11 234 5678",
+      role: "admin"
+    });
   }
 })();
 

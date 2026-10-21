@@ -641,3 +641,57 @@ window.addEventListener("storage", (e) => {
     if (typeof renderWishlistPage === "function") renderWishlistPage();
   }
 });
+
+/**
+ * Detects the correct backend API base URL.
+ * When accessed from localhost:3000, returns empty string for relative paths.
+ * When accessed from file:// or other local dev servers (e.g. 5500, 8080),
+ * automatically directs API calls to the running backend at http://localhost:3000.
+ */
+function getApiBaseUrl() {
+  if (typeof window === 'undefined') return '';
+  const protocol = window.location.protocol;
+  const port = window.location.port;
+  if (protocol === 'file:' || (port && port !== '3000')) {
+    return 'http://localhost:3000';
+  }
+  return '';
+}
+
+/**
+ * Loads and synchronizes product prices, titles, and live stock from MySQL database.
+ */
+async function loadProductsFromMySQL() {
+  try {
+    const apiBase = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+    const res = await fetch(`${apiBase}/api/products`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success && Array.isArray(data.products)) {
+        data.products.forEach(p => {
+          TELEBUY_CATALOG[p.product_id] = {
+            id: p.product_id,
+            brand: p.brand,
+            title: p.title,
+            price: "Rs. " + Number(p.price).toLocaleString('en-US'),
+            priceNum: Number(p.price),
+            stock: Number(p.stock),
+            image: p.image,
+            category: p.category_name || p.category_slug || "Smart TVs"
+          };
+        });
+        if (typeof renderCartPage === 'function') renderCartPage();
+        if (typeof renderWishlistPage === 'function') renderWishlistPage();
+      }
+    }
+  } catch (e) {
+    // Graceful offline fallback to static map
+  }
+}
+
+// Initial fetch from MySQL
+if (typeof window !== 'undefined') {
+  loadProductsFromMySQL();
+}
+
+

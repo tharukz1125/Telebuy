@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — TeleBuy.lk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TeleBuy<span class="logo-accent">.lk</span></a>
+
+      <form class="search-form" role="search">
+        <input type="search" class="search-input" placeholder="Search TVs by brand, size, model..." aria-label="Search TVs">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#featured">TVs</a></li>
+          <li><a href="orders.html">My Orders</a></li>
+          <li>
+            <a href="wishlist.html" class="wishlist-link" title="View Wishlist">
+              <span>Wishlist</span>
+              <div class="wishlist-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="wishlist-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-link" title="View Shopping Cart">
+              <span>Cart</span>
+              <div class="cart-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                <span class="cart-badge" style="display: none;">0</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-auth-item">
+            <!-- Dynamic Auth State rendered by auth.js -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="cart.html">Cart</a><span class="sep">/</span>
+      Checkout &amp; Payment
+    </nav>
+
+    <div class="checkout-page-wrap">
+      
+      <div class="page-title-row">
+        <h1>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          Secure Checkout
+        </h1>
+        <span class="page-count-badge" id="checkoutItemsBadge">0 Items</span>
+      </div>
+
+      <!-- Empty Cart Notice (hidden by default) -->
+      <div id="checkoutEmptyState" class="empty-state-card" style="display: none;">
+        <div class="empty-state-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 01-8 0"></path>
+          </svg>
+        </div>
+        <h2>Your Cart is Empty</h2>
+        <p>You cannot proceed to checkout without any products in your cart.</p>
+        <a href="index.html#featured" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+          <span>Browse Smart TVs</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+      <!-- Checkout Grid -->
+      <div id="checkoutMainGrid" class="checkout-grid">
+        
+        <!-- Left: Customer Information & Shipping Form -->
+        <div class="checkout-form-box">
+          <div id="checkoutAuthNotice" class="checkout-auth-banner" style="display: none;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Have an account? <a href="login.html" style="color: inherit; font-weight: 700; text-decoration: underline;">Sign in</a> to auto-fill your saved address details.</span>
+          </div>
+
+          <form id="checkoutForm" novalidate>
+            <div class="form-section-header">
+              <span class="step-num">1</span>
+              <h3>Contact Information</h3>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="firstName">First Name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" class="form-control" required placeholder="e.g. Kasun">
+                <span class="field-error" id="err-firstName"></span>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" class="form-control" required placeholder="e.g. Perera">
+                <span class="field-error" id="err-lastName"></span>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="kasun@example.com">
+                <span class="field-error" id="err-email"></span>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" class="form-control" required placeholder="0771234567">
+                <span class="field-error" id="err-phone"></span>
+              </div>
+            </div>
+
+            <div class="form-section-header" style="margin-top: 28px;">
+              <span class="step-num">2</span>
+              <h3>Delivery Address</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Street Address <span class="req">*</span></label>
+              <input type="text" id="address" name="address" class="form-control" required placeholder="No. 45, Galle Road, Bambalapitiya">
+              <span class="field-error" id="err-address"></span>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="city">City / Town <span class="req">*</span></label>
+                <input type="text" id="city" name="city" class="form-control" required placeholder="Colombo 04">
+                <span class="field-error" id="err-city"></span>
+              </div>
+              <div class="form-group">
+                <label for="postalCode">Postal Code (Optional)</label>
+                <input type="text" id="postalCode" name="postalCode" class="form-control" placeholder="00400">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="deliveryNotes">Delivery &amp; Installation Notes (Optional)</label>
+              <textarea id="deliveryNotes" name="deliveryNotes" class="form-control" rows="2" placeholder="Floor level, preferred delivery time, wall mounting requests, etc."></textarea>
+            </div>
+
+            <div class="form-section-header" style="margin-top: 28px;">
+              <span class="step-num">3</span>
+              <h3>Choose Your Payment Method</h3>
+            </div>
+
+            <div class="payment-method-selector" role="radiogroup" aria-label="Choose Your Payment Method">
+              <!-- Option 1: PayHere Online Payment -->
+              <label class="payment-option selected" id="labelPayhere" for="payMethodPayhere">
+                <input type="radio" id="payMethodPayhere" name="payment_method" value="payhere" class="payment-radio-input" checked>
+                <div class="payment-option-body">
+                  <div class="payment-title-row">
+                    <strong>PayHere – Online Payment</strong>
+                    <span class="badge-secure">256-bit SSL Encrypted</span>
+                  </div>
+                  <p class="payment-desc">Pay securely using Visa, MasterCard, AMEX, Genie, eZ Cash, FriMi, or Internet Banking via Central Bank approved gateway.</p>
+                  <div class="payment-icons-row">
+                    <span class="pay-chip">VISA</span>
+                    <span class="pay-chip">MasterCard</span>
+                    <span class="pay-chip">AMEX</span>
+                    <span class="pay-chip">eZ Cash</span>
+                    <span class="pay-chip">Genie</span>
+                    <span class="pay-chip">FriMi</span>
+                  </div>
+                  <div class="payment-instructions-box" id="payhereInstructionBox">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <div>
+                      <strong>Payment Instructions:</strong> You will be securely redirected to the official PayHere Sandbox payment portal to complete your transaction with instant verification.
+                    </div>
+                  </div>
+                </div>
+              </label>
+
+              <!-- Option 2: Cash on Delivery (COD) -->
+              <label class="payment-option" id="labelCod" for="payMethodCod">
+                <input type="radio" id="payMethodCod" name="payment_method" value="cod" class="payment-radio-input">
+                <div class="payment-option-body">
+                  <div class="payment-title-row">
+                    <strong>Cash on Delivery (COD)</strong>
+                    <span class="badge-cod">Verified Doorstep Delivery</span>
+                  </div>
+                  <p class="payment-desc">Pay with cash or card to our delivery technician upon receiving and inspecting your television package at your doorstep.</p>
+                  <div class="payment-icons-row">
+                    <span class="pay-chip" style="background: #e0e7ff; color: #3730a3;">Cash on Delivery</span>
+                    <span class="pay-chip" style="background: #e0e7ff; color: #3730a3;">Card on Delivery</span>
+                    <span class="pay-chip" style="background: #e0e7ff; color: #3730a3;">White-Glove Inspection</span>
+                  </div>
+                  <div class="payment-instructions-box" id="codInstructionBox" style="display: none; border-color: #a7f3d0; background: #f0fdf4; color: #065f46;">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#059669" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <div>
+                      <strong>Payment Instructions:</strong> Please keep the exact order amount ready at the time of delivery. Our dispatch team will call you beforehand to coordinate your delivery and optional wall-mounting time slot.
+                    </div>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <div id="checkoutErrorAlert" class="alert-box-error" style="display: none;"></div>
+
+            <div class="checkout-submit-area">
+              <button type="submit" id="btnPayNow" class="btn-pay-now">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span id="btnPayNowText">Proceed to Pay</span>
+              </button>
+              <p class="checkout-disclaimer" id="checkoutDisclaimer">
+                By clicking "Proceed to Pay", you will be securely redirected to PayHere Sandbox Payment Gateway to finalize your transaction. Your payment information is never stored on our servers.
+              </p>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Right: Order Review Sidebar -->
+        <div class="checkout-sidebar-box">
+          <div class="order-summary-box">
+            <h3>Order Summary</h3>
+            
+            <!-- Items Scrollable List -->
+            <div id="checkoutItemsList" class="checkout-items-list">
+              <!-- Dynamically rendered -->
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-line-item">
+              <span>Items Subtotal</span>
+              <strong id="summarySubtotal">Rs. 0</strong>
+            </div>
+
+            <div class="summary-line-item">
+              <span>Standard Delivery</span>
+              <span class="shipping-free-badge">FREE DELIVERY</span>
+            </div>
+
+            <div class="summary-line-item">
+              <span>Wall-Mount Service</span>
+              <span class="shipping-free-badge">INCLUDED FREE</span>
+            </div>
+
+            <div class="summary-line-item">
+              <span>Payment Gateway Fee</span>
+              <span style="color: #10b981; font-weight: 600;">Rs. 0.00 (WAIVED)</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total-row">
+              <span>Total Payable</span>
+              <span class="summary-total-price" id="summaryTotal">Rs. 0</span>
+            </div>
+
+            <div class="summary-trust-badges" style="margin-top: 24px;">
+              <div>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>PayHere Sandbox Payment Verification</span>
+              </div>
+              <div>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>3-Year Official Brand Warranty</span>
+              </div>
+              <div>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <span>Instant Confirmation &amp; SMS Dispatch</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Hidden Form for PayHere Gateway Redirection -->
+  <form id="payhereAutoSubmitForm" method="POST" action="" style="display: none;"></form>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>TeleBuy<span class="logo-accent">.lk</span></h3>
+          <p>Sri Lanka's leading online destination for premium QLED, OLED, 8K, and Smart televisions. Authorized dealer for top global electronics brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4>TV Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="qled-tvs.html">QLED TVs</a></li>
+            <li><a href="oled-tvs.html">OLED TVs</a></li>
+            <li><a href="8k-tvs.html">8K Ultra HD TVs</a></li>
+            <li><a href="smart-tvs.html">Smart TVs</a></li>
+            <li><a href="led-tvs.html">LED TVs</a></li>
+            <li><a href="accessories.html">TV Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">3-Year Warranty Policy</a></li>
+            <li><a href="#">Free Wall-Mount Service</a></li>
+            <li><a href="#">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Support</h4>
+          <p>Hotline: +94 11 234 5678</p>
+          <p>WhatsApp: +94 77 123 4567</p>
+          <p>Email: sales@telebuy.lk</p>
+          <p>Showroom: Galle Road, Colombo 03</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TeleBuy.lk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="store.js"></script>
+  <script>
+    function formatCurrency(num) {
+      return "Rs. " + Number(num).toLocaleString('en-US');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cart = getCart();
+      const emptyState = document.getElementById("checkoutEmptyState");
+      const mainGrid = document.getElementById("checkoutMainGrid");
+      const badge = document.getElementById("checkoutItemsBadge");
+      const totalCount = getCartTotalCount();
+      const subtotal = getCartSubtotal();
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById('navToggle');
+      const mainNav = document.getElementById('mainNav');
+      if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = mainNav.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+        });
+      }
+
+      if (!cart || cart.length === 0) {
+        emptyState.style.display = "block";
+        mainGrid.style.display = "none";
+        badge.textContent = "0 Items";
+        return;
+      }
+
+      emptyState.style.display = "none";
+      mainGrid.style.display = "grid";
+      badge.textContent = `${totalCount} ${totalCount === 1 ? 'Item' : 'Items'}`;
+
+      // Populate Order Summary Sidebar
+      const itemsListContainer = document.getElementById("checkoutItemsList");
+      itemsListContainer.innerHTML = cart.map(item => `
+        <div class="checkout-item-row">
+          <img src="${item.image}" alt="${item.title}" class="checkout-item-thumb">
+          <div class="checkout-item-info">
+            <span class="checkout-item-title">${item.title}</span>
+            <span class="checkout-item-meta">Qty: ${item.qty} &times; ${formatCurrency(item.priceNum)}</span>
+          </div>
+          <div class="checkout-item-price">
+            ${formatCurrency(item.priceNum * item.qty)}
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById("summarySubtotal").textContent = formatCurrency(subtotal);
+      document.getElementById("summaryTotal").textContent = formatCurrency(subtotal);
+
+      // Pre-fill user profile if logged in
+      const currentUser = (typeof getCurrentUser === 'function') ? getCurrentUser() : null;
+      const authBanner = document.getElementById("checkoutAuthNotice");
+
+      if (currentUser) {
+        if (currentUser.name) {
+          const parts = currentUser.name.trim().split(' ');
+          document.getElementById("firstName").value = parts[0] || '';
+          document.getElementById("lastName").value = parts.slice(1).join(' ') || '';
+        }
+        if (currentUser.email) {
+          document.getElementById("email").value = currentUser.email;
+        }
+        if (currentUser.phone) {
+          document.getElementById("phone").value = currentUser.phone;
+        }
+        if (currentUser.address) {
+          document.getElementById("address").value = currentUser.address;
+        }
+        if (currentUser.city) {
+          document.getElementById("city").value = currentUser.city;
+        }
+        if (currentUser.postalCode) {
+          document.getElementById("postalCode").value = currentUser.postalCode;
+        }
+        authBanner.style.display = "none";
+      } else {
+        authBanner.style.display = "flex";
+      }
+
+      // ============================================================
+      // PAYMENT METHOD SELECTION SWITCHER (Requirement 1)
+      // ============================================================
+      const radioPayhere = document.getElementById("payMethodPayhere");
+      const radioCod = document.getElementById("payMethodCod");
+      const labelPayhere = document.getElementById("labelPayhere");
+      const labelCod = document.getElementById("labelCod");
+      const payhereInstructions = document.getElementById("payhereInstructionBox");
+      const codInstructions = document.getElementById("codInstructionBox");
+      const btnPayNow = document.getElementById("btnPayNow");
+      const btnPayNowText = document.getElementById("btnPayNowText");
+      const checkoutDisclaimer = document.getElementById("checkoutDisclaimer");
+
+      function updatePaymentMethodUI(method) {
+        if (method === "cod") {
+          labelCod.classList.add("selected");
+          labelPayhere.classList.remove("selected");
+          radioCod.checked = true;
+          codInstructions.style.display = "flex";
+          payhereInstructions.style.display = "none";
+          btnPayNowText.textContent = "Place Order";
+          btnPayNow.classList.add("btn-place-order-cod");
+          checkoutDisclaimer.textContent = "By clicking 'Place Order', your order will be confirmed and scheduled for free delivery. Our logistics agent will call you to confirm dispatch.";
+        } else {
+          labelPayhere.classList.add("selected");
+          labelCod.classList.remove("selected");
+          radioPayhere.checked = true;
+          payhereInstructions.style.display = "flex";
+          codInstructions.style.display = "none";
+          btnPayNowText.textContent = "Proceed to Pay";
+          btnPayNow.classList.remove("btn-place-order-cod");
+          checkoutDisclaimer.textContent = "By clicking 'Proceed to Pay', you will be securely redirected to PayHere Sandbox Payment Gateway to finalize your transaction. Your payment information is never stored on our servers.";
+        }
+      }
+
+      radioPayhere.addEventListener("change", () => updatePaymentMethodUI("payhere"));
+      radioCod.addEventListener("change", () => updatePaymentMethodUI("cod"));
+
+      labelPayhere.addEventListener("click", () => updatePaymentMethodUI("payhere"));
+      labelCod.addEventListener("click", () => updatePaymentMethodUI("cod"));
+
+      // Handle Checkout Form Submission
+      const form = document.getElementById("checkoutForm");
+      const errorAlert = document.getElementById("checkoutErrorAlert");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        errorAlert.style.display = "none";
+        errorAlert.textContent = "";
+
+        // Reset field errors
+        document.querySelectorAll(".field-error").forEach(el => el.textContent = "");
+
+        const selectedRadio = document.querySelector('input[name="payment_method"]:checked');
+        if (!selectedRadio) {
+          errorAlert.textContent = "Please select a payment method before proceeding.";
+          errorAlert.style.display = "block";
+          return;
+        }
+        const paymentMethod = selectedRadio.value;
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const city = document.getElementById("city").value.trim();
+        const postalCode = document.getElementById("postalCode").value.trim();
+        const notes = document.getElementById("deliveryNotes").value.trim();
+
+        let hasError = false;
+        if (!firstName) {
+          document.getElementById("err-firstName").textContent = "Please enter your first name";
+          hasError = true;
+        }
+        if (!lastName) {
+          document.getElementById("err-lastName").textContent = "Please enter your last name";
+          hasError = true;
+        }
+        if (!email || !/\S+@\S+\.\S+/.test(email)) {
+          document.getElementById("err-email").textContent = "Please enter a valid email address";
+          hasError = true;
+        }
+        if (!phone || phone.length < 9) {
+          document.getElementById("err-phone").textContent = "Please enter a valid phone number";
+          hasError = true;
+        }
+        if (!address) {
+          document.getElementById("err-address").textContent = "Please enter your delivery street address";
+          hasError = true;
+        }
+        if (!city) {
+          document.getElementById("err-city").textContent = "Please enter your city";
+          hasError = true;
+        }
+
+        if (hasError) {
+          return;
+        }
+
+        // Disable button & show spinner
+        btnPayNow.disabled = true;
+        btnPayNowText.textContent = paymentMethod === "cod" ? "Placing Your Order..." : "Connecting to PayHere Gateway...";
+
+        try {
+          const payload = {
+            paymentMethod,
+            customerId: (currentUser && currentUser.user_id) ? currentUser.user_id : null,
+            customer: {
+              firstName,
+              lastName,
+              email,
+              phone,
+              address,
+              city,
+              postalCode,
+              notes
+            },
+            items: cart.map(item => ({
+              id: item.id,
+              qty: item.qty
+            }))
+          };
+
+          const apiBase = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+          const response = await fetch(`${apiBase}/api/checkout/initiate-payment`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const data = await response.json();
+
+          if (!response.ok || !data.success) {
+            throw new Error(data.error || data.message || "Unable to initiate payment transaction.");
+          }
+
+          // Case 1: Cash on Delivery
+          if (paymentMethod === "cod") {
+            // Clear cart upon successful order creation
+            clearCart();
+            const confirmedOrderId = data.orderId || data.order_id;
+            window.location.href = `order-confirmation.html?order_id=${encodeURIComponent(confirmedOrderId)}&status=cod_success`;
+            return;
+          }
+
+          // Case 2: PayHere Online Payment
+          // Generate and submit PayHere Form
+          const autoForm = document.getElementById("payhereAutoSubmitForm");
+          autoForm.innerHTML = "";
+          autoForm.action = data.paymentUrl;
+
+          // Inject parameters
+          Object.keys(data.params).forEach(key => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key;
+            input.value = data.params[key];
+            autoForm.appendChild(input);
+          });
+
+          // Redirect to PayHere Checkout
+          autoForm.submit();
+
+        } catch (err) {
+          console.error("Payment initiation error:", err);
+          let friendlyMsg = err.message || "Failed to communicate with payment server.";
+          if (!friendlyMsg || friendlyMsg.toLowerCase().includes("failed to fetch") || friendlyMsg.toLowerCase().includes("networkerror")) {
+            friendlyMsg = "Cannot connect to the TeleBuy backend server on port 3000. Please ensure 'python server.py' is running in your terminal and open http://localhost:3000/checkout.html in your browser.";
+          }
+          errorAlert.textContent = friendlyMsg;
+          errorAlert.style.display = "block";
+          btnPayNow.disabled = false;
+          btnPayNowText.textContent = paymentMethod === "cod" ? "Place Order" : "Proceed to Pay";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
